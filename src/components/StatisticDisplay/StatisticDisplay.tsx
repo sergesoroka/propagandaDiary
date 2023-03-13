@@ -1,27 +1,78 @@
 import styles from "./StatisticDisplay.module.css";
-import { uniqueNarrativesEn } from '../../../utils/statisticCalculate'
-import { uniqueFakesEn } from '../../../utils/statisticCalculate'
-import { uniqueSourcesEn } from '../../../utils/statisticCalculate'
 
-const StatisticDisplay = () => {
+const StatisticDisplay = ({
+  mode,
+  month,
+  narratives,
+  fakes,
+  sources,
+}: {
+  mode: string;
+  month: string;
+  narratives: string | number;
+  fakes: string | number;
+  sources: string | number;
+}) => {
   return (
-    <>
-    <div className={styles.cardsWrap}>
-      <div className={styles.card}>
-        <p className={styles.cardNumber}>{uniqueNarrativesEn.length}</p>
-        <p className={styles.cardCategory}>Narratives</p>
+    <div className={styles.cards}>
+      <div className={styles.cardsWrap}>
+        <div className={mode === "active" ? styles.cardActive : styles.card}>
+          <p
+            className={
+              mode === "active" ? styles.cardNumberActive : styles.cardNumber
+            }
+          >
+            {narratives}
+          </p>
+          <p
+            className={
+              mode === "active"
+                ? styles.cardCategoryActive
+                : styles.cardCategory
+            }
+          >
+            Narratives
+          </p>
+        </div>
+        <div className={mode === "active" ? styles.cardActive : styles.card}>
+          <p
+            className={
+              mode === "active" ? styles.cardNumberActive : styles.cardNumber
+            }
+          >
+            {fakes}
+          </p>
+          <p
+            className={
+              mode === "active"
+                ? styles.cardCategoryActive
+                : styles.cardCategory
+            }
+          >
+            Fakes
+          </p>
+        </div>
+        <div className={mode === "active" ? styles.cardActive : styles.card}>
+          <p
+            className={
+              mode === "active" ? styles.cardNumberActive : styles.cardNumber
+            }
+          >
+            {sources}
+          </p>
+          <p
+            className={
+              mode === "active"
+                ? styles.cardCategoryActive
+                : styles.cardCategory
+            }
+          >
+            Sources
+          </p>
+        </div>
       </div>
-      <div className={styles.card}>
-        <p className={styles.cardNumber}>{uniqueFakesEn.length}</p>
-        <p className={styles.cardCategory}>Fakes</p>
-      </div>
-      <div className={styles.card}>
-        <p className={styles.cardNumber}>{uniqueSourcesEn.length}</p>
-        <p className={styles.cardCategory}>Sources</p>
-      </div>
+      <p className={styles.subtitle}>{month}</p>
     </div>
-    <p  className={styles.subtitle}>Загальна статистика</p>
-    </>
   );
 };
 

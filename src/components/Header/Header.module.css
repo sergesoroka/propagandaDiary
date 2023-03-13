@@ -4,3 +4,21 @@
   margin: 2rem;
  
 }
+
+.navbarWrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 2.6rem;
+}
+
+.navbarWrap li {
+  list-style: none;
+  margin-left: 2rem;
+  font-size: .86rem;
+  text-transform: uppercase;
+}
+
+.activeLink {
+  color: var(--primary-color);
+}

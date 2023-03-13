@@ -3,12 +3,15 @@
 }
 
 .narrativeHeading {
-  text-transform: uppercase;
   color: var(--primary-color);
-  font-size: 1rem;
+  font-size: 1.4rem;
   width: 80%;
   padding-left: .2rem;
   margin: 1rem 0 .5rem 0;
+  cursor: pointer;
+}
+.narrativeHeading:hover {
+  color: var(--primary-color-hover);
 }
 
 .narrativeTag {

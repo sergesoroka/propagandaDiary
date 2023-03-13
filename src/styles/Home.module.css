@@ -6,6 +6,32 @@
   padding: 2rem 6rem;
   min-height: 100vh;
 }
+.archivePage {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 6rem;
+  min-height: 100vh;
+}
+
+.mainLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem 8rem;
+  min-height: 100vh;
+}
+
+.narrativeHeading {
+  /* text-transform: uppercase; */
+  color: var(--primary-color);
+  font-size: 2.4rem;
+  width: 80%;
+  padding-left: .2rem;
+  margin: 1rem 0 0.5rem .8rem;
+}
 
 .description {
   display: inherit;
@@ -149,6 +175,39 @@
     rgba(var(--tile-end-rgb), 1)
   );
   background-clip: content-box;
+}
+
+.aboutPageWrap {
+  font-weight: 400;
+}
+.aboutPageWrap a {
+  color: #dd0000;
+  font-weight: 400;
+}
+
+.c8, .c14 {
+  margin: 1rem 0;
+}
+
+.aboutList {
+  margin: 1rem 2rem;
+}
+
+.caption {
+  text-transform: uppercase;
+  color: #989898;
+  font-size: .76rem;
+  margin:  0.5rem .8rem;
+  letter-spacing: .6px;
+}
+.discription {
+  /* font-size: .9rem; */
+  font-weight: 400;
+  margin: 0 .8rem;
+}
+
+.narrativeTags {
+  margin: 0 4rem 0 0;
 }
 
 /* Enable hover only on non-touch devices */

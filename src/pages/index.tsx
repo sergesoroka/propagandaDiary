@@ -5,7 +5,9 @@ import StatisticDisplay from "@/components/StatisticDisplay/StatisticDisplay";
 import BarChart from "@/components/BarChart/BarChart";
 import LatestNarratives from "@/components/LatestNarratives/LatestNarratives";
 
-const inter = Inter({ subsets: ["latin"] });
+import { uniqueNarrativesEn } from "../../utils/statisticCalculate";
+import { uniqueFakesEn } from "../../utils/statisticCalculate";
+import { uniqueSourcesEn } from "../../utils/statisticCalculate";
 
 export default function Home() {
   return (
@@ -19,7 +21,14 @@ export default function Home() {
 
       <main className={styles.main}>
         <BarChart />
-        <StatisticDisplay />
+        <StatisticDisplay
+          mode="active"
+          month="General Statistic"
+          narratives={uniqueNarrativesEn.length}
+          fakes={uniqueFakesEn.length}
+          sources={uniqueSourcesEn.length}
+        />
+
         <LatestNarratives />
       </main>
     </>

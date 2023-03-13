@@ -1,12 +1,16 @@
-import Logo  from "../Logo/Logo";
+import Logo from "../Logo/Logo";
 import LangSwitcher from "./LangSwitcher/LangSwitcher";
 import styles from "./Header.module.css";
+import Navbar from "./Navbar/Navbar";
 
 const Header = () => {
   return (
     <div className={styles.header}>
       <Logo />
-      <LangSwitcher />
+      <div>
+        <LangSwitcher />
+        <Navbar />
+      </div>
     </div>
   );
 };

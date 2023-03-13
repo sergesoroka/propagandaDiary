@@ -1,0 +1,37 @@
+.fakeHeading {
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 1rem;
+  color: #707070;
+}
+
+.fakeHeadingActive {
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 2rem 4rem;
+  color: #353535;
+}
+
+.mediaList {
+  margin: 1rem 4rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.mediaName {
+  color: #FF2618;
+  margin-right: 3rem;
+}
+
+.mediaCountry {
+  
+  
+}
+
+.mediaDate {
+  display: inline-block;
+  font-size: .76rem;
+  color: #707070;
+  font-weight: 400;
+  margin-left: .6rem;
+}

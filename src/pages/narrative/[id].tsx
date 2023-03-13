@@ -58,7 +58,40 @@ const NarrativePage = () => {
         <title>Propaganda Diary | {id}</title>
       </Head>
       <div className={styles.fakeItemArrow}>
-        <Link href="/" className={styles.caption}>Back</Link>
+        <Link href="/" className={styles.caption}>
+          <svg
+            width="30"
+            height="29"
+            viewBox="0 0 42 29"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="0.707275"
+              y="14.8492"
+              width="3"
+              height="20"
+              transform="rotate(-45 0.707275 14.8492)"
+              fill="#676767"
+            />
+            <rect
+              x="2.12134"
+              y="16.2634"
+              width="3"
+              height="20"
+              transform="rotate(-135 2.12134 16.2634)"
+              fill="#676767"
+            />
+            <rect
+              x="2.70703"
+              y="15.7071"
+              width="3"
+              height="39"
+              transform="rotate(-90 2.70703 15.7071)"
+              fill="#676767"
+            />
+          </svg>
+        </Link>
       </div>
 
       {narrativeTitle}
@@ -67,7 +100,7 @@ const NarrativePage = () => {
           display: "flex",
           justifyContent: "space-between",
           width: "100%",
-          margin: '2rem .4rem'
+          margin: "2rem .4rem",
         }}
       >
         <div>
@@ -79,15 +112,15 @@ const NarrativePage = () => {
           <p>{narrativeTags[0]}</p>
         </div>
       </div>
-        <hr
-            style={{
-              height: "2px",
-              background: "#cccccc",
-              border: "none",
-              width: "100%",
-              marginBottom: '2rem'
-            }}
-          />
+      <hr
+        style={{
+          height: "2px",
+          background: "#cccccc",
+          border: "none",
+          width: "100%",
+          marginBottom: "2rem",
+        }}
+      />
       {/* @ts-ignore */}
       <FakeList narrative={id} />
     </div>

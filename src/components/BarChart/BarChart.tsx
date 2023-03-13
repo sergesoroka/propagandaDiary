@@ -1,25 +1,63 @@
 import styles from "./BarChart.module.css";
 
+import { commonStatistic } from "../../../utils/statisticCalculate";
+
 const BarChart = () => {
   const data = [
-    { name: "1", score: 80 },
-    { name: "2", score: 76 },
-    { name: "3", score: 90 },
-    { name: "4", score: 82 },
-    { name: "5", score: 90 },
-    { name: "6", score: 75 },
-    { name: "7", score: 86 },
-    { name: "8", score: 80 },
-    { name: "9", score: 52 },
-    { name: "10", score: 77 },
-    { name: "11", score: 62 },
-    { name: "12", score: 40 },
+    {
+      name: "1",
+      score: commonStatistic("2022-01-01", "2022-01-31", "Fake").length * 10,
+    },
+    {
+      name: "2",
+      score: commonStatistic("2022-02-01", "2022-02-31", "Fake").length * 10,
+    },
+    {
+      name: "3",
+      score: commonStatistic("2022-03-01", "2022-03-31", "Fake").length * 10,
+    },
+    {
+      name: "4",
+      score: commonStatistic("2022-04-01", "2022-04-31", "Fake").length * 10,
+    },
+    {
+      name: "5",
+      score: commonStatistic("2022-05-01", "2022-05-31", "Fake").length * 10,
+    },
+    {
+      name: "6",
+      score: commonStatistic("2022-06-01", "2022-06-31", "Fake").length * 10,
+    },
+    {
+      name: "7",
+      score: commonStatistic("2022-07-01", "2022-07-31", "Fake").length * 10,
+    },
+    {
+      name: "8",
+      score: commonStatistic("2022-08-01", "2022-08-31", "Fake").length * 10,
+    },
+    {
+      name: "9",
+      score: commonStatistic("2022-09-01", "2022-09-31", "Fake").length * 10,
+    },
+    {
+      name: "10",
+      score: commonStatistic("2022-10-01", "2022-10-31", "Fake").length * 10,
+    },
+    {
+      name: "11",
+      score: commonStatistic("2022-11-01", "2022-11-31", "Fake").length * 10,
+    },
+    {
+      name: "12",
+      score: commonStatistic("2022-12-01", "2022-12-31", "Fake").length * 10,
+    },
   ];
 
   return (
     <>
       <div>
-        <svg width="830" height="100" style={{ transform: "rotate(180deg)" }}>
+        <svg width="830" height="100" style={{ transform: "scaleY(-1)" }}>
           {data.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
@@ -34,6 +72,26 @@ const BarChart = () => {
           })}
         </svg>
       </div>
+      {/* <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          width: "830px",
+        }}
+      >
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+        <p>10</p>
+        <p>11</p>
+        <p>12</p>
+      </div> */}
       <p className={styles.subtitle}>Динаміка фейків</p>
     </>
   );

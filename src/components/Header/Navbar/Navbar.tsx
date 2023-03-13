@@ -6,8 +6,6 @@ const Navbar = () => {
   const router = useRouter();
   const { pathname, asPath, query, locale } = router;
 
-  console.log(pathname, asPath);
-
   return (
     <ul className={styles.navbarWrap}>
       <Link href="/about">
@@ -20,8 +18,24 @@ const Navbar = () => {
           Method
         </li>
       </Link>
-      <li>Add Fake</li>
-      <li>Download</li>
+
+      <Link
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdHdlCAbi-plsJ49Q_daSIMPud7rzIaeQLwcvtYnjEnFOn1eA/viewform"
+        passHref
+        target="_blank"
+      >
+        <li className={pathname === "/method" ? styles.activeLink : ""}>
+        Add Fake</li>
+      </Link>
+     
+      <Link
+        href="https://docs.google.com/spreadsheets/d/1j5JuUDCpc7T9cAXqHC7MOe8mBsOJiw1SH5JzoUxFIYk/edit#gid=0"
+        passHref
+        target="_blank"
+      >
+        <li className={pathname === "/method" ? styles.activeLink : ""}>
+        Download</li>
+      </Link>
       <Link href="/archive">
         <li className={pathname === "/archive" ? styles.activeLink : ""}>
           Archive

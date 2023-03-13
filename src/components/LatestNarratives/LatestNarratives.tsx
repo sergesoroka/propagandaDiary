@@ -8,9 +8,17 @@ const LatestNarratives = () => {
   // @ts-ignore
   const unique = [...new Set(data.map((item) => item.Narrative))];
 
+  const uniqueNarrativeEn: string[] = [];
+  data.map((c) => {
+    if (!uniqueNarrativeEn.includes(c.Narrative)) {
+      uniqueNarrativeEn.push(c.Narrative);
+    }
+    return c;
+  });
+
   return (
     <div className={styles.narrativeWrap}>
-      {unique.map((narrative, i) => {
+      {uniqueNarrativeEn.map((narrative, i) => {
         return (
           <>
             <Link href={{ pathname: `/narrative/${narrative}` }}>
@@ -20,8 +28,8 @@ const LatestNarratives = () => {
               <hr
                 style={{ height: "4px", background: "#FF2618", border: "none" }}
               />
-              <p className={styles.narrativeTag}># TAG</p>
             </Link>
+              <p className={styles.narrativeTag}># TAG</p>
           </>
         );
       })}

@@ -61,6 +61,7 @@ const BarChart = () => {
           {data.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
+              <>
               <rect
                 key={item.name}
                 width="60"
@@ -68,30 +69,31 @@ const BarChart = () => {
                 style={{ fill: color }}
                 x={i * 70}
               />
+              <text fill="#ccc">1</text></>
             );
           })}
         </svg>
       </div>
-      {/* <div
+      <div
         style={{
           display: "flex",
           justifyContent: "space-between",
           width: "830px",
         }}
       >
-        <p>1</p>
-        <p>2</p>
-        <p>3</p>
-        <p>4</p>
-        <p>5</p>
-        <p>6</p>
-        <p>7</p>
-        <p>8</p>
-        <p>9</p>
+        <p>01</p>
+        <p>02</p>
+        <p>03</p>
+        <p>04</p>
+        <p>05</p>
+        <p>06</p>
+        <p>07</p>
+        <p>08</p>
+        <p>09</p>
         <p>10</p>
         <p>11</p>
         <p>12</p>
-      </div> */}
+      </div>
       <p className={styles.subtitle}>Динаміка фейків</p>
     </>
   );

@@ -6,7 +6,8 @@ import data from "../../../data/dataEn.json";
 
 const LatestNarratives = () => {
   // @ts-ignore
-  const unique = [...new Set(data.map((item) => item.Narrative))];
+  const unique = [...new Set(data.map((item) => item.Tag))];
+console.log(unique);
 
   const uniqueNarrativeEn: string[] = [];
   data.map((c) => {
@@ -29,6 +30,11 @@ const LatestNarratives = () => {
                 style={{ height: "4px", background: "#FF2618", border: "none" }}
               />
             </Link>
+            {/* {data.map((tag) => {
+              if(tag.Narrative === narrative) {
+                return (<p key={tag.id} className={styles.narrativeTag}># {tag.Tag}</p>)
+              }
+            })} */}
               <p className={styles.narrativeTag}># TAG</p>
           </>
         );

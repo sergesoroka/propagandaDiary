@@ -253,6 +253,10 @@
     min-height: 100vh;
   }
 
+  .mainLeft, .main {
+    padding: 1rem;
+  }
+
   .grid {
     grid-template-columns: 1fr;
     margin-bottom: 120px;

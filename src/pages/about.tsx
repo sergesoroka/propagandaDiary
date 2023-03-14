@@ -55,7 +55,7 @@ export default function AboutEn() {
           <p className="c7">
             <span className="c4"></span>
           </p>
-          <ol className="c5 lst-kix_wg6xnvezo99m-0 start" start="1">
+          <ol className="c5 lst-kix_wg6xnvezo99m-0 start">
             <li className="c0 li-bullet-0">
               <span className="c3">
                 <a

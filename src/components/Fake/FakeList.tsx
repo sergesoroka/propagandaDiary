@@ -2,7 +2,15 @@ import Fake from "./Fake";
 import data from "../../../data/dataEn.json";
 import { useRouter } from "next/router";
 
-const FakeList = ({ narrative }: { narrative?: string }) => {
+import { commonStatistic } from "../../../utils/statisticCalculate";
+
+const FakeList = ({
+  narrative,
+  month,
+}: {
+  narrative?: string;
+  month?: string;
+}) => {
   const router = useRouter();
   const { tag } = router.query;
 
@@ -33,7 +41,16 @@ const FakeList = ({ narrative }: { narrative?: string }) => {
     <Fake fake={item} key={item} />
   ));
 
-  return <>{tag ? renderedFakesByTag : renderedFakes}</>;
+  const monthFakes = commonStatistic(`2022-${month}-01`, `2022-${month}-31`, "Fake");
+  const renderedFakesByMonth = monthFakes.map((item) => (
+    <Fake fake={item} key={item} />
+  ));
+
+  return (
+    <>
+      {tag ? renderedFakesByTag : month ? renderedFakesByMonth : renderedFakes}
+    </>
+  );
 };
 
 export default FakeList;

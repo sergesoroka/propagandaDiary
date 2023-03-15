@@ -1,43 +1,44 @@
 import styles from "./BarChart.module.css";
 
 import { commonStatistic } from "../../../utils/statisticCalculate";
+import Link from "next/link";
 
 const BarChart = () => {
   const data = [
     {
-      name: "1",
+      name: "01",
       score: commonStatistic("2022-01-01", "2022-01-31", "Fake").length * 10,
     },
     {
-      name: "2",
+      name: "02",
       score: commonStatistic("2022-02-01", "2022-02-31", "Fake").length * 10,
     },
     {
-      name: "3",
+      name: "03",
       score: commonStatistic("2022-03-01", "2022-03-31", "Fake").length * 10,
     },
     {
-      name: "4",
+      name: "04",
       score: commonStatistic("2022-04-01", "2022-04-31", "Fake").length * 10,
     },
     {
-      name: "5",
+      name: "05",
       score: commonStatistic("2022-05-01", "2022-05-31", "Fake").length * 10,
     },
     {
-      name: "6",
+      name: "06",
       score: commonStatistic("2022-06-01", "2022-06-31", "Fake").length * 10,
     },
     {
-      name: "7",
+      name: "07",
       score: commonStatistic("2022-07-01", "2022-07-31", "Fake").length * 10,
     },
     {
-      name: "8",
+      name: "08",
       score: commonStatistic("2022-08-01", "2022-08-31", "Fake").length * 10,
     },
     {
-      name: "9",
+      name: "09",
       score: commonStatistic("2022-09-01", "2022-09-31", "Fake").length * 10,
     },
     {
@@ -61,15 +62,16 @@ const BarChart = () => {
           {data.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
-              <>
-              <rect
-                key={item.name}
-                width="60"
-                height={item.score}
-                style={{ fill: color }}
-                x={i * 70}
-              />
-              <text fill="#ccc">1</text></>
+              <Link key={item.name} href={`/month/${item.name}`}>
+                <rect
+                  className={styles.bar}
+                  width="60"
+                  height={item.score}
+                  style={{ fill: color }}
+                  x={i * 70}
+                />
+                {/* <text fill="#ccc" x={i * 70} y='74' transform="scale(-1, 1) rotate(-30 -10 10)">01</text> */}
+              </Link>
             );
           })}
         </svg>
@@ -81,18 +83,20 @@ const BarChart = () => {
           width: "830px",
         }}
       >
-        <p>01</p>
-        <p>02</p>
-        <p>03</p>
-        <p>04</p>
-        <p>05</p>
-        <p>06</p>
-        <p>07</p>
-        <p>08</p>
-        <p>09</p>
-        <p>10</p>
-        <p>11</p>
-        <p>12</p>
+        <div className={styles.barNumbers}>
+          <p>01</p>
+          <p>02</p>
+          <p>03</p>
+          <p>04</p>
+          <p>05</p>
+          <p>06</p>
+          <p>07</p>
+          <p>08</p>
+          <p>09</p>
+          <p>10</p>
+          <p>11</p>
+          <p>12</p>
+        </div>
       </div>
       <p className={styles.subtitle}>Динаміка фейків</p>
     </>

@@ -1,6 +1,23 @@
 .subtitle {
   text-transform: uppercase;
-  color: #9A9A9A;
-  font-size: .76rem;
+  color: #9a9a9a;
+  font-size: 0.76rem;
   margin-top: 1rem;
- }
+}
+
+.bar:hover {
+  fill: #ff2618 !important;
+  transition-duration: 0.4s;
+}
+
+.barNumbers {
+  color: #a4a4a4;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 1rem;
+}
+
+.bar:hover .barNumbers {
+  color: #ff2618 !important;
+}

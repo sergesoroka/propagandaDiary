@@ -3,6 +3,8 @@ import styles from "./Search.module.css";
 import useSearchAutoComplete from "./searchHook";
 
 import { uniqueFakesEn } from "../../../utils/statisticCalculate";
+import SearchResults from "./SearchResults";
+import data from '../../../data/dataEn.json'
 
 const Search = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -17,7 +19,7 @@ const Search = () => {
     suggestionsActive,
     suggestionIndex,
     suggestions,
-  } = useSearchAutoComplete({ data: uniqueFakesEn });
+  } = useSearchAutoComplete({ data });
 
   const placeholdrer =
     locale == "en"
@@ -51,7 +53,15 @@ const Search = () => {
         onChange={handleChange}
         placeholder={placeholdrer}
       />
-      <p>{value}</p>
+      {value && (
+        <>
+          <SearchResults
+            handleClick={handleClick}
+            suggestionIndex={suggestionIndex}
+            suggestions={suggestions}
+          />
+        </>
+      )}
     </div>
   );
 };

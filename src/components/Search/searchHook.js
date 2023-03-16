@@ -1,4 +1,5 @@
 import { useState } from "react";
+import dataNew from "../../../data/dataEn.json";
 
 const useSearchAutoComplete = ({ data }) => {
   const [suggestions, setSuggestions] = useState([]);
@@ -10,27 +11,16 @@ const useSearchAutoComplete = ({ data }) => {
     const query = e.target.value.toLowerCase();
     setValue(query);
     if (query.length > 1) {
-      const filterSuggestions = data
-        .map((item) => item)
+      const filterSuggestions = dataNew
+        .map((item) => item.Fake)
         .filter((suggestion) => suggestion.toLowerCase().indexOf(query) > -1);
-        
+
       // const filterSuggestionsSubTheme = data
       //   .map((item) => item.subtheme)
       //   .filter((suggestion) => suggestion.toLowerCase().indexOf(query) > -1);
-
-      // const filterSuggestionsDiscription = data
-      //   .map((item) => item.discription)
-      //   .filter((suggestion) => suggestion.toLowerCase().indexOf(query) > -1);
-
-      // const filterSuggestionsDisproof = data
-      //   .map((item) => item.disproof)
-      //   .filter((suggestion) => suggestion.toLowerCase().indexOf(query) > -1);
-
       setSuggestions([
         ...filterSuggestions,
         // ...filterSuggestionsSubTheme,
-        // ...filterSuggestionsDiscription,
-        // ...filterSuggestionsDisproof,
       ]);
       setSuggestionsActive(true);
     } else {

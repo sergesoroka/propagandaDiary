@@ -7,7 +7,7 @@ import data from "../../../data/dataEn.json";
 const LatestNarratives = () => {
   // @ts-ignore
   const unique = [...new Set(data.map((item) => item.Tag))];
-console.log(unique);
+
 
   const uniqueNarrativeEn: string[] = [];
   data.map((c) => {

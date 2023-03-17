@@ -3,6 +3,7 @@
   color: #9a9a9a;
   font-size: 0.76rem;
   margin-top: 1rem;
+  text-align: center;
 }
 
 .bar:hover {
@@ -21,3 +22,9 @@
 .bar:hover .barNumbers {
   color: #ff2618 !important;
 }
+
+/* Mobile */
+@media (max-width: 700px) {
+.BarChart {
+  display: none;
+}}

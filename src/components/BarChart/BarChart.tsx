@@ -56,7 +56,7 @@ const BarChart = () => {
   ];
 
   return (
-    <>
+    <div className={styles.BarChart}>
       <div>
         <svg width="830" height="100" style={{ transform: "scaleY(-1)" }}>
           {data.map((item, i) => {
@@ -99,7 +99,7 @@ const BarChart = () => {
         </div>
       </div>
       <p className={styles.subtitle}>Динаміка фейків</p>
-    </>
+    </div>
   );
 };
 

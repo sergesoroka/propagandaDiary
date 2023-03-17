@@ -99,4 +99,10 @@
   .cards {
     margin: 0.6rem 0;
   }
+
+  .cardActive {
+    margin: 0 0.2rem;
+    width: 110px;
+    
+  }
 }

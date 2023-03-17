@@ -22,7 +22,7 @@
   color: var(--primary-color);
 }
 
-.desctopMenu {
+.desktopMenu {
   display: inline;
 }
 
@@ -30,13 +30,36 @@
   display: none;
 }
 
+.mobileMenu {
+  display: none;
+}
+
+
 /* Mobile */
 @media (max-width: 700px) {
-  .desctopMenu {
+  .mobileMenu {
+    display: block;
+  }
+
+  .desktopMenu {
     display: none;
+  }
+  
+
+  .navbarWrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbarWrap li {
+    margin: 10px 0 0 0;
   }
 
   .mobileMenuIcon {
     display: inline;
+  }
+
+  .header {
+    flex-direction: column;
   }
 }

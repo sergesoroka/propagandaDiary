@@ -82,6 +82,66 @@ const LangSwitcher = () => {
       >
         RU
       </li>
+      <li
+        className={
+          locale == "pl" ? styles.langMenuActiveItem : styles.langMenuItem
+        }
+        onClick={() => {
+          router.push(
+            { pathname, query },
+            asPath,
+            { locale: "pl" }
+            // { shallow: false }
+          );
+        }}
+      >
+        PL
+      </li>
+      <li
+        className={
+          locale == "cs" ? styles.langMenuActiveItem : styles.langMenuItem
+        }
+        onClick={() => {
+          router.push(
+            { pathname, query },
+            asPath,
+            { locale: "cs" }
+            // { shallow: false }
+          );
+        }}
+      >
+        CS
+      </li>
+      <li
+        className={
+          locale == "sk" ? styles.langMenuActiveItem : styles.langMenuItem
+        }
+        onClick={() => {
+          router.push(
+            { pathname, query },
+            asPath,
+            { locale: "sk" }
+            // { shallow: false }
+          );
+        }}
+      >
+        SK
+      </li>
+      <li
+        className={
+          locale == "hu" ? styles.langMenuActiveItem : styles.langMenuItem
+        }
+        onClick={() => {
+          router.push(
+            { pathname, query },
+            asPath,
+            { locale: "hu" }
+            // { shallow: false }
+          );
+        }}
+      >
+        HU
+      </li>
     </ul>
   );
 };

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../Header.module.css";
+import SpetialText from '../../../../data/SpetialText'
 
 const Navbar = () => {
   const router = useRouter();
@@ -10,12 +11,12 @@ const Navbar = () => {
     <ul className={styles.navbarWrap}>
       <Link href="/about">
         <li className={pathname === "/about" ? styles.activeLink : ""}>
-          About
+          <SpetialText name={'About'}/> 
         </li>
       </Link>
       <Link href="/method">
         <li className={pathname === "/method" ? styles.activeLink : ""}>
-          Method
+        <SpetialText name={'Method'}/> 
         </li>
       </Link>
 
@@ -25,7 +26,7 @@ const Navbar = () => {
         target="_blank"
       >
         <li className={pathname === "/method" ? styles.activeLink : ""}>
-          Add Fake
+        <SpetialText name={'Add_fake'}/> 
         </li>
       </Link>
 
@@ -35,12 +36,12 @@ const Navbar = () => {
         target="_blank"
       >
         <li className={pathname === "/method" ? styles.activeLink : ""}>
-          Download
+        <SpetialText name={'Download'}/> 
         </li>
       </Link>
       <Link href="/archive">
         <li className={pathname === "/archive" ? styles.activeLink : ""}>
-          Archive
+        <SpetialText name={'Archive'}/> 
         </li>
       </Link>
       <Link href="/search">

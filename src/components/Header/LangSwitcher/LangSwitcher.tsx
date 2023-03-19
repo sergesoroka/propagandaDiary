@@ -12,12 +12,7 @@ const LangSwitcher = () => {
           locale == "it" ? styles.langMenuActiveItem : styles.langMenuItem
         }
         onClick={() => {
-          router.push(
-            { pathname, query },
-            asPath,
-            { locale: "it" }
-            // { shallow: false }
-          );
+          router.push({ pathname, query }, asPath, { locale: "it" });
         }}
       >
         IT
@@ -27,12 +22,7 @@ const LangSwitcher = () => {
           locale == "de" ? styles.langMenuActiveItem : styles.langMenuItem
         }
         onClick={() => {
-          router.push(
-            { pathname, query },
-            asPath,
-            { locale: "de" }
-            // { shallow: false }
-          );
+          router.push({ pathname, query }, asPath, { locale: "de" });
         }}
       >
         DE
@@ -42,12 +32,7 @@ const LangSwitcher = () => {
           locale == "ua" ? styles.langMenuActiveItem : styles.langMenuItem
         }
         onClick={() => {
-          router.push(
-            { pathname, query },
-            asPath,
-            { locale: "ua" }
-            // { shallow: false }
-          );
+          router.push({ pathname, query }, asPath, { locale: "ua" });
         }}
       >
         UA
@@ -57,12 +42,7 @@ const LangSwitcher = () => {
           locale == "en" ? styles.langMenuActiveItem : styles.langMenuItem
         }
         onClick={() => {
-          router.push(
-            { pathname, query },
-            asPath,
-            { locale: "en" }
-            // { shallow: false }
-          );
+          router.push({ pathname, query }, asPath, { locale: "en" });
         }}
       >
         EN
@@ -72,12 +52,7 @@ const LangSwitcher = () => {
           locale == "ru" ? styles.langMenuActiveItem : styles.langMenuItem
         }
         onClick={() => {
-          router.push(
-            { pathname, query },
-            asPath,
-            { locale: "ru" }
-            // { shallow: false }
-          );
+          router.push({ pathname, query }, asPath, { locale: "ru" });
         }}
       >
         RU
@@ -87,12 +62,7 @@ const LangSwitcher = () => {
           locale == "pl" ? styles.langMenuActiveItem : styles.langMenuItem
         }
         onClick={() => {
-          router.push(
-            { pathname, query },
-            asPath,
-            { locale: "pl" }
-            // { shallow: false }
-          );
+          router.push({ pathname, query }, asPath, { locale: "pl" });
         }}
       >
         PL
@@ -102,12 +72,7 @@ const LangSwitcher = () => {
           locale == "cs" ? styles.langMenuActiveItem : styles.langMenuItem
         }
         onClick={() => {
-          router.push(
-            { pathname, query },
-            asPath,
-            { locale: "cs" }
-            // { shallow: false }
-          );
+          router.push({ pathname, query }, asPath, { locale: "cs" });
         }}
       >
         CS
@@ -117,12 +82,7 @@ const LangSwitcher = () => {
           locale == "sk" ? styles.langMenuActiveItem : styles.langMenuItem
         }
         onClick={() => {
-          router.push(
-            { pathname, query },
-            asPath,
-            { locale: "sk" }
-            // { shallow: false }
-          );
+          router.push({ pathname, query }, asPath, { locale: "sk" });
         }}
       >
         SK
@@ -132,12 +92,7 @@ const LangSwitcher = () => {
           locale == "hu" ? styles.langMenuActiveItem : styles.langMenuItem
         }
         onClick={() => {
-          router.push(
-            { pathname, query },
-            asPath,
-            { locale: "hu" }
-            // { shallow: false }
-          );
+          router.push({ pathname, query }, asPath, { locale: "hu" });
         }}
       >
         HU

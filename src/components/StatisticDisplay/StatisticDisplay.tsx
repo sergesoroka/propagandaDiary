@@ -1,4 +1,5 @@
 import styles from "./StatisticDisplay.module.css";
+import SpetialText from "../../../data/SpetialText";
 
 const StatisticDisplay = ({
   mode,
@@ -31,7 +32,7 @@ const StatisticDisplay = ({
                 : styles.cardCategory
             }
           >
-            Narratives
+            <SpetialText name={"Narratives"} />
           </p>
         </div>
         <div className={mode === "active" ? styles.cardActive : styles.card}>
@@ -49,7 +50,7 @@ const StatisticDisplay = ({
                 : styles.cardCategory
             }
           >
-            Fakes
+            <SpetialText name={"Fakes"} />
           </p>
         </div>
         <div className={mode === "active" ? styles.cardActive : styles.card}>
@@ -67,7 +68,7 @@ const StatisticDisplay = ({
                 : styles.cardCategory
             }
           >
-            Sources
+            <SpetialText name={"Sources"} />
           </p>
         </div>
       </div>

@@ -4,10 +4,11 @@ import styles from "./LatestNarratives.module.css";
 
 import data from "../../../data/dataEn.json";
 
+import { tagsOfNarrative } from "../../../utils/statisticCalculate";
+
 const LatestNarratives = () => {
   // @ts-ignore
   const unique = [...new Set(data.map((item) => item.Tag))];
-
 
   const uniqueNarrativeEn: string[] = [];
   data.map((c) => {
@@ -30,12 +31,19 @@ const LatestNarratives = () => {
                 style={{ height: "4px", background: "#FF2618", border: "none" }}
               />
             </Link>
-            {/* {data.map((tag) => {
-              if(tag.Narrative === narrative) {
-                return (<p key={tag.id} className={styles.narrativeTag}># {tag.Tag}</p>)
-              }
-            })} */}
-              <p className={styles.narrativeTag}># TAG</p>
+
+            <p className={styles.narrativeTag}>
+              {tagsOfNarrative(narrative).map((item, i) => (
+                item && <Link key={i} href={{ pathname: `/tag/${item}` }}>
+                  {item && "# "}
+                  <span
+                    style={{ textTransform: "uppercase", marginRight: "1rem" }}
+                  >
+                    {item}
+                  </span>
+                </Link>
+              ))}
+            </p>
           </>
         );
       })}

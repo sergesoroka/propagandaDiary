@@ -24,13 +24,22 @@ dataEn.map((c) => {
   return c;
 });
 
-
 export const commonStatistic = (start, finish, type) => {
   const arr = [];
   dataEn.map((c) => {
-    if ((c.Date > start && c.Date < finish) && !arr.includes(c[type]) ) {
+    if (c.Date > start && c.Date < finish && !arr.includes(c[type])) {
       arr.push(c[type]);
     }
   });
   return arr;
+};
+
+export const tagsOfNarrative = (narrative) => {
+  const uniqueTags = [];
+  dataEn.map((item) => {
+    if (!uniqueTags.includes(item.Tag) && item.Narrative === narrative) {
+      uniqueTags.push(item.Tag);
+    }
+  });
+  return uniqueTags;
 };

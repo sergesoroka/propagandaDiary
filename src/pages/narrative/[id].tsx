@@ -109,7 +109,9 @@ const NarrativePage = () => {
         </div>
         <div className={styles.narrativeTags}>
           <p className={styles.caption}>Tags:</p>
-          <p>{narrativeTags[0]}</p>
+          <Link href={{ pathname: `/tag/${narrativeTags[0]}` }}>
+            <p>{narrativeTags[0]}</p>
+          </Link>
         </div>
       </div>
       <hr

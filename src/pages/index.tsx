@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import StatisticDisplay from "@/components/StatisticDisplay/StatisticDisplay";
 import BarChart from "@/components/BarChart/BarChart";

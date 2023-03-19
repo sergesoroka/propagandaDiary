@@ -1,4 +1,5 @@
 import FakeList from "@/components/Fake/FakeList";
+import SpetialText from "../../../data/SpetialText";
 import { useRouter } from "next/router";
 import styles from "../../styles/Home.module.css";
 
@@ -36,7 +37,7 @@ export const monthFakes = () => {
 
   return (
     <div className={styles.mainLeft}>
-      <p className={styles.tagHeading}>{monthName}</p>
+      <p className={styles.tagHeading}><SpetialText name={monthName} /></p>
       <hr
         style={{
           height: "2px",

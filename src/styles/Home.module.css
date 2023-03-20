@@ -218,6 +218,12 @@
   margin: 1rem 0 0.5rem 0.8rem;
 }
 
+.barChartArhive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -253,7 +259,8 @@
     min-height: 100vh;
   }
 
-  .mainLeft, .main {
+  .mainLeft,
+  .main {
     padding: 1rem;
   }
 

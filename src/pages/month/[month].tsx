@@ -1,7 +1,9 @@
 import FakeList from "@/components/Fake/FakeList";
 import SpetialText from "../../../data/SpetialText";
+import BackArrow from "@/components/Icons/BackArrow";
 import { useRouter } from "next/router";
 import styles from "../../styles/Home.module.css";
+import Link from "next/link";
 
 export const monthFakes = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -37,7 +39,12 @@ export const monthFakes = () => {
 
   return (
     <div className={styles.mainLeft}>
-      <p className={styles.tagHeading}><SpetialText name={monthName} /></p>
+      <Link href="/archive">
+        <BackArrow />
+      </Link>
+      <p className={styles.tagHeading}>
+        <SpetialText name={monthName} />
+      </p>
       <hr
         style={{
           height: "2px",

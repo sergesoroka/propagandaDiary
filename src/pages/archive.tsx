@@ -1,11 +1,16 @@
 import styles from "@/styles/Home.module.css";
 import StatisticDisplay from "@/components/StatisticDisplay/StatisticDisplay";
-
+import BarChart from "@/components/BarChart/BarChart";
 import { commonStatistic } from "../../utils/statisticCalculate";
 import Link from "next/link";
 
 const archive = () => {
   return (
+    <>
+    <div className={styles.barChartArhive}>
+
+    <BarChart />
+    </div>
     <div className={styles.archivePage}>
       <Link href={"/month/01"}>
         <StatisticDisplay
@@ -140,6 +145,7 @@ const archive = () => {
         />
       </Link>
     </div>
+    </>
   );
 };
 

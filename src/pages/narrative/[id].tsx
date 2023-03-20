@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../../../src/styles/Home.module.css";
 import { uniqueNarrativesEn } from "../../../utils/statisticCalculate";
-import { uniqueFakesEn } from "../../../utils/statisticCalculate";
+import BackArrow from "@/components/Icons/BackArrow";
 
 // import Arrow from '../../../public/arrow.svg'
 
@@ -59,38 +59,7 @@ const NarrativePage = () => {
       </Head>
       <div className={styles.fakeItemArrow}>
         <Link href="/" className={styles.caption}>
-          <svg
-            width="30"
-            height="29"
-            viewBox="0 0 42 29"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect
-              x="0.707275"
-              y="14.8492"
-              width="3"
-              height="20"
-              transform="rotate(-45 0.707275 14.8492)"
-              fill="#676767"
-            />
-            <rect
-              x="2.12134"
-              y="16.2634"
-              width="3"
-              height="20"
-              transform="rotate(-135 2.12134 16.2634)"
-              fill="#676767"
-            />
-            <rect
-              x="2.70703"
-              y="15.7071"
-              width="3"
-              height="39"
-              transform="rotate(-90 2.70703 15.7071)"
-              fill="#676767"
-            />
-          </svg>
+          <BackArrow />
         </Link>
       </div>
 

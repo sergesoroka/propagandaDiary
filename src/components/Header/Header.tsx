@@ -32,9 +32,9 @@ const Header = () => {
         </div>
       )}
       <div className={styles.desktopMenu}>
-          <LangSwitcher />
-          <Navbar />
-        </div>
+        <LangSwitcher />
+        <Navbar />
+      </div>
     </div>
   );
 };

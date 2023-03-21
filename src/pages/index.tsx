@@ -7,6 +7,7 @@ import LatestNarratives from "@/components/LatestNarratives/LatestNarratives";
 import { uniqueNarrativesEn } from "../../utils/statisticCalculate";
 import { uniqueFakesEn } from "../../utils/statisticCalculate";
 import { uniqueSourcesEn } from "../../utils/statisticCalculate";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -20,14 +21,15 @@ export default function Home() {
 
       <main className={styles.main}>
         <BarChart />
-        <StatisticDisplay
-          mode="active"
-          month="General Statistic"
-          narratives={uniqueNarrativesEn.length}
-          fakes={uniqueFakesEn.length}
-          sources={uniqueSourcesEn.length}
-        />
-
+        <Link href="/archive">
+          <StatisticDisplay
+            mode="active"
+            month="General_statistics"
+            narratives={uniqueNarrativesEn.length}
+            fakes={uniqueFakesEn.length}
+            sources={uniqueSourcesEn.length}
+          />
+        </Link>
         <LatestNarratives />
       </main>
     </>

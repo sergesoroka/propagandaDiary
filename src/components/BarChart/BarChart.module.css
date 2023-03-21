@@ -16,7 +16,11 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: 0 1rem;
+  margin: 0 20px;
+}
+
+.barNumbers>p {
+  width: 20px;
 }
 
 .bar:hover .barNumbers {

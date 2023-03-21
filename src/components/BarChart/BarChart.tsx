@@ -1,9 +1,13 @@
+import { useState } from "react";
 import styles from "./BarChart.module.css";
 
 import { commonStatistic } from "../../../utils/statisticCalculate";
 import Link from "next/link";
+import SpetialText from "../../../data/SpetialText";
 
 const BarChart = () => {
+  // const [hightlight, setHightlight] = useState(false);
+
   const data = [
     {
       name: "01",
@@ -62,7 +66,12 @@ const BarChart = () => {
           {data.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
-              <Link key={item.name} href={`/month/${item.name}`}>
+              <Link
+                key={item.name}
+                href={`/month/${item.name}`}
+                // onMouseEnter={() => setHightlight(true)}
+                // onMouseLeave={() => setHightlight(false)}
+              >
                 <rect
                   className={styles.bar}
                   width="60"
@@ -70,6 +79,7 @@ const BarChart = () => {
                   style={{ fill: color }}
                   x={i * 70}
                 />
+
                 {/* <text fill="#ccc" x={i * 70} y='74' transform="scale(-1, 1) rotate(-30 -10 10)">01</text> */}
               </Link>
             );
@@ -98,7 +108,9 @@ const BarChart = () => {
           <p>12</p>
         </div>
       </div>
-      <p className={styles.subtitle}>Динаміка фейків</p>
+      <p className={styles.subtitle}>
+        <SpetialText name={"Fakes_dynamics"} />
+      </p>
     </div>
   );
 };

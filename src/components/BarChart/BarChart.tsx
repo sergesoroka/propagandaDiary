@@ -4,7 +4,7 @@ import { commonStatistic } from "../../../utils/statisticCalculate";
 import Link from "next/link";
 import SpetialText from "../../../data/SpetialText";
 
-const BarChart = ({ month }: { month: string }) => {
+const BarChart = ({ month }: { month?: string }) => {
   const data = [
     {
       name: "01",

@@ -1,13 +1,10 @@
-import { useState } from "react";
 import styles from "./BarChart.module.css";
 
 import { commonStatistic } from "../../../utils/statisticCalculate";
 import Link from "next/link";
 import SpetialText from "../../../data/SpetialText";
 
-const BarChart = ({month}: { month: string}) => {
-  // const [hightlight, setHightlight] = useState(false);
-
+const BarChart = ({ month }: { month: string }) => {
   const data = [
     {
       name: "01",
@@ -58,7 +55,6 @@ const BarChart = ({month}: { month: string}) => {
       score: commonStatistic("2022-12-01", "2022-12-31", "Fake").length * 10,
     },
   ];
-console.log(month);
 
   return (
     <div className={styles.BarChart}>
@@ -67,21 +63,16 @@ console.log(month);
           {data.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
-              <Link
-                key={item.name}
-                href={`/month/${item.name}`}
-                // onMouseEnter={() => setHightlight(true)}
-                // onMouseLeave={() => setHightlight(false)}
-              >
+              <Link key={item.name} href={`/month/${item.name}`}>
                 <rect
-                  className={month === item.name ? styles.barActive : styles.bar}
+                  className={
+                    month === item.name ? styles.barActive : styles.bar
+                  }
                   width="60"
                   height={item.score}
-                  style={{  fill: color }}
+                  style={{ fill: color }}
                   x={i * 70}
                 />
-
-                {/* <text fill="#ccc" x={i * 70} y='74' transform="scale(-1, 1) rotate(-30 -10 10)">01</text> */}
               </Link>
             );
           })}

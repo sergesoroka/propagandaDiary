@@ -1,6 +1,7 @@
 import FakeList from "@/components/Fake/FakeList";
 import SpetialText from "../../../data/SpetialText";
 import BackArrow from "@/components/Icons/BackArrow";
+import BarChart from "@/components/BarChart/BarChart";
 import { useRouter } from "next/router";
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
@@ -39,6 +40,10 @@ export const monthFakes = () => {
 
   return (
     <div className={styles.mainLeft}>
+      <div style={{ margin: "0 auto" }}>
+        <BarChart />
+      </div>
+
       <Link href="/archive">
         <BackArrow />
       </Link>

@@ -15,12 +15,12 @@ const useSearchAutoComplete = ({ data }) => {
         .map((item) => item.Fake)
         .filter((suggestion) => suggestion.toLowerCase().indexOf(query) > -1);
 
-      // const filterSuggestionsSubTheme = data
-      //   .map((item) => item.subtheme)
-      //   .filter((suggestion) => suggestion.toLowerCase().indexOf(query) > -1);
+      const filterSuggestionsSubTheme = data
+        .map((item) => item.Discription)
+        .filter((suggestion) => suggestion.toLowerCase().indexOf(query) > -1);
       setSuggestions([
         ...filterSuggestions,
-        // ...filterSuggestionsSubTheme,
+        ...filterSuggestionsSubTheme,
       ]);
       setSuggestionsActive(true);
     } else {

@@ -9,6 +9,7 @@ import BackArrow from "@/components/Icons/BackArrow";
 
 import data from "../../../data/dataEn.json";
 import FakeList from "@/components/Fake/FakeList";
+import BarChart from "@/components/BarChart/BarChart";
 
 const NarrativePage = () => {
   const router = useRouter();
@@ -54,6 +55,9 @@ const NarrativePage = () => {
 
   return (
     <div className={styles.mainLeft}>
+      <div style={{ margin: "0 auto" }}>
+        <BarChart />
+      </div>
       <Head>
         <title>Propaganda Diary | {id}</title>
       </Head>

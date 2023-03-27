@@ -5,7 +5,7 @@ import { commonStatistic } from "../../../utils/statisticCalculate";
 import Link from "next/link";
 import SpetialText from "../../../data/SpetialText";
 
-const BarChart = () => {
+const BarChart = ({month}: { month: string}) => {
   // const [hightlight, setHightlight] = useState(false);
 
   const data = [
@@ -58,6 +58,7 @@ const BarChart = () => {
       score: commonStatistic("2022-12-01", "2022-12-31", "Fake").length * 10,
     },
   ];
+console.log(month);
 
   return (
     <div className={styles.BarChart}>
@@ -73,10 +74,10 @@ const BarChart = () => {
                 // onMouseLeave={() => setHightlight(false)}
               >
                 <rect
-                  className={styles.bar}
+                  className={month === item.name ? styles.barActive : styles.bar}
                   width="60"
                   height={item.score}
-                  style={{ fill: color }}
+                  style={{  fill: color }}
                   x={i * 70}
                 />
 

@@ -41,7 +41,8 @@ export const monthFakes = () => {
   return (
     <div className={styles.mainLeft}>
       <div style={{ margin: "0 auto" }}>
-        <BarChart />
+        {/* @ts-ignore */}
+        <BarChart month={month} />
       </div>
 
       <Link href="/archive">

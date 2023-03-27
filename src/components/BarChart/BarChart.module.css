@@ -11,6 +11,10 @@
   transition-duration: 0.4s;
 }
 
+.barActive {
+  fill: #ff2618 !important; 
+}
+
 .barNumbers {
   color: #a4a4a4;
   display: flex;

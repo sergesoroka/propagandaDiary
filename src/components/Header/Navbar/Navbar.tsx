@@ -10,6 +10,12 @@ const Navbar = () => {
 
   return (
     <ul className={styles.navbarWrap}>
+      <Link href="/narratives">
+        <li className={pathname === "/narratives" ? styles.activeLink : ""}>
+          ALL NARATIVES
+          {/* <SpetialText name={"All Narratives"} /> */}
+        </li>
+      </Link>
       <Link href="/about">
         <li className={pathname === "/about" ? styles.activeLink : ""}>
           <SpetialText name={"About"} />

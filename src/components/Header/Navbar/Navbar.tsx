@@ -12,8 +12,7 @@ const Navbar = () => {
     <ul className={styles.navbarWrap}>
       <Link href="/narratives">
         <li className={pathname === "/narratives" ? styles.activeLink : ""}>
-          ALL NARATIVES
-          {/* <SpetialText name={"All Narratives"} /> */}
+          <SpetialText name={"All_narratives"} />
         </li>
       </Link>
       <Link href="/about">

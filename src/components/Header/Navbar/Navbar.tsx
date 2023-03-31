@@ -32,7 +32,7 @@ const Navbar = () => {
         target="_blank"
       >
         <li className={pathname === "/method" ? styles.activeLink : ""}>
-          <SpetialText name={"Add_fake"} />
+          <SpetialText name={"Add_Fake"} />
         </li>
       </Link>
 

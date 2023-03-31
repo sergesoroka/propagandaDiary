@@ -225,12 +225,8 @@
 }
 
 .allNarrativesWrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 2rem 18rem;
-  min-height: 100vh;
+  padding: 2rem 8rem;
+  height: 100vh;
 }
 
 .allNarrativesBarChart {
@@ -244,15 +240,21 @@
   align-items: center;
   margin-top: 0.4rem;
   padding-right: 1rem;
-  height: 2rem;
-  width: 100%;
+  width: 2rem;
+
   background-color: #eee;
+}
+
+.narrativeDynamicTitle {
+  width: 40%;
+  border-left: 7px solid #ff2618;
+  padding-left: 0.6rem;
+  margin-top: 1rem;
 }
 
 .narrativePageHeading {
   color: #424242;
   font-size: 1.46rem;
-  
 }
 .fakesNumber {
   color: #909090;
@@ -260,17 +262,17 @@
 
 .allNarrativesBarChart:hover .narrativePageHeading {
   color: var(--primary-color);
-  transition-duration: .4s;
+  transition-duration: 0.4s;
 }
 
 .allNarrativesBarChart:hover .allNarrativesBar {
   background-color: var(--primary-color);
-  transition-duration: .4s;
+  transition-duration: 0.4s;
 }
 
 .allNarrativesBarChart:hover .fakesNumber {
   color: #fff;
-  transition-duration: .4s;
+  transition-duration: 0.4s;
 }
 
 /* Enable hover only on non-touch devices */

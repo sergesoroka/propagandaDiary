@@ -225,8 +225,7 @@
 }
 
 .allNarrativesWrap {
-  padding: 2rem 8rem;
-  height: 100vh;
+  padding: 2rem 18rem;
 }
 
 .allNarrativesBarChart {
@@ -247,11 +246,15 @@
 
 .narrativeDynamicTitle {
   width: 40%;
-  border-left: 7px solid #ff2618;
+  border-left: 3px solid #ff2618;
   padding-left: 0.6rem;
   margin-top: 1rem;
 }
 
+.fakesNumber {
+  color: #ff2618;
+  font-size: 0.86rem;
+}
 .narrativePageHeading {
   color: #424242;
   font-size: 1.46rem;

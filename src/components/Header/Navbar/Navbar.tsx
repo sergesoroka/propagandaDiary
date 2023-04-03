@@ -6,7 +6,7 @@ import SpetialText from "../../../../data/SpetialText";
 
 const Navbar = () => {
   const router = useRouter();
-  const { pathname, asPath, query, locale } = router;
+  const { pathname } = router;
 
   return (
     <ul className={styles.navbarWrap}>
@@ -31,7 +31,7 @@ const Navbar = () => {
         passHref
         target="_blank"
       >
-        <li className={pathname === "/method" ? styles.activeLink : ""}>
+        <li>
           <SpetialText name={"Add_Fake"} />
         </li>
       </Link>
@@ -41,7 +41,7 @@ const Navbar = () => {
         passHref
         target="_blank"
       >
-        <li className={pathname === "/method" ? styles.activeLink : ""}>
+        <li>
           <SpetialText name={"Download"} />
         </li>
       </Link>

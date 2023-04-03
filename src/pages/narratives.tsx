@@ -7,10 +7,10 @@ import { useState } from "react";
 import LatestNarratives from "@/components/LatestNarratives/LatestNarratives";
 
 let defaultNarrative = 'Narrative concerning weapons provided to Ukraine by Western countries'
-
+let defaultFakesNumber = 5;
 const Narratives = () => {
   const [title, setTitle] = useState<string | null>(defaultNarrative);
-  const [fakes, setFakes] = useState<number>(0);
+  const [fakes, setFakes] = useState<number>(defaultFakesNumber);
 
   const renderNarratives = uniqueNarrativesEn.map((item, i) => {
     const uniqueFakes: string[] = [];
@@ -40,7 +40,7 @@ const Narratives = () => {
   return (
     <div className={styles.allNarrativesWrap}>
       <div>
-        {fakes !== 0 && <p className={styles.fakesNumber}>{fakes} FAKES</p>}
+         <p className={styles.fakesNumber}>{fakes} FAKES</p>
         <svg width="1200" height="140" style={{ transform: "scaleY(-1)" }}>
           {renderNarratives}
         </svg>

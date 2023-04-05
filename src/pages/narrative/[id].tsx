@@ -4,10 +4,8 @@ import { useRouter } from "next/router";
 import styles from "../../../src/styles/Home.module.css";
 import { uniqueNarrativesEn } from "../../../utils/statisticCalculate";
 import BackArrow from "@/components/Icons/BackArrow";
-
 import data from "../../../data/dataEn.json";
 import FakeList from "@/components/Fake/FakeList";
-import BarChart from "@/components/BarChart/BarChart";
 import { FakesBarChart } from "@/components/FakesBarChart/FakesBarChart";
 
 const NarrativePage = () => {

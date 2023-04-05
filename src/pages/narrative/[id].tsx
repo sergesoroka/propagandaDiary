@@ -5,7 +5,6 @@ import styles from "../../../src/styles/Home.module.css";
 import { uniqueNarrativesEn } from "../../../utils/statisticCalculate";
 import BackArrow from "@/components/Icons/BackArrow";
 
-
 import data from "../../../data/dataEn.json";
 import FakeList from "@/components/Fake/FakeList";
 import BarChart from "@/components/BarChart/BarChart";
@@ -36,7 +35,7 @@ const NarrativePage = () => {
   });
 
   const narrativeDiscriptions: string[] = [];
-    // @ts-ignore
+  // @ts-ignore
   data.map((item) => {
     if (item.Narrative === id) {
       if (!narrativeDiscriptions.includes(item.ENG_Translation)) {

@@ -59,7 +59,7 @@ const BarChart = ({ month }: { month?: string }) => {
   return (
     <div className={styles.BarChart}>
       <div>
-        <svg width="830" height="100" style={{ transform: "scaleY(-1)" }}>
+        <svg width="830" height="200" style={{ transform: "scaleY(-1)" }}>
           {data.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
@@ -69,7 +69,7 @@ const BarChart = ({ month }: { month?: string }) => {
                     month === item.name ? styles.barActive : styles.bar
                   }
                   width="60"
-                  height={item.score}
+                  height={item.score / 10}
                   style={{ fill: color }}
                   x={i * 70}
                 />

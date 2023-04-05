@@ -14,7 +14,9 @@ const FakeList = ({
   const router = useRouter();
   const { tag } = router.query;
 
+  // @ts-ignore
   const fakeFiltered = data.filter((item) => item.Narrative === narrative);
+  // @ts-ignore
   const fakeByTag = data.filter((item) => item.Tag === tag);
 
   const uniqueFakesEn: string[] = [];

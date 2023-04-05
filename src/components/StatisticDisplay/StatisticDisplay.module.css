@@ -16,7 +16,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 0.4rem 0 0.8rem 0;
+  padding: 0.6rem 0 0.8rem 0;
   margin: 0 0.6rem;
   width: 120px;
   height: 106px;
@@ -43,7 +43,7 @@
 }
 
 .cardNumberActive {
-  font-size: 3.6rem;
+  font-size: 3.2rem;
 }
 
 .cardNumber {

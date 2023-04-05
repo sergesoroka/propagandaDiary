@@ -5,13 +5,13 @@ import data from "../../../data/dataEn.json";
 
 import { tagsOfNarrative } from "../../../utils/statisticCalculate";
 
-const LatestNarratives = () => {
+const AllNarratives = () => {
   // @ts-ignore
 
   const uniqueNarrative: string[] = [];
   // @ts-ignore
   const lastNarratives = data.map((narrative, i) => {
-    if (!uniqueNarrative.includes(narrative.Narrative) && uniqueNarrative.length < 5) {
+    if (!uniqueNarrative.includes(narrative.Narrative)) {
       uniqueNarrative.push(narrative.Narrative);
       return (
         <>
@@ -55,4 +55,4 @@ const LatestNarratives = () => {
   );
 };
 
-export default LatestNarratives;
+export default AllNarratives;

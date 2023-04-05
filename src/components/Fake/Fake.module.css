@@ -15,7 +15,7 @@
 .mediaList {
   margin: 1rem 4rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .mediaName {

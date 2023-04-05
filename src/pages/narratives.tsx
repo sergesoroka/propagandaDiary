@@ -1,7 +1,7 @@
 import styles from "@/styles/Home.module.css";
 import Head from "next/head";
 
-import LatestNarratives from "@/components/LatestNarratives/LatestNarratives";
+import AllNarratives from "@/components/LatestNarratives/AllNarratives";
 import { FakesBarChart } from "@/components/FakesBarChart/FakesBarChart";
 
 const Narratives = () => {
@@ -17,7 +17,7 @@ const Narratives = () => {
         <FakesBarChart />
       </div>
       <div className={styles.allNarrativesWrap}>
-        <LatestNarratives />
+        <AllNarratives />
       </div>
     </>
   );

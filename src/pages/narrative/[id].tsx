@@ -39,8 +39,8 @@ const NarrativePage = () => {
     // @ts-ignore
   data.map((item) => {
     if (item.Narrative === id) {
-      if (!narrativeDiscriptions.includes(item.Discription)) {
-        narrativeDiscriptions.push(item.Discription);
+      if (!narrativeDiscriptions.includes(item.ENG_Translation)) {
+        narrativeDiscriptions.push(item.ENG_Translation);
       }
     }
   });

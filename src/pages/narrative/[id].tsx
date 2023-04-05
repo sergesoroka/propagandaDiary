@@ -5,7 +5,6 @@ import styles from "../../../src/styles/Home.module.css";
 import { uniqueNarrativesEn } from "../../../utils/statisticCalculate";
 import BackArrow from "@/components/Icons/BackArrow";
 
-// import Arrow from '../../../public/arrow.svg'
 
 import data from "../../../data/dataEn.json";
 import FakeList from "@/components/Fake/FakeList";
@@ -37,6 +36,7 @@ const NarrativePage = () => {
   });
 
   const narrativeDiscriptions: string[] = [];
+    // @ts-ignore
   data.map((item) => {
     if (item.Narrative === id) {
       if (!narrativeDiscriptions.includes(item.Discription)) {
@@ -46,6 +46,7 @@ const NarrativePage = () => {
   });
 
   const narrativeTags: string[] = [];
+  // @ts-ignore
   data.map((item) => {
     if (item.Narrative === id) {
       if (!narrativeTags.includes(item.Tag)) {

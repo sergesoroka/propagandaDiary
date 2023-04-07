@@ -1,4 +1,5 @@
 import styles from "./BarChart.module.css";
+import { motion } from "framer-motion";
 
 import { commonStatistic } from "../../../utils/statisticCalculate";
 import Link from "next/link";
@@ -85,7 +86,12 @@ const BarChart = ({ month }: { month?: string }) => {
           width: "830px",
         }}
       >
-        <div className={styles.barNumbers}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className={styles.barNumbers}
+        >
           <p>01</p>
           <p>02</p>
           <p>03</p>
@@ -98,7 +104,7 @@ const BarChart = ({ month }: { month?: string }) => {
           <p>10</p>
           <p>11</p>
           <p>12</p>
-        </div>
+        </motion.div>
       </div>
       <p className={styles.subtitle}>
         <SpetialText name={"Fakes_dynamics"} />

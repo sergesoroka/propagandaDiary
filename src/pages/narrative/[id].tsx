@@ -59,7 +59,7 @@ const NarrativePage = () => {
         <FakesBarChart />
       </div>
       <Head>
-        <title>Propaganda Diary | {id}</title>
+        <title>Propaganda Diary</title>
       </Head>
       <div className={styles.fakeItemArrow}>
         <Link href="/" className={styles.caption}>
@@ -83,7 +83,7 @@ const NarrativePage = () => {
         <div className={styles.narrativeTags}>
           <p className={styles.caption}>Tags:</p>
           <Link href={{ pathname: `/tag/${narrativeTags[0]}` }}>
-            <p>{narrativeTags[0]}</p>
+            <p className={styles.tagName}>#&nbsp;{narrativeTags[0]}</p>
           </Link>
         </div>
       </div>

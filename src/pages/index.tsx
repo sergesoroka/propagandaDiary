@@ -4,6 +4,8 @@ import StatisticDisplay from "@/components/StatisticDisplay/StatisticDisplay";
 import BarChart from "@/components/BarChart/BarChart";
 import LatestNarratives from "@/components/LatestNarratives/LatestNarratives";
 
+import { motion } from "framer-motion";
+
 import { uniqueNarrativesEn } from "../../utils/statisticCalculate";
 import { uniqueFakesEn } from "../../utils/statisticCalculate";
 import { uniqueSourcesEn } from "../../utils/statisticCalculate";
@@ -20,17 +22,35 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <BarChart />
-        <Link href="/archive">
-          <StatisticDisplay
-            mode="active"
-            month="General_statistics"
-            narratives={uniqueNarrativesEn.length}
-            fakes={uniqueFakesEn.length}
-            sources={uniqueSourcesEn.length}
-          />
-        </Link>
-        <LatestNarratives />
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2, type: "tween" }}
+        >
+          <BarChart />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2, delay: 0.3, type: "tween" }}
+        >
+          <Link href="/archive">
+            <StatisticDisplay
+              mode="active"
+              month="General_statistics"
+              narratives={uniqueNarrativesEn.length}
+              fakes={uniqueFakesEn.length}
+              sources={uniqueSourcesEn.length}
+            />
+          </Link>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2, delay: 0.5, type: "tween" }}
+        >
+          <LatestNarratives />
+        </motion.div>
       </main>
     </>
   );

@@ -16,7 +16,7 @@ const useSearchAutoComplete = ({ data }) => {
         .filter((suggestion) => suggestion.toLowerCase().indexOf(query) > -1);
 
       const filterSuggestionsSubTheme = data
-        .map((item) => item.Discription)
+        .map((item) => item.ENG_Translation)
         .filter((suggestion) => suggestion.toLowerCase().indexOf(query) > -1);
       setSuggestions([
         ...filterSuggestions,

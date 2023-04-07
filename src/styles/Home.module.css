@@ -202,9 +202,10 @@
   letter-spacing: 0.6px;
 }
 .discription {
-  /* font-size: .9rem; */
-  font-weight: 400;
-  margin: 0 0.8rem;
+  font-size: .9rem;
+    font-weight: 400;
+    margin: 0 8rem 0 0.8rem;
+    line-height: 1.4rem;
 }
 
 .narrativeTags {
@@ -245,12 +246,23 @@
 }
 
 .narrativeDynamicTitle {
-  width: 80%;
+  width: 60%;
   border-left: 3px solid #ff2618;
   padding-left: 0.6rem;
   margin-top: 1rem;
 }
+.tagName {
+  text-transform: uppercase;
+  color: #989898;
+  font-size: 0.76rem;
+  margin: 0.5rem 0.8rem 2rem 0.8rem;
+  letter-spacing: 0.6px;
+}
 
+.tagName:hover {
+  color: #ff2618;
+  transition-duration: 0.2s;
+}
 .fakesNumber {
   color: #ff2618;
   font-size: 0.86rem;

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { uniqueNarrativesEn } from "../../../utils/statisticCalculate";
 import data from "../../../data/dataEn.json";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 let defaultNarrative =
   "Narrative concerning weapons provided to Ukraine by Western countries";
@@ -39,7 +40,19 @@ export const FakesBarChart = () => {
     );
   });
   return (
-    <div>
+    <motion.div
+    
+    variants={{
+      hidden: { opacity: 0, y: -20 },
+      visible: (i) => ({
+        opacity: 1,
+        y: 0,
+        transition: { delay: i * 0.5 },
+      }),
+    }}
+    initial="hidden"
+    animate="visible"
+  >
       <div>
         <p className={styles.fakesNumber}>{fakes} FAKES</p>
         <svg width="1200" height="200" style={{ transform: "scaleY(-1)" }}>
@@ -49,6 +62,6 @@ export const FakesBarChart = () => {
           <h3 className={styles.narrativeDynamicTitle}>{title}</h3>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };

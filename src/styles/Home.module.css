@@ -289,6 +289,10 @@
   color: #fff;
   transition-duration: 0.4s;
 }
+ 
+.barChartWrap {
+  padding: 0 14rem;
+}
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {

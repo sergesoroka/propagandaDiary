@@ -53,7 +53,7 @@ const NarrativePage = () => {
   });
 
   return (
-    <div className={styles.mainLeft}>
+    <div className={styles.barChartWrap }>
       <div style={{ marginBottom: "2rem" }}>
         {/* <BarChart /> */}
         <FakesBarChart />

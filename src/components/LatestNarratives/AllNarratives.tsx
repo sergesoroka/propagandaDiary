@@ -17,16 +17,9 @@ const AllNarratives = () => {
       return (
         <motion.div
           key={i}
-          variants={{
-            hidden: { opacity: 0, y: -20 },
-            visible: (i) => ({
-              opacity: 1,
-              y: 0,
-              transition: { delay: i * 0.5 },
-            }),
-          }}
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, type: "tween", delay: 0.4 }}
         >
           <Link href={{ pathname: `/narrative/${narrative.Narrative}` }}>
             <h1 className={styles.narrativeHeading}>{narrative.Narrative}</h1>

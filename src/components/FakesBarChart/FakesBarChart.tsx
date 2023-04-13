@@ -5,7 +5,7 @@ import data from "../../../data/dataEn.json";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-let defaultNarrative = "";
+let defaultNarrative = "Наратив щодо озброєння, яке надають Україні країни Заходу";
 let defaultFakesNumber = 5;
 
 export const FakesBarChart = () => {

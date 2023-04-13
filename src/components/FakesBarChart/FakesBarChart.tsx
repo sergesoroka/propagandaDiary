@@ -1,5 +1,5 @@
 import styles from "@/styles/Home.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { uniqueNarrativesEn } from "../../../utils/statisticCalculate";
 import data from "../../../data/dataEn.json";
 import Link from "next/link";
@@ -27,7 +27,7 @@ export const FakesBarChart = () => {
       }
     });
     return (
-      <Link key={i} href={{ pathname: `/narrative/${title}` }}>
+      <Link key={i} href={{ pathname: `/narrative/${item}` }}>
         <rect
           width="35"
           height={uniqueFakes.length * 4}
@@ -43,6 +43,7 @@ export const FakesBarChart = () => {
       </Link>
     );
   });
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}

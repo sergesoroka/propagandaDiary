@@ -16,250 +16,143 @@ export default function AboutEn() {
         transition={{ duration: 0.6, type: "tween" }}
         className={styles.mainLeft}
       >
-        <p className="c7">
-          <span className="c4"></span>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          VoxCheck — це український фактчекінговий проєкт. Із 2018 року VoxCheck
+          є підписантом Кодексу етики міжнародної мережі фактчекерів Інституту
+          Poynter (IFCN) – найбільшої професійної спільноти фактчекерів у світі.
+          А також членом фактчекінгової програми Meta, у рамках якої ми маркуємо
+          та спростовуємо неправдивий контент, який поширюють користувачі
+          платформи. Ви можете знайти додаткову інформацію про нашу політику та
+          принципи на офіційному вебсайті VoxCheck.
         </p>
-        <p className={styles.c8}>
-          <span className="c4">
-            Russian information strategy utilizes existing tensions by
-            exaggerating disputes and disagreements between people and amplify
-            popular unrest whenever possible (e.g. Russia tried to amplify
-            social unrest during ‘yellow vest’ protests in France). Internal
-            tensions and clashes undermine developed democracies and cause these
-            countries to focus on their domestic agenda rather than trying to
-            promote their values and support progress in the developing world.
-            This adversely impacts countries such as Ukraine which look for
-            guidance and political support from the West.
-          </span>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          У травні 2022 року VoxCheck презентував першу базу російських
+          дезінформаційних наративів у двох європейських медіа — італійських та
+          німецьких. До першої версії «Propaganda Diary» увійшли медіа саме цих
+          країн, бо напередодні повномасштабного російського вторгнення в
+          Україну Німеччина та Італії були серед головних цілей кремлівської
+          пропаганди в Європі.
         </p>
-        <p className="c7">
-          <span className="c4"></span>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          Після лютого 2022 року дезінформаційні кампанії кремля в європейському
+          інформаційному просторі набули небачених масштабів. Проросійські
+          актори очікувано взялися за дискредитацію українського політичного
+          керівництва та армії, зокрема закидання неправдивих звинувачень у
+          воєнних злочинах. А паралельно намагалися заперечити російські
+          звірства та прицільні убивства цивільних. Вони також спрямували
+          зусилля на підрив довіри до України як до партнера та отримувача
+          військової та фінансової допомоги, необхідної для надання відсічі
+          російській агресії. Для європейських громадян намагалися створити
+          чіткий образ корумпованої неспроможної держави, на яку урядам їхніх
+          країн не варто виділяти ресурси. Водночас прокремлівські медіа взялися
+          за розпалювання ворожнечі до українських біженців, які змушені були
+          тікати від війни.
         </p>
-        <p className={styles.c8}>
-          <span className="c4">
-            The methods used by Russian propaganda are well known -
-            manipulations (blurring facts with misinterpretations), presenting
-            lies as ‘alternative points of view’, and highly emotional blatant
-            lies that are hard to believe but easy to remember. Knowing their
-            methods and narratives can help limit the consumption of fakes and
-            controversies. Therefore, VoxCheck created the database of Russian
-            fakes, disinformation, and propaganda in two European countries -
-            Italy and Germany.
-          </span>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          У цьому контексті виникла потреба формувати у суспільств-цілей
+          російської пропаганди стійкість до інформаційних маніпуляцій. Перший
+          крок до цього — системний моніторинг ключових дезінформаційних
+          наративів у кожній окремій країні. Тож VoxCheck розширив базу
+          «Propaganda Diary» до моніторингу шести країн: Німеччини, Італії,
+          Польщі, Чехії, Словаччини та Угорщини.
         </p>
-        <p className="c7">
-          <span className="c4"></span>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          Для виявлення кейсів дезінформації VoxCheck застосовує щотижневий
+          ручний моніторинг вибраного переліку онлайн-ресурсів. Нова версія бази
+          «Propaganda Diary» охоплює період від лютого 2022 року, а у ході
+          подальшого моніторингу вона поповнюватиметься новими кейсами
+          дезінформації. Щомісяця ми публікуємо огляди тенденцій, у яких
+          аналізуємо найбільш поширені теми та наративи в кожній окремій країні
+          та звітуємо про кількісні показники моніторингу.
         </p>
-        <p className={styles.c8}>
-          <span className="c4">
-            We also recommend you to read additional information about Ukraine,
-            Russia-Ukranian war and Russian propaganda in the next articles:{" "}
-          </span>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>Білий і чорний списки ресурсів</p>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          По-перше, для формування бази даних необхідно було визначити ключові
+          якісні ресурси у відповідних країнах та відрізнити достовірні джерела
+          від сумнівних. Отже, ми створили білі та чорні списки інформаційних
+          ресурсів кожної з шести країн.
         </p>
-        <p className="c7">
-          <span className="c4"></span>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          Ресурси у білому списку – це якісні джерела, які надають достовірну
+          інформацію про зовнішню та внутрішню політику України. Натомість
+          джерела з чорного списку регулярно поширюють фейкові наративи про
+          Україну.
         </p>
-        <ol className="c5 lst-kix_wg6xnvezo99m-0 start">
-          <li className="c0 li-bullet-0">
-            <span className="c3">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/rashism-or-why-russians-are-the-new-nazi/"
-              >
-                Rashism or why russians are the new Nazi
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c1">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/provocation-and-disinformation-overview/"
-              >
-                UPDATED. Provocation and Disinformation Overview
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c3">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/faq-on-the-russian-war-in-ukraine-what-are-we-fighting-for/"
-              >
-                FAQ on the Russian war in Ukraine: what are we fighting for?
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c3">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/five-failures-of-putin-s-blitzkrieg-in-ukraine/"
-              >
-                Five failures of putin’s blitzkrieg in Ukraine
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c3">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/three-russian-myths-that-you-should-abandon-right-away/"
-              >
-                Three Russian myths that you should abandon right away
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c1">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/the-best-macroeconomic-policy-for-russia/"
-              >
-                The best macroeconomic policy for Russia
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c1">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/what-makes-us-ukrainians-different-from-russians-aspirations-for-freedom-liberal-democracy-and-inclusive-society-as-the-primary-markers-for-the-ukrainian-russian-divide/"
-              >
-                What makes us, Ukrainians, different from Russians? Aspirations
-                for freedom, liberal democracy, and inclusive society as the
-                primary markers for the Ukrainian-Russian divide!
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c1">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/the-hague-tribunal-what-will-russia-be-tried-for-and-how-voxcheck-explains/"
-              >
-                The Hague Tribunal: What will russia be tried for and how?
-                VoxCheck explains
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c3">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/the-geneva-conventions-how-russia-breaches-them-and-blames-ukraine-for-it-voxcheck-explains/&amp;sa=D&amp;source=editors&amp;ust=1652630915863120&amp;usg=AOvVaw3FAf0TQ1h05HBYKZCcN1Xi"
-              >
-                The Geneva Conventions: How Russia breaches them and blames
-                Ukraine for it. VoxCheck explains
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c1">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/democracy-under-the-bombs/"
-              >
-                Democracy under the bombs
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c3">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/it-s-not-putin-it-s-russia/"
-              >
-                It’s not Putin, it’s Russia
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c3">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/sanctions-on-russian-oil-have-a-bite/"
-              >
-                Sanctions on Russian oil have a bite
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c1">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/financial-and-economic-sanctions-when-enough-is-enough/"
-              >
-                Financial and economic sanctions: When enough is enough?
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c1">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/stop-the-corruption-of-russian-money/"
-              >
-                Stop the corruption of Russian money
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c1">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/ukraine-s-no-fly-zone-does-not-require-nato-nor-a-un-security-council-resolution-it-needs-good-to-cooperate-prevent-evil-from-destroying-our-planet/"
-              >
-                Ukraine’s no-fly zone does not require NATO nor a UN Security
-                Council Resolution: it needs good to cooperate &amp; prevent
-                evil from destroying our planet
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c3">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/the-moral-bankruptcy-of-buying-russian-energy/"
-              >
-                The Moral Bankruptcy of Buying Russian Energy
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c3">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/the-cost-of-peace-without-a-reformed-russia-will-weigh-on-the-world-for-generations/"
-              >
-                The Cost of “Peace” without a reformed Russia will weigh on the
-                world for generations
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c1">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/hard-truths-about-likely-outcomes-of-russia-s-attack-on-ukraine/"
-              >
-                Hard truths about likely outcomes of Russia’s attack on Ukraine
-              </a>
-            </span>
-          </li>
-          <li className="c0 li-bullet-0">
-            <span className="c3">
-              <a
-                className="c2"
-                href="https://voxukraine.org/en/what-will-happen-to-a-defeated-russian-empire/"
-              >
-                What will happen to a defeated russian empire?
-              </a>
-            </span>
-          </li>
-        </ol>
-        <p className="c7">
-          <span className="c4"></span>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          Щоб розрізнити джерела та створити ці списки, ми використовували такі
+          критерії:
+        </p>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem", paddingLeft: '2rem' }}>
+          ● Професійні стандарти. Якісні ресурси в білому списку мають
+          відповідати низці стандартів: всебічності та неупередженості
+          висвітлення новин; об’єктивності та емоційної нейтральності; балансу
+          думок; прозорості та надійності джерел інформації; розділення фактів і
+          думок. Наш моніторинг показав, що ресурси з чорного списку постійно
+          нехтують цими стандартами.
+        </p>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem", paddingLeft: '2rem' }}>
+          ● Власність і прозорість. ЗМІ повинні публічно повідомляти про свого
+          власника, фінансування та можливий конфлікт інтересів. Наприклад,
+          деякі ЗМІ безпосередньо пов’язані з російськими державними
+          інформаційними агентствами. А отже, найімовірніше, будуть поширювати
+          дезінформацію про Україну.
+        </p>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem", paddingLeft: '2rem' }}>
+          ● Результати моніторингу ЗМІ від Media Bias/Fact Check. Ми вибрали
+          деякі ресурси відповідно до рейтингу Media Bias/Fact Check —
+          вебплатформи, яка генерує оцінки щодо упередженості, точності викладу
+          фактів, достовірності джерел на основі оцінок незалежних фактчекерів.
+          За даними Media Bias/Fact Check, ресурси з чорного списку мають дуже
+          низький рівень фактологічного викладу інформації. Натомість ресурси з
+          білого списку оцінюються як найменш упереджені та мають високий рівень
+          викладу фактів.{" "}
+        </p>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem", paddingLeft: '2rem' }}>
+          ● Результати моніторингу EUvsDisinfo. Ми використовували бази даних
+          EUvsDisinfo про різні країни. EUvsDisinfo — це проєкт робочої групи
+          East StratCom Європейської служби зовнішніх дій (European External
+          Action Service’s East StratCom Task Force). Він був створений
+          спеціально для моніторингу та протидії російським дезінформаційним
+          кампаніям у Європі.
+        </p>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem", paddingLeft: '2rem' }}>
+          ● Результати власного моніторингу. При виборі ресурсів для моніторингу
+          ми орієнтувалися на достовірність повідомлень про Україну. Джерела,
+          які раніше систематично поширювали російську дезінформацію, були
+          додані до чорного списку.{" "}
+        </p>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem", paddingLeft: '2rem' }}>
+          ● Консультації з місцевими фактчекерами та журналістами. Ми також
+          зверталися за порадою до колег, які працюють у Німеччині, Італії,
+          Польщі, Чехії, Словаччині та Угорщині. Представники різних організацій
+          порадили звернути увагу на деякі ЗМІ, які раніше поширювали фейкові
+          новини. Ми також аналізували випадки розповсюдження фейків,
+          зафіксовані місцевими фактчекерами-підписантами Кодексу етики IFCN.
+        </p>
+
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          Часто неможливо підтвердити мотиви авторів, чиї матеріали потрапили до
+          нашого моніторингу. Тож ми не стверджуємо, що кожне зі згаданих джерел
+          поширювало російську дезінформацію цілеспрямовано, а не внаслідок
+          несвідомих помилок. Утім, їхні повідомлення були співзвучними з
+          ключовими наративами кремлівської пропаганди про Україну.
+        </p>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          Структура: дезінформаційні наративи, фейки та кейси
+        </p>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          База даних складається із тисяч відверто фейкових або маніпулятивних
+          повідомлень, які ми називаємо кейсами дезінформації. Щоб їх
+          класифікувати, ми об’єднали усі кейси за спільною темою в фейки. Із
+          фейків ми за ключовим спільним меседжем сформували наративи. Тобто
+          різні кейси дезінформації є прикладами одного фейку. А різні фейки —
+          прикладами одного дезінформаційного наративу.
+        </p>
+        <p style={{lineHeight: '1.6rem', marginBottom: "1rem" }}>
+          У рамках моніторингу нам вдалося виокремити понад 320 фейків та 27
+          дезінформаційних наративів. Кількість кейсів дезінформації постійно
+          оновлюватиметься, оскільки VoxCheck продовжує моніторинг вибраних
+          ресурсів.
         </p>
       </motion.div>
     </div>

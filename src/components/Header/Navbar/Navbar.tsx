@@ -20,11 +20,11 @@ const Navbar = () => {
           <SpetialText name={"About"} />
         </li>
       </Link>
-      <Link href="/method">
+      {/* <Link href="/method">
         <li className={pathname === "/method" ? styles.activeLink : ""}>
           <SpetialText name={"Method"} />
         </li>
-      </Link>
+      </Link> */}
 
       <Link
         href="https://docs.google.com/forms/d/e/1FAIpQLSdHdlCAbi-plsJ49Q_daSIMPud7rzIaeQLwcvtYnjEnFOn1eA/viewform"

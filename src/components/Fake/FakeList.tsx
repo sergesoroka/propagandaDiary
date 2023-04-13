@@ -17,7 +17,7 @@ const FakeList = ({
   // @ts-ignore
   const fakeFiltered = data.filter((item) => item.Narrative === narrative);
   // @ts-ignore
-  const fakeByTag = data.filter((item) => item.Tag === tag);
+  const fakeByTag = data.filter((item) => item.Tag === tag || item.Tag.split(', ').includes(tag));
 
   const uniqueFakesEn: string[] = [];
   fakeFiltered.map((c) => {

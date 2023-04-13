@@ -40,7 +40,7 @@ const LatestNarratives = () => {
             />
           </Link>
 
-          <p className={styles.narrativeTag}>
+          {/* <p className={styles.narrativeTag}>
             {tagsOfNarrative(narrative.Narrative).map(
               (item, i) =>
                 item && (
@@ -57,7 +57,7 @@ const LatestNarratives = () => {
                   </Link>
                 )
             )}
-          </p>
+          </p> */}
         </>
       );
     }

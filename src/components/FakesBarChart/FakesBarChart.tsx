@@ -5,8 +5,7 @@ import data from "../../../data/dataEn.json";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-let defaultNarrative =
-  "Narrative concerning weapons provided to Ukraine by Western countries";
+let defaultNarrative = "";
 let defaultFakesNumber = 5;
 
 export const FakesBarChart = () => {
@@ -16,46 +15,34 @@ export const FakesBarChart = () => {
   const renderNarratives = uniqueNarrativesEn.map((item, i) => {
     const uniqueFakes: string[] = [];
 
+    // @ts-ignore
     data.map((fake) => {
       if (!uniqueFakes.includes(fake.Fake) && fake.Narrative === item) {
         uniqueFakes.push(fake.Fake);
       }
     });
     return (
-      <>
-        <rect
-          key={i}
-          width="30"
-          height={uniqueFakes.length * 4}
-          fill={title === item ? "#ff2618" : "#ccc"}
-          x={i * 32}
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            setTitle(item);
-            // @ts-ignore
-            setFakes(uniqueFakes.length);
-          }}
-        />
-      </>
+      <rect
+        key={i}
+        width="35"
+        height={uniqueFakes.length * 4}
+        fill={title === item ? "#ff2618" : "#ccc"}
+        x={i * 40}
+        style={{ cursor: "pointer" }}
+        onClick={() => {
+          setTitle(item);
+          // @ts-ignore
+          setFakes(uniqueFakes.length);
+        }}
+      />
     );
   });
   return (
     <motion.div
-    initial={{ opacity: 0, y: -20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.3, type: "tween" }}
-    
-    // variants={{
-    //   hidden: { opacity: 0, y: -20 },
-    //   visible: (i) => ({
-    //     opacity: 1,
-    //     y: 0,
-    //     transition: { delay: i * 0.5 },
-    //   }),
-    // }}
-    // initial="hidden"
-    // animate="visible"
-  >
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, type: "tween" }}
+    >
       <div>
         <p className={styles.fakesNumber}>{fakes} FAKES</p>
         <svg width="1200" height="200" style={{ transform: "scaleY(-1)" }}>

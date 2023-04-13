@@ -16,11 +16,13 @@
   margin: 1rem 4rem;
   display: flex;
   justify-content: space-between;
+  width: fit-content;
 }
 
 .mediaName {
   color: #FF2618;
   margin-right: 3rem;
+  width: 300px;
 }
 
 .mediaCountry {
@@ -34,4 +36,19 @@
   color: #707070;
   font-weight: 400;
   margin-left: .6rem;
+}
+
+@media (max-width: 700px) {
+  .mediaName {
+    width: 100%;
+  }
+  .fakeHeading, .fakeHeadingActive {
+    margin: 1rem;
+    font-size: 1rem;
+  }
+  .mediaList {
+    margin: 1rem;
+    font-size: .86rem;
+  }
+
 }

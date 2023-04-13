@@ -12,9 +12,8 @@ const Fake = ({ fake }: { fake: string }) => {
           <a target="_blank" rel="noreferrer" href={item.Link}>
             <p className={styles.mediaName}>{item.Media}</p>
           </a>
-          <p className={styles.mediaCountry}>
-            {item.Country} <span className={styles.mediaDate}>{item.Date}</span>
-          </p>
+          <p className={styles.mediaCountry}>{item.Country}</p>
+          <p className={styles.mediaDate}>{item.Date}</p>
         </div>
       );
     }

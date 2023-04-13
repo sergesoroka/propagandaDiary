@@ -32,7 +32,7 @@ const AllNarratives = () => {
             />
           </Link>
 
-          <p className={styles.narrativeTag}>
+          {/* <p className={styles.narrativeTag}>
             {tagsOfNarrative(narrative.Narrative).map(
               (item, i) =>
                 item && (
@@ -49,7 +49,7 @@ const AllNarratives = () => {
                   </Link>
                 )
             )}
-          </p>
+          </p> */}
         </motion.div>
       );
     }

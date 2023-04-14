@@ -24,6 +24,37 @@
   min-height: 100vh;
 }
 
+.listsPageWrap {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 2rem 18rem;
+  min-height: 100vh;
+}
+.listCountryWrap {
+  padding: 2rem 18rem
+}
+.listCountry {
+  display: flex;
+  justify-content: flex-start;
+}
+.listCountry li {
+  margin-right: 2rem;
+  list-style: none;
+  text-transform: uppercase;
+  font-size: .75rem;
+  letter-spacing: .03rem;
+  cursor: pointer;
+}
+.activeCountry {
+  color: var(--primary-color);
+}
+.listsDiscr {
+  font-size: .9rem;
+  font-weight: 400;
+  margin: 0 8rem 2rem 0;
+  line-height: 1.4rem;
+}
+
 .narrativeHeading {
   /* text-transform: uppercase; */
   color: var(--primary-color);
@@ -343,6 +374,40 @@
     max-width: 320px;
     text-align: center;
   }
+ /* LISTS OF COUNTRY */
+ .listCountryWrap {
+  padding: 2rem 1rem
+}
+
+.listCountry {
+  display: block;
+}
+.listCountry li {
+  margin: 1rem;
+  list-style: none;
+  text-transform: uppercase;
+  font-size: .75rem;
+  letter-spacing: .03rem;
+  cursor: pointer;
+}
+
+.listsDiscr {
+  font-size: .9rem;
+  font-weight: 400;
+  margin: 1rem;
+  line-height: 1.4rem;
+}
+
+.listsPageWrap {
+  display: block;
+  padding: 0;
+  margin: 2rem;
+}
+
+
+
+
+
 
   .card {
     padding: 1rem 2.5rem;

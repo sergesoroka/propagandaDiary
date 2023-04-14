@@ -322,7 +322,12 @@
 }
  
 .barChartWrap {
-  padding: 0 14rem;
+  display: flex;
+  justify-content: center;
+}
+
+.narrativeContent {
+  padding: 2rem 14rem;
 }
 
 /* Enable hover only on non-touch devices */

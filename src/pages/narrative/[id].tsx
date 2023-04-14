@@ -71,55 +71,54 @@ const NarrativePage = () => {
   ));
 
   return (
-    <div className={styles.barChartWrap}>
-      <div style={{ marginBottom: "2rem" }}>
-        {/* <BarChart /> */}
+    <>
+      <div className={styles.barChartWrap}>
         <FakesBarChart />
       </div>
-      <Head>
-        <title>Propaganda Diary</title>
-      </Head>
-      <div className={styles.fakeItemArrow}>
-        <Link href="/" className={styles.caption}>
-          <BackArrow />
-        </Link>
-      </div>
 
-      {narrativeTitle}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          width: "100%",
-          margin: "2rem .4rem",
-        }}
-      >
-        <div>
-          <p className={styles.caption}>About Narrative:</p>
-
-          <p
-            className={styles.discription}
-            dangerouslySetInnerHTML={{ __html: narrativeDiscriptions[0] }}
-          ></p>
+      <div className={styles.narrativeContent}>
+        <div className={styles.fakeItemArrow}>
+          <Link href="/" className={styles.caption}>
+            <BackArrow />
+          </Link>
         </div>
-        <div className={styles.narrativeTags}>
-          <p className={styles.caption}>Tags:</p>
 
-          <div>{tagsList}</div>
+        {narrativeTitle}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+            margin: "2rem .4rem",
+          }}
+        >
+          <div>
+            <p className={styles.caption}>About Narrative:</p>
+
+            <p
+              className={styles.discription}
+              dangerouslySetInnerHTML={{ __html: narrativeDiscriptions[0] }}
+            ></p>
+          </div>
+          <div className={styles.narrativeTags}>
+            <p className={styles.caption}>Tags:</p>
+
+            <div>{tagsList}</div>
+          </div>
         </div>
+        <hr
+          style={{
+            height: "2px",
+            background: "#cccccc",
+            border: "none",
+            width: "100%",
+            marginBottom: "2rem",
+          }}
+        />
+        {/* @ts-ignore */}
+        <FakeList narrative={id} />
       </div>
-      <hr
-        style={{
-          height: "2px",
-          background: "#cccccc",
-          border: "none",
-          width: "100%",
-          marginBottom: "2rem",
-        }}
-      />
-      {/* @ts-ignore */}
-      <FakeList narrative={id} />
-    </div>
+    </>
   );
 };
 

@@ -29,10 +29,10 @@ export const FakesBarChart = () => {
     return (
       <Link key={i} href={{ pathname: `/narrative/${item}` }}>
         <rect
-          width="35"
+          width="30"
           height={uniqueFakes.length * 4}
           fill={title === item ? "#ff2618" : "#ccc"}
-          x={i * 40}
+          x={i * 35}
           style={{ cursor: "pointer" }}
           onClick={() => {
             setTitle(item);
@@ -52,7 +52,7 @@ export const FakesBarChart = () => {
     >
       <div>
         <p className={styles.fakesNumber}>{fakes} FAKES</p>
-        <svg width="1200" height="200" style={{ transform: "scaleY(-1)" }}>
+        <svg width="950" height="200" style={{ transform: "scaleY(-1)" }}>
           {renderNarratives}
         </svg>
         {/* <Link href={{ pathname: `/narrative/${title}` }}>

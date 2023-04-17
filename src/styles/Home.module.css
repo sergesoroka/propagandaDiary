@@ -229,7 +229,7 @@
   text-transform: uppercase;
   color: #989898;
   font-size: 0.76rem;
-  margin: 0.5rem 0.8rem 2rem 0.8rem;
+  margin: 2rem 0.8rem 1rem 0.8rem;
   letter-spacing: 0.6px;
 }
 .discription {
@@ -241,7 +241,13 @@
 
 .narrativeTags {
   margin: 0 4rem 0 0;
+  
 }
+
+ .narrativeTag {
+  display: flex;
+    flex-wrap: wrap;
+} 
 .tagHeading {
   color: var(--primary-color);
   font-size: 2.4rem;
@@ -286,7 +292,7 @@
   text-transform: uppercase;
   color: #989898;
   font-size: 0.76rem;
-  margin: 0.5rem 0.8rem 1rem 0.8rem;
+  margin: 0 0.8rem 1rem 0.8rem;
   letter-spacing: 0.6px;
   cursor: pointer;
 }
@@ -296,7 +302,7 @@
   text-transform: uppercase;
   cursor: pointer;
   font-size: 0.76rem;
-  margin: 0.5rem 0.8rem 1rem 0.8rem;
+  margin: 0 0.8rem 1rem 0.8rem;
   letter-spacing: 0.6px;
 }
 

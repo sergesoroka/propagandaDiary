@@ -110,8 +110,8 @@ const NarrativePage = () => {
         {narrativeTitle}
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-between",
+            // display: "flex",
+            // justifyContent: "space-between",
             width: "100%",
             margin: "2rem .4rem",
           }}
@@ -127,7 +127,7 @@ const NarrativePage = () => {
           <div className={styles.narrativeTags}>
             <p className={styles.caption}>Tags:</p>
 
-            <div>{tagsList}</div>
+            <div  className={styles.narrativeTag}>{tagsList}</div>
           </div>
         </div>
         <hr

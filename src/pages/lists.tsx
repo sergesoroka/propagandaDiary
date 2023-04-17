@@ -60,12 +60,12 @@ export default function ListsPage() {
       </div>
       <div className={styles.listsPageWrap}>
         <div>
-          {country === "poland" && 'Poland'}
-          {country === "slovak" && "Slovak"}
-          {country === "czech" && "Czech"}
-          {country === "hungary" && "Hungary"}
-          {country === "germany" && "Germany"}
-          {country === "italy" && "Italy"}
+          {country === "poland" && <PolandLists country="Польща" />}
+          {country === "slovak" && <PolandLists country="Словаччина" />}
+          {country === "czech" && <PolandLists country="Чехія" />}
+          {country === "hungary" && <PolandLists country="Угорщина" />}
+          {country === "germany" && <PolandLists country="Німеччина" />}
+          {country === "italy" && <PolandLists country="Італія" />}
         </div>
       </div>
     </>

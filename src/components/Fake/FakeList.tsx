@@ -1,6 +1,7 @@
 import Fake from "./Fake";
-import data from "../../../data/dataEn.json";
+import dataUa from "../../../data/dataEn.json";
 import { useRouter } from "next/router";
+import useLangSwitcher from '../../../utils/i18n/useLangSwitcher'
 
 import { commonStatistic } from "../../../utils/statisticCalculate";
 
@@ -12,12 +13,17 @@ const FakeList = ({
   month?: string;
 }) => {
   const router = useRouter();
-  const { tag } = router.query;
-
+  const { tag,  } = router.query;
+  const { locale } = router;
+  console.log(locale);
+  
+  const {data} = useLangSwitcher();
+ 
   // @ts-ignore
   const fakeFiltered = data.filter((item) => item.Narrative === narrative);
   // @ts-ignore
   const fakeByTag = data.filter((item) => item.Tag === tag || item.Tag.split(', ').includes(tag));
+
 
   const uniqueFakesEn: string[] = [];
   fakeFiltered.map((c) => {

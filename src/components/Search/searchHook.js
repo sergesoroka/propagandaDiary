@@ -1,17 +1,22 @@
 import { useState } from "react";
 import dataNew from "../../../data/dataEn.json";
 
-const useSearchAutoComplete = ({ data }) => {
+import useLangSwitcher from '../../../utils/i18n/useLangSwitcher'
+
+const useSearchAutoComplete = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [suggestionIndex, setSuggestionIndex] = useState(0);
   const [suggestionsActive, setSuggestionsActive] = useState(false);
   const [value, setValue] = useState("");
 
+  const { data } = useLangSwitcher();
+
+
   const handleChange = (e) => {
     const query = e.target.value.toLowerCase();
     setValue(query);
     if (query.length > 1) {
-      const filterSuggestions = dataNew
+      const filterSuggestions = data
         .map((item) => item.Fake)
         .filter((suggestion) => suggestion.toLowerCase().indexOf(query) > -1);
 

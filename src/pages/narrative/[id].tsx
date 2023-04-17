@@ -4,13 +4,15 @@ import { useRouter } from "next/router";
 import styles from "../../../src/styles/Home.module.css";
 import { uniqueNarrativesEn } from "../../../utils/statisticCalculate";
 import BackArrow from "@/components/Icons/BackArrow";
-import data from "../../../data/dataEn.json";
+
 import FakeList from "@/components/Fake/FakeList";
 import { FakesBarChart } from "@/components/FakesBarChart/FakesBarChart";
+import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 
 const NarrativePage = () => {
   const router = useRouter();
   const { id } = router.query;
+  const { data } = useLangSwitcher();
 
   const narrativeTitle = uniqueNarrativesEn.map((item, i) => {
     if (item === id) {

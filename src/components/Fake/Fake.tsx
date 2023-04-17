@@ -1,10 +1,12 @@
 import { useState } from "react";
 import styles from "./Fake.module.css";
-
-import data from "../../../data/dataEn.json";
+import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 
 const Fake = ({ fake }: { fake: string }) => {
   const [open, setOpen] = useState(false);
+
+  const { data } = useLangSwitcher();
+  // @ts-ignore
   const mediaList = data.map((item) => {
     if (fake === item.Fake) {
       return (

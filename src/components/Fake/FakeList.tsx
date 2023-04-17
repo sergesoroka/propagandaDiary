@@ -1,26 +1,32 @@
 import Fake from "./Fake";
 import { useRouter } from "next/router";
-import useLangSwitcher from '../../../utils/i18n/useLangSwitcher'
+import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 
 import { commonStatistic } from "../../../utils/statisticCalculate";
 
 const FakeList = ({
   narrative,
   month,
+  tagName
 }: {
   narrative?: string;
   month?: string;
+  tagName?: string;
 }) => {
   const router = useRouter();
-  const { tag  } = router.query;
- 
-  const {data} = useLangSwitcher();
- 
+  const { tag } = router.query;
+
+  const { data } = useLangSwitcher();
+
+
+
   // @ts-ignore
   const fakeFiltered = data.filter((item) => item.Narrative === narrative);
   // @ts-ignore
-  const fakeByTag = data.filter((item) => item.Tag === tag || item.Tag.split(', ').includes(tag));
-
+  const fakeByTag = data.filter(
+    // @ts-ignore
+    (item) => item.Tag === tagName || item.Tag.split(", ").includes(tagName)
+  );
 
   const uniqueFakesEn: string[] = [];
   fakeFiltered.map((c) => {
@@ -46,14 +52,18 @@ const FakeList = ({
     <Fake fake={item} key={item} />
   ));
 
-  const monthFakes = commonStatistic(`2022-${month}-01`, `2022-${month}-31`, "Fake");
+  const monthFakes = commonStatistic(
+    `2022-${month}-01`,
+    `2022-${month}-31`,
+    "Fake"
+  );
   const renderedFakesByMonth = monthFakes.map((item) => (
     <Fake fake={item} key={item} />
   ));
 
   return (
     <>
-      {tag ? renderedFakesByTag : month ? renderedFakesByMonth : renderedFakes}
+      {tagName ? renderedFakesByTag : month ? renderedFakesByMonth : renderedFakes}
     </>
   );
 };

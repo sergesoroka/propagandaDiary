@@ -4,13 +4,11 @@ import useSearchAutoComplete from "./searchHook";
 
 import SearchResults from "./SearchResults";
 
-
 const Search = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
   const { locale } = router;
  
-
   const {
     handleChange,
     handleClick,

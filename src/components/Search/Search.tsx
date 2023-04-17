@@ -2,14 +2,14 @@ import { useRouter } from "next/router";
 import styles from "./Search.module.css";
 import useSearchAutoComplete from "./searchHook";
 
-import { uniqueFakesEn } from "../../../utils/statisticCalculate";
 import SearchResults from "./SearchResults";
-import data from '../../../data/dataEn.json'
+
 
 const Search = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
   const { locale } = router;
+ 
 
   const {
     handleChange,
@@ -19,7 +19,7 @@ const Search = () => {
     suggestionsActive,
     suggestionIndex,
     suggestions,
-  } = useSearchAutoComplete({ data });
+  } = useSearchAutoComplete();
 
   const placeholdrer =
     locale == "en"

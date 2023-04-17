@@ -1,5 +1,4 @@
 import Fake from "./Fake";
-import dataUa from "../../../data/dataEn.json";
 import { useRouter } from "next/router";
 import useLangSwitcher from '../../../utils/i18n/useLangSwitcher'
 
@@ -13,10 +12,8 @@ const FakeList = ({
   month?: string;
 }) => {
   const router = useRouter();
-  const { tag,  } = router.query;
-  const { locale } = router;
-  console.log(locale);
-  
+  const { tag  } = router.query;
+ 
   const {data} = useLangSwitcher();
  
   // @ts-ignore

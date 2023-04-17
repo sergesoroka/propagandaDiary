@@ -6,11 +6,22 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 import { useRouter } from "next/router";
+import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 
 let defaultFakesNumber = 5;
 
 export const FakesBarChart = () => {
   const router = useRouter();
+  const { data } = useLangSwitcher();
+
+  const uniqueNarrativesEn: string[] = [];
+  // @ts-ignore
+  data.map((c) => {
+    if (!uniqueNarrativesEn.includes(c.Narrative)) {
+      uniqueNarrativesEn.push(c.Narrative);
+    }
+    return c;
+  });
 
   let defaultNarrative = router.query.id;
   // @ts-ignore

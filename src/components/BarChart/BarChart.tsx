@@ -1,67 +1,83 @@
 import styles from "./BarChart.module.css";
 import { motion } from "framer-motion";
 
-import { commonStatistic } from "../../../utils/statisticCalculate";
+// import { commonStatistic } from "../../../utils/statisticCalculate";
 import Link from "next/link";
 import SpetialText from "../../../data/SpetialText";
 
+const dataPlaceholder = [
+  { name: "01", score: 10 },
+  { name: "02", score: 360 },
+  { name: "03", score: 690 },
+  { name: "04", score: 900 },
+  { name: "05", score: 870 },
+  { name: "06", score: 1030 },
+  { name: "07", score: 880 },
+  { name: "08", score: 700 },
+  { name: "09", score: 750 },
+  { name: "10", score: 960 },
+  { name: "11", score: 1400 },
+  { name: "12", score: 1430 },
+];
+
 const BarChart = ({ month }: { month?: string }) => {
-  const data = [
-    {
-      name: "01",
-      score: commonStatistic("2022-01-01", "2022-01-31", "Fake").length * 10,
-    },
-    {
-      name: "02",
-      score: commonStatistic("2022-02-01", "2022-02-31", "Fake").length * 10,
-    },
-    {
-      name: "03",
-      score: commonStatistic("2022-03-01", "2022-03-31", "Fake").length * 10,
-    },
-    {
-      name: "04",
-      score: commonStatistic("2022-04-01", "2022-04-31", "Fake").length * 10,
-    },
-    {
-      name: "05",
-      score: commonStatistic("2022-05-01", "2022-05-31", "Fake").length * 10,
-    },
-    {
-      name: "06",
-      score: commonStatistic("2022-06-01", "2022-06-31", "Fake").length * 10,
-    },
-    {
-      name: "07",
-      score: commonStatistic("2022-07-01", "2022-07-31", "Fake").length * 10,
-    },
-    {
-      name: "08",
-      score: commonStatistic("2022-08-01", "2022-08-31", "Fake").length * 10,
-    },
-    {
-      name: "09",
-      score: commonStatistic("2022-09-01", "2022-09-31", "Fake").length * 10,
-    },
-    {
-      name: "10",
-      score: commonStatistic("2022-10-01", "2022-10-31", "Fake").length * 10,
-    },
-    {
-      name: "11",
-      score: commonStatistic("2022-11-01", "2022-11-31", "Fake").length * 10,
-    },
-    {
-      name: "12",
-      score: commonStatistic("2022-12-01", "2022-12-31", "Fake").length * 10,
-    },
-  ];
+  // const data = [
+  //   {
+  //     name: "01",
+  //     score: commonStatistic("2022-01-01", "2022-01-31", "Fake").length * 10,
+  //   },
+  //   {
+  //     name: "02",
+  //     score: commonStatistic("2022-02-01", "2022-02-31", "Fake").length * 10,
+  //   },
+  //   {
+  //     name: "03",
+  //     score: commonStatistic("2022-03-01", "2022-03-31", "Fake").length * 10,
+  //   },
+  //   {
+  //     name: "04",
+  //     score: commonStatistic("2022-04-01", "2022-04-31", "Fake").length * 10,
+  //   },
+  //   {
+  //     name: "05",
+  //     score: commonStatistic("2022-05-01", "2022-05-31", "Fake").length * 10,
+  //   },
+  //   {
+  //     name: "06",
+  //     score: commonStatistic("2022-06-01", "2022-06-31", "Fake").length * 10,
+  //   },
+  //   {
+  //     name: "07",
+  //     score: commonStatistic("2022-07-01", "2022-07-31", "Fake").length * 10,
+  //   },
+  //   {
+  //     name: "08",
+  //     score: commonStatistic("2022-08-01", "2022-08-31", "Fake").length * 10,
+  //   },
+  //   {
+  //     name: "09",
+  //     score: commonStatistic("2022-09-01", "2022-09-31", "Fake").length * 10,
+  //   },
+  //   {
+  //     name: "10",
+  //     score: commonStatistic("2022-10-01", "2022-10-31", "Fake").length * 10,
+  //   },
+  //   {
+  //     name: "11",
+  //     score: commonStatistic("2022-11-01", "2022-11-31", "Fake").length * 10,
+  //   },
+  //   {
+  //     name: "12",
+  //     score: commonStatistic("2022-12-01", "2022-12-31", "Fake").length * 10,
+  //   },
+  // ];
+  
 
   return (
     <div className={styles.BarChart}>
       <div>
         <svg width="830" height="200" style={{ transform: "scaleY(-1)" }}>
-          {data.map((item, i) => {
+          {dataPlaceholder.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
               <Link key={item.name} href={`/month/${item.name}`}>

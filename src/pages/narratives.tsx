@@ -1,12 +1,12 @@
 import styles from "@/styles/Home.module.css";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 
 const AllNarratives = dynamic(() => import('@/components/LatestNarratives/AllNarratives'), {
   loading: () => <p>Loading...</p>,
 })
 // import AllNarratives from "@/components/LatestNarratives/AllNarratives";
 import { FakesBarChart } from "@/components/FakesBarChart/FakesBarChart";
-import dynamic from "next/dynamic";
 
 const Narratives = () => {
   return (

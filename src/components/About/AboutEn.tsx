@@ -6,7 +6,7 @@ export default function AboutEn() {
       <p style={{ lineHeight: "1.6rem", marginBottom: "1rem" }}>
         <span>
           VoxCheck is a Ukrainian fact-checking project. Since 2018, VoxCheck
-          has been a signatory to the Code of Ethics of the Poynter Institute's
+          has been a signatory to the Code of Ethics of the Poynter Institute&#34;s
           International Fact-Checking Network (IFCN), the largest professional
           fact-checking community in the world. And also a member of Meta`s
           Third-Party Fact-Checking Program, under which we rate and refute

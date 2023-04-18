@@ -35,7 +35,7 @@ function AboutIt() {
         <span>
           {" "}
           delle narrazioni di disinformazione russe in due media europei:
-          italiano e tedesco. La prima versione di "Propaganda Diary" includeva
+          italiano e tedesco. La prima versione di &quot;Propaganda Diary&quot; includeva
           i media proprio di questi paesi, perch&eacute; poco prima
           dell&#34;invasione russa su vasta scala dell&#34;Ucraina, la Germania
           e l&#34;Italia erano tra i principali obiettivi della propaganda del
@@ -77,7 +77,7 @@ function AboutIt() {
         <span>
           Per identificare i casi di disinformazione, VoxCheck utilizza il
           monitoraggio manuale settimanale di un elenco selezionato di risorse
-          online. La nuova versione del database "Propaganda Diary" copre il
+          online. La nuova versione del database &quot;Propaganda Diary&quot; copre il
           periodo dal febbraio del 2022 e, nel corso di monitoraggio ulteriore,
           sar&agrave; completato con nuovi casi di disinformazione. Ogni mese
           pubblichiamo le rassegne sulle{" "}

@@ -52,9 +52,9 @@ export default function Home() {
             <StatisticDisplay
               mode="active"
               month="General_statistics"
-              narratives={uniqueNarrativesEn.length}
-              fakes={uniqueFakesEn.length}
-              sources={uniqueSourcesEn.length}
+              narratives={33}
+              fakes={325}
+              sources={93}
             />
           </Link>
         </motion.div>

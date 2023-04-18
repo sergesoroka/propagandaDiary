@@ -36,8 +36,8 @@ export default function ListsPage() {
           <p className={styles.listsDiscr}>
             Le risorse nell’elenco bianco sono le fonti di qualità che
             forniscono informazioni affidabili sulla politica estera e interna
-            dell'Ucraina. Invece, le fonti inserite nell’elenco nero diffondono
-            regolarmente le narrazioni false sull'Ucraina.
+            dell&#34;Ucraina. Invece, le fonti inserite nell’elenco nero diffondono
+            regolarmente le narrazioni false sull&#34;Ucraina.
           </p>
         )}
         {locale == "de" && (

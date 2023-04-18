@@ -1,4 +1,7 @@
+import { lazy } from "react";
 import { useRouter } from "next/router";
+import dynamic from 'next/dynamic'
+
 
 import dataUa from "../../data/dataUa.json";
 import dataEn from "../../data/dataEn.json";

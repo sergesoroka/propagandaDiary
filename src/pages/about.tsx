@@ -1,8 +1,12 @@
 import Head from "next/head";
-import AboutUa from "@/components/About/AboutUa";
+import dynamic from "next/dynamic";
 import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+const AboutUa = dynamic(() => import('@/components/About/AboutUa'), {
+  loading: () => <p>Loading...</p>,
+})
+// import AboutUa from "@/components/About/AboutUa";
 import AboutRu from "@/components/About/AboutRu";
 import AboutIt from "@/components/About/AboutIt";
 import AboutDe from "@/components/About/AboutDe";

@@ -1,11 +1,6 @@
 import Link from "next/link";
-
 import { motion } from "framer-motion";
-
 import styles from "./LatestNarratives.module.css";
-
-// import data from "../../../data/dataEn.json";
-
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 
 const LatestNarratives = () => {

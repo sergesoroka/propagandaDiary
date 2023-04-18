@@ -1,8 +1,22 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-import StatisticDisplay from "@/components/StatisticDisplay/StatisticDisplay";
-import BarChart from "@/components/BarChart/BarChart";
-import LatestNarratives from "@/components/LatestNarratives/LatestNarratives";
+
+import dynamic from 'next/dynamic'
+
+const LatestNarratives = dynamic(() => import('@/components/LatestNarratives/LatestNarratives'), {
+  loading: () => <p>Loading...</p>,
+})
+
+const BarChart = dynamic(() => import('@/components/BarChart/BarChart'), {
+  loading: () => <p>Loading...</p>,
+})
+
+const StatisticDisplay = dynamic(() => import('@/components/StatisticDisplay/StatisticDisplay'), {
+  loading: () => <p>Loading...</p>,
+})
+// import StatisticDisplay from "@/components/StatisticDisplay/StatisticDisplay";
+// import BarChart from "@/components/BarChart/BarChart";
+// import LatestNarratives from "@/components/LatestNarratives/LatestNarratives";
 
 import { motion } from "framer-motion";
 

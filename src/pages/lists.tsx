@@ -2,8 +2,11 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import PolandLists from "../components/Lists/PolandLists";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function ListsPage() {
+  const router = useRouter();
+  const { locale } = router;
   const [country, setCountry] = useState("poland");
   return (
     <>
@@ -13,48 +16,165 @@ export default function ListsPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.listCountryWrap}>
-        <p className={styles.listsDiscr}>
-          Ресурси у білому списку – це якісні джерела, які надають достовірну
-          інформацію про зовнішню та внутрішню політику України. Натомість
-          джерела з чорного списку регулярно поширюють фейкові наративи про
-          Україну.
-        </p>
+        {locale == "ua" && (
+          <p className={styles.listsDiscr}>
+            Ресурси у білому списку – це якісні джерела, які надають достовірну
+            інформацію про зовнішню та внутрішню політику України. Натомість
+            джерела з чорного списку регулярно поширюють фейкові наративи про
+            Україну.
+          </p>
+        )}
+        {locale == "en" && (
+          <p className={styles.listsDiscr}>
+            Media on the white list are high-quality media providing reliable
+            information about Ukraine’s foreign and domestic policies. On the
+            contrary, sources on the black list spread fake news about Ukraine
+            on a regular basis.
+          </p>
+        )}
+        {locale == "it" && (
+          <p className={styles.listsDiscr}>
+            Le risorse nell’elenco bianco sono le fonti di qualità che
+            forniscono informazioni affidabili sulla politica estera e interna
+            dell'Ucraina. Invece, le fonti inserite nell’elenco nero diffondono
+            regolarmente le narrazioni false sull'Ucraina.
+          </p>
+        )}
+        {locale == "de" && (
+          <p className={styles.listsDiscr}>
+            Die Ressourcen in der weißen Liste sind qualitative Quellen, die
+            zuverlässige Informationen über die Außen- und Innenpolitik der
+            Ukraine liefern. Stattdessen verbreiten Quellen auf der schwarzen
+            Liste regelmäßig gefälschte Narrative über die Ukraine.
+          </p>
+        )}
+        {locale == "ru" && (
+          <p className={styles.listsDiscr}>
+            Ресурсы в белом списке – это качественные источники, предоставляющие
+            достоверную информацию о внешней и внутренней политике Украины. В то
+            же время источники из черного списка регулярно распространяют
+            фейковые нарративы об Украине.
+          </p>
+        )}
+        {locale == "pl" && (
+          <p className={styles.listsDiscr}>
+            Zasoby na białej liście są wysokiej jakości źródłami, które
+            dostarczają wiarygodnych informacji o polityce zagranicznej i
+            wewnętrznej Ukrainy. Zamiast tego źródła z czarnej listy regularnie
+            rozpowszechniają fałszywe narracje o Ukrainie.
+          </p>
+        )}
+        {locale == "hu" && (
+          <p className={styles.listsDiscr}>
+            A fehérlistán szereplő források minőségi források, amelyek
+            megbízható információkat szolgáltatnak Ukrajna kül- és
+            belpolitikájáról. Ehelyett a feketelistás források rendszeresen
+            hamis narratívákat terjesztettek Ukrajnáról.
+          </p>
+        )}
+        {locale == "cs" && (
+          <p className={styles.listsDiscr}>
+            Zdroje na bílém seznamu jsou kvalitní zdroje, které poskytují
+            spolehlivé informace o zahraniční a domácí politice Ukrajiny. Naopak
+            zdroje na černé listině pravidelně šíří falešné narativy o Ukrajině.
+          </p>
+        )}
+        {locale == "sk" && (
+          <p className={styles.listsDiscr}>
+            Zdroje na bielom zozname sú kvalitné zdroje, ktoré poskytujú
+            spoľahlivé informácie o zahraničnej a domácej politike Ukrajiny.
+            Namiesto toho zdroje na čiernej listine pravidelne šíria falošné
+            príbehy o Ukrajine.
+          </p>
+        )}
         <ul className={styles.listCountry}>
           <li
             className={country === "poland" ? styles.activeCountry : ""}
             onClick={() => setCountry("poland")}
           >
-            Польща
+            {locale == "ua" && 'Польща'}
+            {locale == "en" && 'Poland'}
+            {locale == "it" && 'Polonia'}
+            {locale == "de" && 'Polen'}
+            {locale == "ru" && 'Польща'}
+            {locale == "pl" && 'Polska'}
+            {locale == "hu" && 'Lengyelország'}
+            {locale == "cs" && 'Polsko'}
+            {locale == "sk" && 'Poľsko'}
           </li>
           <li
             className={country === "slovak" ? styles.activeCountry : ""}
             onClick={() => setCountry("slovak")}
           >
-            Словаччина
+            {locale == "ua" && 'Словаччина'}
+            {locale == "en" && 'Slovakia'}
+            {locale == "it" && 'Slovacchia'}
+            {locale == "de" && 'Slowakei'}
+            {locale == "ru" && 'Словакия'}
+            {locale == "pl" && 'Słowacja'}
+            {locale == "hu" && 'Szlovákia'}
+            {locale == "cs" && 'Slovensko'}
+            {locale == "sk" && 'Slovensko'}
           </li>
           <li
             className={country === "czech" ? styles.activeCountry : ""}
             onClick={() => setCountry("czech")}
           >
-            Чехія
+            {locale == "ua" && 'Чехія'}
+            {locale == "en" && 'The Czech Republic'}
+            {locale == "it" && 'Repubblica Ceca'}
+            {locale == "de" && 'Die Tschechische Republik'}
+            {locale == "ru" && 'Чехия'}
+            {locale == "pl" && 'Republika Czeska'}
+            {locale == "hu" && 'Cseh Köztársaság'}
+            {locale == "cs" && 'Česká republika'}
+            {locale == "sk" && 'Česká republika'}
+            
           </li>
           <li
             className={country === "hungary" ? styles.activeCountry : ""}
             onClick={() => setCountry("hungary")}
           >
-            Угорщина
+            {locale == "ua" && 'Угорщина'}
+            {locale == "en" && 'Hungary'}
+            {locale == "it" && 'Ungheria'}
+            {locale == "de" && 'Ungarn'}
+            {locale == "ru" && 'Венгрия'}
+            {locale == "pl" && 'Węgry'}
+            {locale == "hu" && 'Magyarország'}
+            {locale == "cs" && 'Maďarsko'}
+            {locale == "sk" && 'Maďarsko'}
+            
           </li>
           <li
             className={country === "germany" ? styles.activeCountry : ""}
             onClick={() => setCountry("germany")}
           >
-            Німеччина
+            {locale == "ua" && 'Німеччина'}
+            {locale == "en" && 'Germany'}
+            {locale == "it" && 'Germania'}
+            {locale == "de" && 'Deutschland'}
+            {locale == "ru" && 'Германия'}
+            {locale == "pl" && 'Niemcy'}
+            {locale == "hu" && 'Németország'}
+            {locale == "cs" && 'Německo'}
+            {locale == "sk" && 'Nemecko'}
+           
           </li>
           <li
             className={country === "italy" ? styles.activeCountry : ""}
             onClick={() => setCountry("italy")}
           >
-            Італія
+            {locale == "ua" && 'Італія'}
+            {locale == "en" && 'Italy'}
+            {locale == "it" && 'Italia'}
+            {locale == "de" && 'Italien'}
+            {locale == "ru" && 'Италия'}
+            {locale == "pl" && 'Włochy'}
+            {locale == "hu" && 'Olaszország'}
+            {locale == "cs" && 'Itálie'}
+            {locale == "sk" && 'Taliansko'}
+            
           </li>
         </ul>
       </div>

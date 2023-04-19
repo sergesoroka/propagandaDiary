@@ -100,7 +100,7 @@ export const FakesBarChart = () => {
         </svg>
         
       </div>
-      <div>{renderNarrativesMobie}</div>
+      {/* <div>{renderNarrativesMobie}</div> */}
     </motion.div>
   );
 };

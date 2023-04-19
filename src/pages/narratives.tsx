@@ -6,7 +6,7 @@ const AllNarratives = dynamic(() => import('@/components/LatestNarratives/AllNar
   loading: () => <p>Loading...</p>,
 })
 // import AllNarratives from "@/components/LatestNarratives/AllNarratives";
-import { FakesBarChart } from "@/components/FakesBarChart/FakesBarChart";
+// import { FakesBarChart } from "@/components/FakesBarChart/FakesBarChart";
 
 const Narratives = () => {
   return (
@@ -18,7 +18,7 @@ const Narratives = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.barChartWrap}>
-        <FakesBarChart />
+        {/* <FakesBarChart /> */}
       </div>
       <div className={styles.allNarrativesWrap}>
         <AllNarratives />

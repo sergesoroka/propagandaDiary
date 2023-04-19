@@ -17,11 +17,11 @@ const AllNarratives = () => {
   // @ts-ignore
   const lastNarratives = data.map((narrative, i) => {
      // @ts-ignore
-     data.map((fake) => {
-      if (!uniqueFakes.includes(fake.Fake) && fake.Narrative === narrative) {
-        uniqueFakes.push(fake.Fake);
-      }
-    });
+    //  data.map((fake) => {
+    //   if (!uniqueFakes.includes(fake.Fake) && fake.Narrative === narrative) {
+    //     uniqueFakes.push(fake.Fake);
+    //   }
+    // });
 
     if (!uniqueNarrative.includes(narrative.Narrative)) {
       uniqueNarrative.push(narrative.Narrative);

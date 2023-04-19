@@ -102,11 +102,7 @@ const NarrativePage = () => {
       </div>
 
       <div className={styles.narrativeContent}>
-        <div className={styles.fakeItemArrow}>
-          <Link href="/" className={styles.caption}>
-            <BackArrow />
-          </Link>
-        </div>
+       
 
         {narrativeTitle}
         <div

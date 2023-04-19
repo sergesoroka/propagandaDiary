@@ -71,12 +71,11 @@ const BarChart = ({ month }: { month?: string }) => {
   //     score: commonStatistic("2022-12-01", "2022-12-31", "Fake").length * 10,
   //   },
   // ];
-  
 
   return (
-    <div className={styles.BarChart}>
-      <div>
-        <svg width="830" height="200" style={{ transform: "scaleY(-1)" }}>
+    <div>
+      <div className={styles.BarChart}>
+        <svg className={styles.barChart} style={{ transform: "scaleY(-1)" }}>
           {dataPlaceholder.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
@@ -94,37 +93,92 @@ const BarChart = ({ month }: { month?: string }) => {
             );
           })}
         </svg>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          width: "830px",
-        }}
-      >
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className={styles.barNumbers}
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "830px",
+          }}
         >
-          <p>01</p>
-          <p>02</p>
-          <p>03</p>
-          <p>04</p>
-          <p>05</p>
-          <p>06</p>
-          <p>07</p>
-          <p>08</p>
-          <p>09</p>
-          <p>10</p>
-          <p>11</p>
-          <p>12</p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className={styles.barNumbers}
+          >
+            <p>01</p>
+            <p>02</p>
+            <p>03</p>
+            <p>04</p>
+            <p>05</p>
+            <p>06</p>
+            <p>07</p>
+            <p>08</p>
+            <p>09</p>
+            <p>10</p>
+            <p>11</p>
+            <p>12</p>
+          </motion.div>
+        </div>
+
+        <p className={styles.subtitle}>
+          <SpetialText name={"Fakes_dynamics"} />
+        </p>
       </div>
-      <p className={styles.subtitle}>
-        <SpetialText name={"Fakes_dynamics"} />
-      </p>
+
+      <div className={styles.BarChartMob}>
+        <svg className={styles.barChartMob} style={{ transform: "scaleY(-1)" }}>
+          {dataPlaceholder.map((item, i) => {
+            let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
+            return (
+              <Link key={item.name} href={`/month/${item.name}`}>
+                <rect
+                  className={
+                    month === item.name ? styles.barActiveMob : styles.barMob
+                  }
+                  width="17"
+                  height={item.score / 10}
+                  style={{ fill: color }}
+                  x={i * 26}
+                />
+              </Link>
+            );
+          })}
+        </svg>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className={styles.barNumbersMob}
+          >
+            <p>01</p>
+            <p>02</p>
+            <p>03</p>
+            <p>04</p>
+            <p>05</p>
+            <p>06</p>
+            <p>07</p>
+            <p>08</p>
+            <p>09</p>
+            <p>10</p>
+            <p>11</p>
+            <p>12</p>
+          </motion.div>
+        </div>
+
+        <p className={styles.subtitle}>
+          <SpetialText name={"Fakes_dynamics"} />
+        </p>
+      </div>
     </div>
   );
 };

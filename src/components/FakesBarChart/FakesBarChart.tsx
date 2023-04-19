@@ -55,6 +55,38 @@ export const FakesBarChart = () => {
     );
   });
 
+  const renderNarrativesMobie = uniqueNarrativesEn.map((item, i) => {
+    const uniqueFakes: string[] = [];
+
+    // @ts-ignore
+    data.map((fake) => {
+      if (!uniqueFakes.includes(fake.Fake) && fake.Narrative === item) {
+        uniqueFakes.push(fake.Fake);
+      }
+    });
+    return (
+      <Link key={i} href={{ pathname: `/narrative/${item}` }}>
+        <div onClick={() => {
+            setTitle(item);
+            // @ts-ignore
+            setFakes(uniqueFakes.length);
+          }}>Go foward</div>
+        {/* <rect
+          width="30"
+          height={uniqueFakes.length * 4}
+          fill={title === item ? "#ff2618" : "#ccc"}
+          x={i * 35}
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            setTitle(item);
+            // @ts-ignore
+            setFakes(uniqueFakes.length);
+          }}
+        /> */}
+      </Link>
+    );
+  });
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
@@ -66,10 +98,9 @@ export const FakesBarChart = () => {
         <svg width="950" height="200" style={{ transform: "scaleY(-1)" }}>
           {renderNarratives}
         </svg>
-        {/* <Link href={{ pathname: `/narrative/${title}` }}>
-          <h3 className={styles.narrativeDynamicTitle}>{title}</h3>
-        </Link> */}
+        
       </div>
+      <div>{renderNarrativesMobie}</div>
     </motion.div>
   );
 };

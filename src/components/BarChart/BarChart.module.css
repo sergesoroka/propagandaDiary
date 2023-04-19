@@ -6,13 +6,25 @@
   text-align: center;
 }
 
+
+
+.barChart {
+  width: 830px;
+  height: 200px;
+}
+
+.bar {
+  width: 60px !important;
+  margin-right: 1rem;
+}
+
 .bar:hover {
   fill: #656565 !important;
   transition-duration: 0.4s;
 }
 
 .barActive {
-  fill: #ff2618 !important; 
+  fill: #ff2618 !important;
 }
 
 .barNumbers {
@@ -22,8 +34,15 @@
   width: 100%;
   margin: 0 20px;
 }
+.barNumbersMob {
+  color: #a4a4a4;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.84rem;
+}
 
-.barNumbers>p {
+.barNumbers > p { 
   width: 20px;
 }
 
@@ -31,8 +50,24 @@
   color: #ff2618 !important;
 }
 
+.BarChartMob {
+  display: none;
+}
+
 /* Mobile */
 @media (max-width: 700px) {
-.BarChart {
-  display: none;
-}}
+  .BarChart {
+    display: none;
+  }
+  .BarChartMob {
+    display: inline-block;
+  }
+  /* .barChart {
+    width: 530px;
+    height: 200px;
+  }
+  .barActive,
+  .bar {
+    width: 20px !important;
+  } */
+}

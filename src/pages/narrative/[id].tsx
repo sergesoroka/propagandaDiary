@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../../../src/styles/Home.module.css";
 import BackArrow from "@/components/Icons/BackArrow";
+import SpetialText from "../../../data/SpetialText";
 
 import FakeList from "@/components/Fake/FakeList";
 import { FakesBarChart } from "@/components/FakesBarChart/FakesBarChart";
@@ -117,7 +118,8 @@ const NarrativePage = () => {
           }}
         >
           <div>
-            <p className={styles.caption}>About Narrative:</p>
+            <p className={styles.caption}>
+            <SpetialText name={"About_Narrative"} />:</p>
 
             <p
               className={styles.discription}
@@ -125,7 +127,7 @@ const NarrativePage = () => {
             ></p>
           </div>
           <div className={styles.narrativeTags}>
-            <p className={styles.caption}>Tags:</p>
+            <p className={styles.caption}><SpetialText name={"Tags"} />:</p>
 
             <div  className={styles.narrativeTag}>{tagsList}</div>
           </div>

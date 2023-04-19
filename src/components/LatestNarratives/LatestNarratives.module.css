@@ -20,3 +20,10 @@
   margin: 0.6rem 0 1.6rem 0;
   font-size: .8rem;
 }
+
+@media (max-width: 700px) {
+  .narrativeHeading {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+}

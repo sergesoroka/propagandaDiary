@@ -39,6 +39,7 @@
 @media (max-width: 700px) {
   .mobileMenu {
     display: block;
+    transition-duration: 1s;
   }
 
   .desktopMenu {

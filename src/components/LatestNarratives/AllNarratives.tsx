@@ -9,11 +9,7 @@ const AllNarratives = () => {
 
   const uniqueNarrative: string[] = [];
 
-  const uniqueFakes: string[] = [];
-
-  console.log(uniqueFakes);
-  
-
+ 
   // @ts-ignore
   const lastNarratives = data.map((narrative, i) => {
      // @ts-ignore

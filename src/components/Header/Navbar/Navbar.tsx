@@ -21,12 +21,13 @@ const Navbar = () => {
         </li>
       </Link>
       <Link href="/lists">
-        <li className={pathname === "/method" ? styles.activeLink : ""}>
-          <SpetialText name={"Lists"} />
+        <li className={pathname === "/lists" ? styles.activeLink : ""}>
+          {/* <SpetialText name={"Lists"} /> */}
+          Lists
         </li>
       </Link>
 
-      <Link
+      {/* <Link
         href="https://docs.google.com/forms/d/e/1FAIpQLSdHdlCAbi-plsJ49Q_daSIMPud7rzIaeQLwcvtYnjEnFOn1eA/viewform"
         passHref
         target="_blank"
@@ -34,7 +35,7 @@ const Navbar = () => {
         <li>
           <SpetialText name={"Add_Fake"} />
         </li>
-      </Link>
+      </Link> */}
 
       <Link
         href="https://docs.google.com/spreadsheets/d/1j5JuUDCpc7T9cAXqHC7MOe8mBsOJiw1SH5JzoUxFIYk/edit#gid=0"

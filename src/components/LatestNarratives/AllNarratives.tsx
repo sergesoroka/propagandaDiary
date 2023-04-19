@@ -5,12 +5,24 @@ import styles from "./LatestNarratives.module.css";
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 
 const AllNarratives = () => {
- 
   const { data } = useLangSwitcher();
 
   const uniqueNarrative: string[] = [];
+
+  const uniqueFakes: string[] = [];
+
+  console.log(uniqueFakes);
+  
+
   // @ts-ignore
   const lastNarratives = data.map((narrative, i) => {
+     // @ts-ignore
+     data.map((fake) => {
+      if (!uniqueFakes.includes(fake.Fake) && fake.Narrative === narrative) {
+        uniqueFakes.push(fake.Fake);
+      }
+    });
+
     if (!uniqueNarrative.includes(narrative.Narrative)) {
       uniqueNarrative.push(narrative.Narrative);
       return (
@@ -21,6 +33,7 @@ const AllNarratives = () => {
           transition={{ duration: 0.3, type: "tween", delay: 0.4 }}
         >
           <Link href={{ pathname: `/narrative/${narrative.Narrative}` }}>
+            {/* <p>{uniqueFakes.length}FAKES</p> */}
             <h1 className={styles.narrativeHeading}>{narrative.Narrative}</h1>
             <hr
               style={{
@@ -30,25 +43,6 @@ const AllNarratives = () => {
               }}
             />
           </Link>
-
-          {/* <p className={styles.narrativeTag}>
-            {tagsOfNarrative(narrative.Narrative).map(
-              (item, i) =>
-                item && (
-                  <Link key={i} href={{ pathname: `/tag/${item}` }}>
-                    {item && "# "}
-                    <span
-                      style={{
-                        textTransform: "uppercase",
-                        marginRight: "1rem",
-                      }}
-                    >
-                      {item}
-                    </span>
-                  </Link>
-                )
-            )}
-          </p> */}
         </motion.div>
       );
     }

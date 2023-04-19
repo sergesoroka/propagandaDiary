@@ -22,8 +22,7 @@ const Navbar = () => {
       </Link>
       <Link href="/lists">
         <li className={pathname === "/lists" ? styles.activeLink : ""}>
-          {/* <SpetialText name={"Lists"} /> */}
-          Lists
+          <SpetialText name={"Media"} />
         </li>
       </Link>
 

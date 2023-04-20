@@ -72,7 +72,7 @@ const StatisticDisplay = ({
           </p>
         </div>
       </div>
-      <p className={styles.subtitle}><SpetialText name={month} /></p>
+      <p className={styles.subtitle}><SpetialText name={month} />, 2022</p>
     </div>
   );
 };

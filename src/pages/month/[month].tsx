@@ -5,6 +5,7 @@ import BarChart from "@/components/BarChart/BarChart";
 import { useRouter } from "next/router";
 import styles from "../../styles/Home.module.css";
 import Link from "next/link";
+import Head from "next/head";
 
 export const monthFakes = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -39,6 +40,13 @@ export const monthFakes = () => {
       : "";
 
   return (
+    <>
+    <Head>
+        <title>Propaganda Diary | 2022</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
     <div className={styles.mainLeft}>
       <div style={{ margin: "0 auto" }}>
         {/* @ts-ignore */}
@@ -49,7 +57,7 @@ export const monthFakes = () => {
         <BackArrow />
       </Link>
       <p className={styles.tagHeading}>
-        <SpetialText name={monthName} />
+        <SpetialText name={monthName} />, 2022
       </p>
       <hr
         style={{
@@ -62,7 +70,7 @@ export const monthFakes = () => {
       />
       {/* @ts-ignore */}
       <FakeList month={month} />
-    </div>
+    </div></>
   );
 };
 

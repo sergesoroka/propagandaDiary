@@ -21,21 +21,22 @@
 
 .mediaName {
   color: #FF2618;
-  margin-right: 3rem;
-  width: 300px;
+  margin-right: 1.8rem;
+  /* width: 300px; */
 }
 
 .mediaCountry {
-  
-  
+  font-size: .928rem;
 }
 
+
+
 .mediaDate {
-  display: inline-block;
-  font-size: .76rem;
+  font-size: .7rem;
   color: #707070;
   font-weight: 400;
-  margin-left: .6rem;
+  margin-left: 0.6rem;
+  line-height: 1.32rem;
 }
 
 @media (max-width: 700px) {
@@ -47,8 +48,13 @@
     font-size: 1rem;
   }
   .mediaList {
+    display: block !important;
     margin: 1rem;
     font-size: .86rem;
+  }
+  .mediaDate {
+    margin-left: 0;
+    margin-top: .2rem;
   }
 
 }

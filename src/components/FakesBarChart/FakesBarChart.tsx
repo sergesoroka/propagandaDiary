@@ -62,7 +62,7 @@ export const FakesBarChart = () => {
     >
       <div>
         <p className={styles.fakesNumber}>
-          {fakes} <SpetialText name={"Fakes"} />
+           <SpetialText name={"Fakes"} />: {fakes}
         </p>
         <svg width="950" height="200" style={{ transform: "scaleY(-1)" }}>
           {renderNarratives}

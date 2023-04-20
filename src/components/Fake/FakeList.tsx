@@ -7,7 +7,7 @@ import { commonStatistic } from "../../../utils/statisticCalculate";
 const FakeList = ({
   narrative,
   month,
-  tagName
+  tagName,
 }: {
   narrative?: string;
   month?: string;
@@ -17,8 +17,6 @@ const FakeList = ({
   const { tag } = router.query;
 
   const { data } = useLangSwitcher();
-
-
 
   // @ts-ignore
   const fakeFiltered = data.filter((item) => item.Narrative === narrative);
@@ -51,6 +49,20 @@ const FakeList = ({
   const renderedFakesByTag = uniqueFakesByTagEn.map((item) => (
     <Fake fake={item} key={item} />
   ));
+  // @ts-ignore
+  const commonStatistic = (start, finish, type) => {
+    // @ts-ignore
+    const arr = [];
+    // @ts-ignore
+    data.map((c) => {
+      // @ts-ignore
+      if (c.Date > start && c.Date < finish && !arr.includes(c[type])) {
+        arr.push(c[type]);
+      }
+    });
+    // @ts-ignore
+    return arr;
+  };
 
   const monthFakes = commonStatistic(
     `2022-${month}-01`,
@@ -63,7 +75,11 @@ const FakeList = ({
 
   return (
     <>
-      {tagName ? renderedFakesByTag : month ? renderedFakesByMonth : renderedFakes}
+      {tagName
+        ? renderedFakesByTag
+        : month
+        ? renderedFakesByMonth
+        : renderedFakes}
     </>
   );
 };

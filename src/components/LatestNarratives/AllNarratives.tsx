@@ -37,7 +37,7 @@ const AllNarratives = () => {
       >
         <div className={styles.narrativeItem}>
           <p className={styles.fakesNumber}>
-            {uniqueFakes.length} <SpetialText name={"Fakes"} />
+             <SpetialText name={"Fakes"} />: {uniqueFakes.length}
           </p>
           <Link href={{ pathname: `/narrative/${narrative}` }}>
             <h1 className={styles.narrativeHeading}>{narrative}</h1>

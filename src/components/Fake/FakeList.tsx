@@ -5,10 +5,12 @@ import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 const FakeList = ({
   narrative,
   month,
+  year,
   tagName,
 }: {
   narrative?: string;
   month?: string;
+  year?: string;
   tagName?: string;
 }) => {
   const { data } = useLangSwitcher();
@@ -70,7 +72,7 @@ const FakeList = ({
   });
 
   const renderedFakesByMonth = uniqueFakesByDate.map((item) => (
-    <Fake fake={item} key={item} month={month} />
+    <Fake fake={item} key={item} month={month} year={year} />
   ));
 
   return (

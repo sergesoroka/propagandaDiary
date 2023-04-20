@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { commonStatistic } from "../../../utils/statisticCalculate";
 import Link from "next/link";
 import SpetialText from "../../../data/SpetialText";
+import { useRouter } from "next/router";
 
 const dataPlaceholder = [
   { name: "01", score: 10 },
@@ -20,7 +21,9 @@ const dataPlaceholder = [
   { name: "12", score: 1430 },
 ];
 
-const BarChartCurrent = ({ month }: { month?: string }) => {
+const BarChartCurrent = () => {
+  const router = useRouter();
+  const { month } = router.query;
   const data = [
     {
       name: "01",

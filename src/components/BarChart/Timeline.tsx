@@ -3,15 +3,15 @@ import styles from "./BarChart.module.css";
 import BarChart from "./BarChart";
 import BarChartCurrent from "./BarChartCurrent";
 
-export default function Timeline() {
-  const [current, setCurrent] = useState(false);
+export default function Timeline({current}: {current: string}) {
+  // const [current, setCurrent] = useState(false);
   return (
     <>
       <div>
-        {!current && <BarChart />}
-        {current && <BarChartCurrent />}
+        {current === '2022' && <BarChart />}
+        {current === '2023' && <BarChartCurrent />}
       </div>
-      <div className={styles.yearsWrap}>
+      {/* <div className={styles.yearsWrap}>
         <p
           className={!current ? styles.yearActive : styles.year}
           onClick={() => setCurrent(!current)}
@@ -24,7 +24,7 @@ export default function Timeline() {
         >
           2023
         </p>
-      </div>
+      </div> */}
     </>
   );
 }

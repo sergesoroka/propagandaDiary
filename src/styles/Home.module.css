@@ -23,6 +23,23 @@
   padding: 2rem 18rem;
   min-height: 100vh;
 }
+.yearsWrap {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.year {
+  cursor: pointer;
+  font-weight: 600 !important;
+  color: #656565;
+}
+.yearActive {
+  cursor: pointer;
+  font-weight: 600 !important;
+  color: #ff2618;
+}
 
 .mainLeft p {
   font-weight: 400;

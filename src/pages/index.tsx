@@ -1,16 +1,21 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 
-const LatestNarratives = dynamic(() => import('@/components/LatestNarratives/LatestNarratives'), {
-  loading: () => <p>Loading...</p>,
-})
+const LatestNarratives = dynamic(
+  () => import("@/components/LatestNarratives/LatestNarratives"),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
-
-const StatisticDisplay = dynamic(() => import('@/components/StatisticDisplay/StatisticDisplay'), {
-  loading: () => <p>Loading...</p>,
-})
+const StatisticDisplay = dynamic(
+  () => import("@/components/StatisticDisplay/StatisticDisplay"),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 import { motion } from "framer-motion";
 
@@ -20,8 +25,11 @@ import { uniqueSourcesEn } from "../../utils/statisticCalculate";
 import Link from "next/link";
 
 import Timeline from "@/components/BarChart/Timeline";
+import { useState } from "react";
 
 export default function Home() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [current, setCurrent] = useState("2022");
   return (
     <>
       <Head>
@@ -37,7 +45,21 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, type: "tween" }}
         >
-          <Timeline />
+          <Timeline current={current} />
+          <div className={styles.yearsWrap}>
+            <p
+              className={current === "2022" ? styles.yearActive : styles.year}
+              onClick={() => setCurrent("2022")}
+            >
+              2022
+            </p>
+            <p
+              className={current === "2023" ? styles.yearActive : styles.year}
+              onClick={() => setCurrent("2023")}
+            >
+              2023
+            </p>
+          </div>
         </motion.div>
         {/* <motion.div
           initial={{ opacity: 0, y: -20 }}

@@ -61,6 +61,7 @@ export const monthFakes = () => {
       <div style={{ margin: "0 auto" }}>
         {/* @ts-ignore */}
         {/* <BarChart /> */}
+        {/* @ts-ignore */}
         <Timeline current={current}/>
         <div className={styles.yearsWrap}>
         <p

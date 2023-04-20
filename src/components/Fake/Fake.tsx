@@ -19,16 +19,19 @@ const Fake = ({
   const mediaListByMonth = data.map((item) => {
     if (
       item.Date > `${year}-${month}-01` &&
-      item.Date < `${year}-${month}-31`
+      item.Date < `${year}-${month}-31` &&
+      item.Fake === fake
     ) {
       return (
-        <div className={styles.mediaList} key={item.id}>
-          <a target="_blank" rel="noreferrer" href={item.Link}>
-            <p className={styles.mediaName}>{item.Media}</p>
-          </a>
-          <p className={styles.mediaCountry}>{item.Country}</p>
-          <p className={styles.mediaDate}>{item.Date}</p>
-        </div>
+        <>
+          <div className={styles.mediaList} key={item.id}>
+            <a target="_blank" rel="noreferrer" href={item.Link}>
+              <p className={styles.mediaName}>{item.Media}</p>
+            </a>
+            <p className={styles.mediaCountry}>{item.Country}</p>
+            <p className={styles.mediaDate}>{item.Date}</p>
+          </div>
+        </>
       );
     }
   });

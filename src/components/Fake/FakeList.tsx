@@ -65,7 +65,11 @@ const FakeList = ({
   const uniqueFakesByDate: string[] = [];
   // @ts-ignore
   data.map((c) => {
-    if (!uniqueFakesByDate.includes(c.Fake)) {
+    if (
+      !uniqueFakesByDate.includes(c.Fake) &&
+      c.Date > `${year}-${month}-01` &&
+      c.Date < `${year}-${month}-31`
+    ) {
       uniqueFakesByDate.push(c.Fake);
     }
     return c;

@@ -34,6 +34,8 @@ export const commonStatistic = (start, finish, type) => {
   return arr;
 };
 
+
+
 export const tagsOfNarrative = (narrative) => {
   const uniqueTags = [];
   dataEn.map((item) => {

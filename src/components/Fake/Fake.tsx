@@ -2,10 +2,26 @@ import { useState } from "react";
 import styles from "./Fake.module.css";
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 
-const Fake = ({ fake }: { fake: string }) => {
+const Fake = ({ fake, month }: { fake: string; month?: string }) => {
   const [open, setOpen] = useState(false);
 
   const { data } = useLangSwitcher();
+
+  // @ts-ignore
+  const mediaListByMonth = data.map((item) => {
+    if (item.Date > `2022-${month}-01` && item.Date < `2022-${month}-31`) {
+      return (
+        <div className={styles.mediaList} key={item.id}>
+          <a target="_blank" rel="noreferrer" href={item.Link}>
+            <p className={styles.mediaName}>{item.Media}</p>
+          </a>
+          <p className={styles.mediaCountry}>{item.Country}</p>
+          <p className={styles.mediaDate}>{item.Date}</p>
+        </div>
+      );
+    }
+  });
+
   // @ts-ignore
   const mediaList = data.map((item) => {
     if (fake === item.Fake) {
@@ -28,7 +44,8 @@ const Fake = ({ fake }: { fake: string }) => {
       >
         {fake}
       </div>
-      {open && <>{mediaList}</>}
+      {open && !month && <>{mediaList}</>}
+      {open && month && <>{mediaListByMonth}</>}
     </div>
   );
 };

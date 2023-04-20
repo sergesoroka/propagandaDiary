@@ -2,8 +2,6 @@ import Fake from "./Fake";
 import { useRouter } from "next/router";
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 
-import { commonStatistic } from "../../../utils/statisticCalculate";
-
 const FakeList = ({
   narrative,
   month,
@@ -13,9 +11,6 @@ const FakeList = ({
   month?: string;
   tagName?: string;
 }) => {
-  const router = useRouter();
-  const { tag } = router.query;
-
   const { data } = useLangSwitcher();
 
   // @ts-ignore
@@ -65,13 +60,17 @@ const FakeList = ({
     return arr;
   };
 
-  const monthFakes = commonStatistic(
-    `2022-${month}-01`,
-    `2022-${month}-31`,
-    "Fake"
-  );
-  const renderedFakesByMonth = monthFakes.map((item) => (
-    <Fake fake={item} key={item} />
+  const uniqueFakesByDate: string[] = [];
+  // @ts-ignore
+  data.map((c) => {
+    if (!uniqueFakesByDate.includes(c.Fake)) {
+      uniqueFakesByDate.push(c.Fake);
+    }
+    return c;
+  });
+
+  const renderedFakesByMonth = uniqueFakesByDate.map((item) => (
+    <Fake fake={item} key={item} month={month} />
   ));
 
   return (

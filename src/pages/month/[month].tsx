@@ -17,8 +17,11 @@ export const monthFakes = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
   const { month } = router.query;
+  const defaultYear = router.query;
+  
+  
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [current, setCurrent] = useState('2022');
+  const [current, setCurrent] = useState(defaultYear.y);
   const monthName =
     month === "01"
       ? "January"
@@ -49,7 +52,7 @@ export const monthFakes = () => {
   return (
     <>
     <Head>
-        <title>Propaganda Diary | 2022</title>
+        <title>Propaganda Diary | {current}</title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

@@ -57,6 +57,7 @@ const FakeList = ({
     data.map((c) => {
       // @ts-ignore
       if (c.Date > start && c.Date < finish && !arr.includes(c[type])) {
+        // @ts-ignore
         arr.push(c[type]);
       }
     });

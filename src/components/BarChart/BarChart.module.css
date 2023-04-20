@@ -35,11 +35,25 @@
   width: 100%;
   margin: 0 20px;
 }
+.barNumbersCurrent {
+  color: #a4a4a4;
+  display: flex;
+  justify-content: space-between;
+  width: 90px;
+  margin: 0 20px;
+}
 .barNumbersMob {
   color: #a4a4a4;
   display: flex;
   justify-content: space-between;
   width: 100%;
+  font-size: 0.84rem;
+}
+.barNumbersCurrentMob {
+  color: #a4a4a4;
+  display: flex;
+  justify-content: space-between;
+  width: 45px;
   font-size: 0.84rem;
 }
 
@@ -53,6 +67,22 @@
 
 .BarChartMob {
   display: none;
+}
+
+.yearsWrap {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.year {
+  cursor: pointer;
+  color: #656565;
+}
+.yearActive {
+  cursor: pointer;
+  color: #ff2618;
 }
 
 /* Mobile */

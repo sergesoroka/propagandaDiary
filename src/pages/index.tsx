@@ -7,16 +7,10 @@ const LatestNarratives = dynamic(() => import('@/components/LatestNarratives/Lat
   loading: () => <p>Loading...</p>,
 })
 
-const BarChart = dynamic(() => import('@/components/BarChart/BarChart'), {
-  loading: () => <p>Loading...</p>,
-})
 
 const StatisticDisplay = dynamic(() => import('@/components/StatisticDisplay/StatisticDisplay'), {
   loading: () => <p>Loading...</p>,
 })
-// import StatisticDisplay from "@/components/StatisticDisplay/StatisticDisplay";
-// import BarChart from "@/components/BarChart/BarChart";
-// import LatestNarratives from "@/components/LatestNarratives/LatestNarratives";
 
 import { motion } from "framer-motion";
 
@@ -24,6 +18,8 @@ import { uniqueNarrativesEn } from "../../utils/statisticCalculate";
 import { uniqueFakesEn } from "../../utils/statisticCalculate";
 import { uniqueSourcesEn } from "../../utils/statisticCalculate";
 import Link from "next/link";
+
+import Timeline from "@/components/BarChart/Timeline";
 
 export default function Home() {
   return (
@@ -41,8 +37,15 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, type: "tween" }}
         >
-          <BarChart />
+          <Timeline />
         </motion.div>
+        {/* <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, type: "tween" }}
+        >
+          <BarChartCurrent />
+        </motion.div> */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -30,46 +30,46 @@ const BarChartCurrent = ({ month }: { month?: string }) => {
       name: "02",
       score: commonStatistic("2023-02-01", "2023-02-31", "Fake").length * 10,
     },
-    {
-      name: "03",
-      score: commonStatistic("2023-03-01", "2023-03-31", "Fake").length * 10,
-    },
-    {
-      name: "04",
-      score: commonStatistic("2023-04-01", "2023-04-31", "Fake").length * 10,
-    },
-    {
-      name: "05",
-      score: commonStatistic("2023-05-01", "2023-05-31", "Fake").length * 10,
-    },
-    {
-      name: "06",
-      score: commonStatistic("2023-06-01", "2023-06-31", "Fake").length * 10,
-    },
-    {
-      name: "07",
-      score: commonStatistic("2023-07-01", "2023-07-31", "Fake").length * 10,
-    },
-    {
-      name: "08",
-      score: commonStatistic("2023-08-01", "2023-08-31", "Fake").length * 10,
-    },
-    {
-      name: "09",
-      score: commonStatistic("2023-09-01", "2023-09-31", "Fake").length * 10,
-    },
-    {
-      name: "10",
-      score: commonStatistic("2023-10-01", "2023-10-31", "Fake").length * 10,
-    },
-    {
-      name: "11",
-      score: commonStatistic("2023-11-01", "2023-11-31", "Fake").length * 10,
-    },
-    {
-      name: "12",
-      score: commonStatistic("2023-12-01", "2023-12-31", "Fake").length * 10,
-    },
+    // {
+    //   name: "03",
+    //   score: commonStatistic("2023-03-01", "2023-03-31", "Fake").length * 10,
+    // },
+    // {
+    //   name: "04",
+    //   score: commonStatistic("2023-04-01", "2023-04-31", "Fake").length * 10,
+    // },
+    // {
+    //   name: "05",
+    //   score: commonStatistic("2023-05-01", "2023-05-31", "Fake").length * 10,
+    // },
+    // {
+    //   name: "06",
+    //   score: commonStatistic("2023-06-01", "2023-06-31", "Fake").length * 10,
+    // },
+    // {
+    //   name: "07",
+    //   score: commonStatistic("2023-07-01", "2023-07-31", "Fake").length * 10,
+    // },
+    // {
+    //   name: "08",
+    //   score: commonStatistic("2023-08-01", "2023-08-31", "Fake").length * 10,
+    // },
+    // {
+    //   name: "09",
+    //   score: commonStatistic("2023-09-01", "2023-09-31", "Fake").length * 10,
+    // },
+    // {
+    //   name: "10",
+    //   score: commonStatistic("2023-10-01", "2023-10-31", "Fake").length * 10,
+    // },
+    // {
+    //   name: "11",
+    //   score: commonStatistic("2023-11-01", "2023-11-31", "Fake").length * 10,
+    // },
+    // {
+    //   name: "12",
+    //   score: commonStatistic("2023-12-01", "2023-12-31", "Fake").length * 10,
+    // },
   ];
 
   return (

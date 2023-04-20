@@ -4,24 +4,22 @@
 .narrativeItem {
   display: flex;
   flex-direction: column;
-    /* justify-content: space-between; */
-    align-items: stretch;
-    gap: .3rem;
+  align-items: stretch;
+  gap: 0.3rem;
 }
 
 .fakesNumber {
   margin-top: 1rem;
   padding: 0.4rem;
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: var(--primary-color);
+  text-transform: uppercase;
 }
 
 .narrativeHeading {
   color: #424242;
   font-size: 1.26rem;
-  /* width: 80%; */
-  /* padding-left: .2rem; */
-  margin: 0 0 1.4rem .4rem;
+  margin: 0 0 1.4rem 0.4rem;
   cursor: pointer;
 }
 .narrativeHeading:hover {
@@ -32,7 +30,7 @@
 .narrativeTag {
   color: #919191;
   margin: 0.6rem 0 1.6rem 0;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 700px) {

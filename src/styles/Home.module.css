@@ -312,6 +312,7 @@
 .fakesNumber {
   color: #ff2618;
   font-size: 0.86rem;
+  text-transform: uppercase;
 }
 .narrativePageHeading {
   color: #424242;
@@ -319,6 +320,7 @@
 }
 .fakesNumber {
   color: #909090;
+  text-transform: uppercase;
 }
 
 .allNarrativesBarChart:hover .narrativePageHeading {

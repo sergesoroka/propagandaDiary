@@ -1,13 +1,27 @@
 .narrativeWrap {
   margin: 3rem 0;
 }
+.narrativeItem {
+  display: flex;
+  flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: stretch;
+    gap: .3rem;
+}
+
+.fakesNumber {
+  margin-top: 1rem;
+  padding: 0.4rem;
+  font-size: .8rem;
+  color: var(--primary-color);
+}
 
 .narrativeHeading {
   color: #424242;
-  font-size: 1.46rem;
-  width: 80%;
+  font-size: 1.26rem;
+  /* width: 80%; */
   /* padding-left: .2rem; */
-  margin: 1.4rem 0 1.4rem .4rem;
+  margin: 0 0 1.4rem .4rem;
   cursor: pointer;
 }
 .narrativeHeading:hover {

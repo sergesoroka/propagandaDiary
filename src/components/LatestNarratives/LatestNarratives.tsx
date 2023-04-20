@@ -54,6 +54,7 @@ const LatestNarratives = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             className={styles.narrativeHeading}
+            style={{marginTop: '1.4rem'}}
           >
             {narrative}
           </motion.h1>

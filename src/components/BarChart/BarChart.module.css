@@ -2,6 +2,7 @@
   text-transform: uppercase;
   color: #9a9a9a;
   font-size: 0.76rem;
+  font-weight: 600 !important;
   margin-top: 1rem;
   text-align: center;
 }

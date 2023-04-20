@@ -24,6 +24,10 @@
   min-height: 100vh;
 }
 
+.mainLeft p {
+  font-weight: 400;
+}
+
 .listsPageWrap {
   display: grid;
   grid-template-columns: auto auto;
@@ -383,6 +387,7 @@
   }
   .barChartWrap {
     padding: 0 1rem;
+    display: none;
   }
 
   .mainLeft,
@@ -407,9 +412,7 @@
     padding: 0  1rem 2rem 1rem;
   }
 
-  .barChartWrap {
-    display: none;
-  }
+  
 
   .narrativeContent {
     padding: 2rem 1rem;

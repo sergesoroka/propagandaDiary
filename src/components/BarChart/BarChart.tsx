@@ -123,7 +123,7 @@ const BarChart = ({ month }: { month?: string }) => {
         </div>
 
         <p className={styles.subtitle}>
-          <SpetialText name={"Fakes_dynamics"} />
+          <SpetialText name={"Fakes_dynamics"} />, 2022
         </p>
       </div>
 
@@ -176,7 +176,7 @@ const BarChart = ({ month }: { month?: string }) => {
         </div>
 
         <p className={styles.subtitle}>
-          <SpetialText name={"Fakes_dynamics"} />
+          <SpetialText name={"Fakes_dynamics"} />, 2022
         </p>
       </div>
     </div>

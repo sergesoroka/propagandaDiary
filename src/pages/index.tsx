@@ -19,9 +19,6 @@ const StatisticDisplay = dynamic(
 
 import { motion } from "framer-motion";
 
-import { uniqueNarrativesEn } from "../../utils/statisticCalculate";
-import { uniqueFakesEn } from "../../utils/statisticCalculate";
-import { uniqueSourcesEn } from "../../utils/statisticCalculate";
 import Link from "next/link";
 
 import Timeline from "@/components/BarChart/Timeline";

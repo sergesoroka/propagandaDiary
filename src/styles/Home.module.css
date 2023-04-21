@@ -23,6 +23,9 @@
   padding: 2rem 18rem;
   min-height: 100vh;
 }
+.mainLeft p a {
+  color: #ff2618 !important;
+}
 .yearsWrap {
   display: flex;
   justify-content: center;

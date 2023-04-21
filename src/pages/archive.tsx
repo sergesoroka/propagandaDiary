@@ -30,7 +30,7 @@ const archive = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, type: "tween", delay: 0.2 }}
       >
-        <Link href={"/month/01"}>
+        <Link href={"/month/01?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="January"
@@ -43,7 +43,7 @@ const archive = () => {
             }
           />
         </Link>
-        <Link href={"/month/02"}>
+        <Link href={"/month/02?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="February"
@@ -56,7 +56,7 @@ const archive = () => {
             }
           />
         </Link>
-        <Link href={"/month/03"}>
+        <Link href={"/month/03?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="March"
@@ -69,7 +69,7 @@ const archive = () => {
             }
           />
         </Link>
-        <Link href={"/month/04"}>
+        <Link href={"/month/04?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="April"
@@ -82,7 +82,7 @@ const archive = () => {
             }
           />
         </Link>
-        <Link href={"/month/05"}>
+        <Link href={"/month/05?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="May"
@@ -95,7 +95,7 @@ const archive = () => {
             }
           />
         </Link>
-        <Link href={"/month/06"}>
+        <Link href={"/month/06?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="June"
@@ -108,7 +108,7 @@ const archive = () => {
             }
           />
         </Link>
-        <Link href={"/month/07"}>
+        <Link href={"/month/07?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="July"
@@ -121,7 +121,7 @@ const archive = () => {
             }
           />
         </Link>
-        <Link href={"/month/08"}>
+        <Link href={"/month/08?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="August"
@@ -134,7 +134,7 @@ const archive = () => {
             }
           />
         </Link>
-        <Link href={"/month/09"}>
+        <Link href={"/month/09?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="September"
@@ -147,7 +147,7 @@ const archive = () => {
             }
           />
         </Link>
-        <Link href={"/month/10"}>
+        <Link href={"/month/10?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="October"
@@ -160,7 +160,7 @@ const archive = () => {
             }
           />
         </Link>
-        <Link href={"/month/11"}>
+        <Link href={"/month/11?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="November"
@@ -173,7 +173,7 @@ const archive = () => {
             }
           />
         </Link>
-        <Link href={"/month/12"}>
+        <Link href={"/month/12?y=2022"}>
           <StatisticDisplay
             mode="disactive"
             month="December"

@@ -25,7 +25,7 @@ const Fake = ({
       return (
         <>
           <div className={styles.mediaList} key={item.id}>
-            <a target="_blank" rel="noreferrer" href={item.Link}>
+            <a target="_blank" rel="noreferrer" href={item.Link_archive}>
               <p className={styles.mediaName}>{item.Media}</p>
             </a>
             <p className={styles.mediaCountry}>{item.Country}</p>

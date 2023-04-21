@@ -26,6 +26,7 @@ import Link from "next/link";
 
 import Timeline from "@/components/BarChart/Timeline";
 import { useState } from "react";
+import FivePopNarratives from "@/components/LatestNarratives/FivePopNarratives";
 
 export default function Home() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -88,7 +89,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: 0.5, type: "tween" }}
         >
-          <LatestNarratives />
+          <FivePopNarratives />
         </motion.div>
       </main>
     </>

@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 import BarChart from "./BarChart";
 import BarChartCurrent from "./BarChartCurrent";
 

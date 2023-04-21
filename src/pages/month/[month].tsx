@@ -9,9 +9,16 @@ import Timeline from "@/components/BarChart/Timeline";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 
-const FakeListForMonth = dynamic(() => import("@/components/Fake/FakeListForMonth"), {
+const FakeList = dynamic(() => import("@/components/Fake/FakeList"), {
   loading: () => <p style={{ margin: "0 auto" }}>Loading...</p>,
 });
+
+const FakeListForMonth = dynamic(
+  () => import("@/components/Fake/FakeListForMonth"),
+  {
+    loading: () => <p style={{ margin: "0 auto" }}>Loading Fakes...</p>,
+  }
+);
 
 export const monthFakes = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -20,7 +27,7 @@ export const monthFakes = () => {
   const defaultYear = router.query;
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [current, setCurrent] = useState(defaultYear.y);
+  const [current, setCurrent] = useState("2022");
   const monthName =
     month === "01"
       ? "January"
@@ -76,21 +83,25 @@ export const monthFakes = () => {
           </div>
         </div>
 
-        <Link href="/archive">
-          <BackArrow />
-        </Link>
-        <p className={styles.tagHeading}>
-          <SpetialText name={monthName} />, {current}
-        </p>
-        <hr
-          style={{
-            height: "2px",
-            background: "#FF2618",
-            border: "none",
-            width: "100%",
-            marginBottom: "2rem",
-          }}
-        />
+        {month && (
+          <>
+            <Link href="/archive">
+              <BackArrow />
+            </Link>
+            <p className={styles.tagHeading}>
+              <SpetialText name={monthName} />, {current}
+            </p>
+            <hr
+              style={{
+                height: "2px",
+                background: "#FF2618",
+                border: "none",
+                width: "100%",
+                marginBottom: "2rem",
+              }}
+            />
+          </>
+        )}
         {/* @ts-ignore */}
         <FakeListForMonth month={month} year={current} />
       </div>

@@ -83,7 +83,7 @@ const BarChartCurrent = () => {
           {data.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
-              <Link key={item.name} href={{pathname: `/month/${item.name}`, query: {y: '2023'}}}>
+              <Link key={item.name} href={`/month/${item.name}`}>
                 <rect
                   className={
                     month === item.name ? styles.barActive : styles.bar
@@ -127,7 +127,7 @@ const BarChartCurrent = () => {
           {data.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
-              <Link key={item.name} href={{pathname: `/month/${item.name}`, query: {y: '2023'}}}>
+              <Link key={item.name} href={`/month/${item.name}`}>
                 <rect
                   className={
                     month === item.name ? styles.barActiveMob : styles.barMob

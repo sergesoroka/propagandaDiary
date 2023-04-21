@@ -82,7 +82,7 @@ const BarChart = () => {
           {dataPlaceholder.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
-              <Link key={item.name} href={{pathname: `/month/${item.name}`, query: {y: '2022'}}}>
+              <Link key={item.name} href={`/month/${item.name}`}>
                 <rect
                   className={
                     month === item.name ? styles.barActive : styles.bar
@@ -135,7 +135,7 @@ const BarChart = () => {
           {dataPlaceholder.map((item, i) => {
             let color = i % 2 === 0 ? "#CDCDCD" : "#e4e4e4";
             return (
-              <Link key={item.name} href={{pathname: `/month/${item.name}`, query: {y: '2022'}}}>
+              <Link key={item.name} href={`/month/${item.name}`}>
                 <rect
                   className={
                     month === item.name ? styles.barActiveMob : styles.barMob

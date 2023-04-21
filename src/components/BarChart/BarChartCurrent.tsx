@@ -75,7 +75,6 @@ const BarChartCurrent = () => {
     // },
   ];
 
-  
 
   return (
     <div>

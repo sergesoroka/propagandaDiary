@@ -9,7 +9,7 @@ import Timeline from "@/components/BarChart/Timeline";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 
-const FakeList = dynamic(() => import("@/components/Fake/FakeList"), {
+const FakeListForMonth = dynamic(() => import("@/components/Fake/FakeListForMonth"), {
   loading: () => <p style={{ margin: "0 auto" }}>Loading...</p>,
 });
 
@@ -51,7 +51,7 @@ export const monthFakes = () => {
   return (
     <>
       <Head>
-        <title>Propaganda Diary | {current}</title>
+        <title>Propaganda Diary | Timeline</title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -92,7 +92,7 @@ export const monthFakes = () => {
           }}
         />
         {/* @ts-ignore */}
-        <FakeList month={month} year={current} />
+        <FakeListForMonth month={month} year={current} />
       </div>
     </>
   );

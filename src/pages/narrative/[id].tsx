@@ -5,10 +5,15 @@ import styles from "../../../src/styles/Home.module.css";
 import BackArrow from "@/components/Icons/BackArrow";
 import SpetialText from "../../../data/SpetialText";
 
-import FakeList from "@/components/Fake/FakeList";
+
 import { FakesBarChart } from "@/components/FakesBarChart/FakesBarChart";
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 import { useState } from "react";
+import dynamic from "next/dynamic";
+
+const FakeList = dynamic(() => import("@/components/Fake/FakeList"), {
+  loading: () => <p style={{ margin: "0 auto" }}>Loading...</p>,
+});
 
 const NarrativePage = () => {
   const router = useRouter();

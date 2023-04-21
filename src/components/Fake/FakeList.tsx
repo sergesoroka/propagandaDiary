@@ -1,6 +1,6 @@
 import Fake from "./Fake";
-import { useRouter } from "next/router";
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
+import { useMemo } from "react";
 
 const FakeList = ({
   narrative,
@@ -16,51 +16,38 @@ const FakeList = ({
   const { data } = useLangSwitcher();
 
   // @ts-ignore
-  const fakeFiltered = data.filter((item) => item.Narrative === narrative);
+  const fakeFiltered = useMemo(() => data.filter((item: { Narrative: string | undefined; }) => item.Narrative === narrative),
+    [data, narrative]
+  );
   // @ts-ignore
-  const fakeByTag = data.filter(
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const fakeByTag = useMemo(() => data.filter(
     // @ts-ignore
-    (item) => item.Tag === tagName || item.Tag.split(", ").includes(tagName)
+    (item) => item.Tag === tagName || item.Tag.split(", ").includes(tagName), [data, tagName])
   );
 
   const uniqueFakesEn: string[] = [];
+  // @ts-ignore
   fakeFiltered.map((c) => {
     if (!uniqueFakesEn.includes(c.Fake)) {
       uniqueFakesEn.push(c.Fake);
     }
     return c;
   });
+  const renderedFakes = uniqueFakesEn.map((item) => (
+    <Fake fake={item} key={item} />
+  ));
 
   const uniqueFakesByTagEn: string[] = [];
-  fakeByTag.map((c) => {
+  fakeByTag.map((c: { Fake: string; }) => {
     if (!uniqueFakesByTagEn.includes(c.Fake)) {
       uniqueFakesByTagEn.push(c.Fake);
     }
     return c;
   });
-
-  const renderedFakes = uniqueFakesEn.map((item) => (
-    <Fake fake={item} key={item} />
-  ));
-
   const renderedFakesByTag = uniqueFakesByTagEn.map((item) => (
     <Fake fake={item} key={item} />
   ));
-  // @ts-ignore
-  const commonStatistic = (start, finish, type) => {
-    // @ts-ignore
-    const arr = [];
-    // @ts-ignore
-    data.map((c) => {
-      // @ts-ignore
-      if (c.Date > start && c.Date < finish && !arr.includes(c[type])) {
-        // @ts-ignore
-        arr.push(c[type]);
-      }
-    });
-    // @ts-ignore
-    return arr;
-  };
 
   const uniqueFakesByDate: string[] = [];
   // @ts-ignore

@@ -6,7 +6,27 @@ import SpetialText from "../../../../data/SpetialText";
 
 const Navbar = () => {
   const router = useRouter();
-  const { pathname } = router;
+  const { pathname, locale } = router;
+  const dataLink =
+    locale == "ua"
+      ? "https://docs.google.com/spreadsheets/d/19X7jGy-_cvuenGCfW9Xhw7F8KqKKBLvqJaMLxtcB3Fk/edit?usp=sharing"
+      : locale == "de"
+      ? "https://docs.google.com/spreadsheets/d/1dpUJ6X7iCRCeQs0Nj7J637-SZzfxxIduAal50Lm8Kmk/edit?usp=sharing"
+      : locale == "pl"
+      ? "https://docs.google.com/spreadsheets/d/1s5QNPU0dF8KmCqX4pEzv32AvtZCaxvNJWqGXuxe-OSk/edit?usp=sharing"
+      : locale == "en"
+      ? "https://docs.google.com/spreadsheets/d/18vcqEmy-Cra6NwM5vj5SWkwJD4uDVr-BU9EiXwlWCgk/edit?usp=sharing"
+      : locale == "sk"
+      ? "https://docs.google.com/spreadsheets/d/1lINBoq9tXnAAiIJC1jT_ohyH7cw16Ii-aD_Bgs-I6as/edit?usp=sharing"
+      : locale == "it"
+      ? "https://docs.google.com/spreadsheets/d/144RiYFiEdma9RIAaamUPrrAkKFdw41JY7MZgH6_4BMU/edit?usp=sharing"
+      : locale == "hu"
+      ? "https://docs.google.com/spreadsheets/d/1h4CF6Epe4i6QJOcihFCS31RAz0jN8VcKtnETII-pGSg/edit?usp=sharing"
+      : locale == "cs"
+      ? "https://docs.google.com/spreadsheets/d/1OXgd7m8Ekvl7yaT612ioQ5zNjpDZFLD9zZyltZMthrY/edit?usp=sharing"
+      : locale == "ru"
+      ? "https://docs.google.com/spreadsheets/d/1CFmpaHrg5heIpzPoAbQRhy60d0g6424WyDvgbvfixog/edit?usp=sharing"
+      : "https://docs.google.com/spreadsheets/d/18vcqEmy-Cra6NwM5vj5SWkwJD4uDVr-BU9EiXwlWCgk/edit?usp=sharing";
 
   return (
     <ul className={styles.navbarWrap}>
@@ -26,21 +46,7 @@ const Navbar = () => {
         </li>
       </Link>
 
-      {/* <Link
-        href="https://docs.google.com/forms/d/e/1FAIpQLSdHdlCAbi-plsJ49Q_daSIMPud7rzIaeQLwcvtYnjEnFOn1eA/viewform"
-        passHref
-        target="_blank"
-      >
-        <li>
-          <SpetialText name={"Add_Fake"} />
-        </li>
-      </Link> */}
-
-      <Link
-        href="https://docs.google.com/spreadsheets/d/1j5JuUDCpc7T9cAXqHC7MOe8mBsOJiw1SH5JzoUxFIYk/edit#gid=0"
-        passHref
-        target="_blank"
-      >
+      <Link href={dataLink} target="_blank">
         <li>
           <SpetialText name={"Download"} />
         </li>

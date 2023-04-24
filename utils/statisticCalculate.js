@@ -1,17 +1,17 @@
 import dataEn from "../data/dataEn.json";
 
-export const uniqueNarrativesEn = [];
+export const uniqueNarratives = [];
 dataEn.map((c) => {
-  if (!uniqueNarrativesEn.includes(c.Narrative)) {
-    uniqueNarrativesEn.push(c.Narrative);
+  if (!uniqueNarratives.includes(c.Narrative)) {
+    uniqueNarratives.push(c.Narrative);
   }
   return c;
 });
 
-export const uniqueFakesEn = [];
+export const uniqueFakes = [];
 dataEn.map((c) => {
-  if (!uniqueFakesEn.includes(c.Fake)) {
-    uniqueFakesEn.push(c.Fake);
+  if (!uniqueFakes.includes(c.Fake)) {
+    uniqueFakes.push(c.Fake);
   }
   return c;
 });

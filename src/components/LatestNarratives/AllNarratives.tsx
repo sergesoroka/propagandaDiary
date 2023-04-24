@@ -17,6 +17,9 @@ const AllNarratives = () => {
     return c;
   });
 
+  
+  
+
   // @ts-ignore
   const lastNarratives = uniqueNarratives.map((narrative, i) => {
     const uniqueFakes: string[] = [];

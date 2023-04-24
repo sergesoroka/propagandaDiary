@@ -7,12 +7,14 @@ const StatisticDisplay = ({
   narratives,
   fakes,
   sources,
+  year,
 }: {
   mode: string;
   month: string;
   narratives: string | number;
   fakes: string | number;
   sources: string | number;
+  year?: string | number;
 }) => {
   return (
     <div className={styles.cards}>
@@ -72,7 +74,9 @@ const StatisticDisplay = ({
           </p>
         </div>
       </div>
-      <p className={styles.subtitle}><SpetialText name={month} />, 2022</p>
+      <p className={styles.subtitle}>
+        <SpetialText name={month} />, {year === "2023" ? "2023" : "2022"}
+      </p>
     </div>
   );
 };

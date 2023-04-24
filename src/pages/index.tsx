@@ -25,6 +25,8 @@ import Timeline from "@/components/BarChart/Timeline";
 import { useState } from "react";
 import FivePopNarratives from "@/components/LatestNarratives/FivePopNarratives";
 
+import { uniqueFakes, uniqueNarratives } from '../../utils/statisticCalculate'
+
 export default function Home() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [current, setCurrent] = useState("2022");
@@ -75,8 +77,8 @@ export default function Home() {
             <StatisticDisplay
               mode="active"
               month="General_statistics"
-              narratives={33}
-              fakes={325}
+              narratives={27}
+              fakes={uniqueFakes.length}
               sources={93}
             />
           </Link>

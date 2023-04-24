@@ -25,6 +25,9 @@ export const monthFakes = () => {
   const router = useRouter();
   const { month } = router.query;
   const defaultYear = router.query;
+console.log(defaultYear);
+
+  
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [current, setCurrent] = useState("2022");

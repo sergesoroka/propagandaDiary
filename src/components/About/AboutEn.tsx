@@ -37,7 +37,7 @@ export default function AboutEn() {
         </a>
         <span>
           {" "}
-          of &quot;Propaganda Diar&ldquo; included the media of these countries
+          of &quot;Propaganda Diary&ldquo; included the media of these countries
           because, on the eve of the full-scale Russian invasion of Ukraine,
           Germany and Italy were among the main targets of Kremlin propaganda in
           Europe.

@@ -48,7 +48,7 @@ const Archive = () => {
         >
           {current === "2023" && (
             <>
-            <Link href={"/month/01?y=2023"}>
+            <Link href={"/month/01"}>
               <StatisticDisplay
                 mode="disactive"
                 month="January"
@@ -65,10 +65,10 @@ const Archive = () => {
                 }
               />
             </Link>
-            <Link href={"/month/02?y=2023"}>
+            <Link href={"/month/02?"}>
               <StatisticDisplay
                 mode="disactive"
-                month="January"
+                month="February"
                 year={'2023'}
                 narratives={
                   commonStatistic("2023-02-01", "2023-02-31", "Narrative")

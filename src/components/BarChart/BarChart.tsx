@@ -1,7 +1,7 @@
 import styles from "./BarChart.module.css";
 import { motion } from "framer-motion";
 
-// import { commonStatistic } from "../../../utils/statisticCalculate";
+import { commonStatistic } from "../../../utils/statisticCalculate";
 import Link from "next/link";
 import SpetialText from "../../../data/SpetialText";
 import { useRouter } from "next/router";

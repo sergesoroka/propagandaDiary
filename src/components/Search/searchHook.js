@@ -25,7 +25,7 @@ const useSearchAutoComplete = () => {
         .filter((suggestion) => suggestion.toLowerCase().indexOf(query) > -1);
       setSuggestions([
         ...filterSuggestions,
-        ...filterSuggestionsSubTheme,
+        // ...filterSuggestionsSubTheme,
       ]);
       setSuggestionsActive(true);
     } else {

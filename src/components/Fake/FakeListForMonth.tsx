@@ -23,8 +23,8 @@ const FakeListForMonth = ({
     (c) => {
       if (
         !uniqueFakesByDate.includes(c.Fake) &&
-        c.Date > `${year}-${month}-01` &&
-        c.Date < `${year}-${month}-31`
+        c.Date >= `${year}-${month}-01` &&
+        c.Date <= `${year}-${month}-31`
       ) {
         uniqueFakesByDate.push(c.Fake);
       }

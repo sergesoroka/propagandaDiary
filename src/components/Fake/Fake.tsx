@@ -18,8 +18,8 @@ const Fake = ({
   // @ts-ignore
   const mediaListByMonth = data.map((item) => {
     if (
-      item.Date > `${year}-${month}-01` &&
-      item.Date < `${year}-${month}-31` &&
+      item.Date >= `${year}-${month}-01` &&
+      item.Date <= `${year}-${month}-31` &&
       item.Fake === fake
     ) {
       return (

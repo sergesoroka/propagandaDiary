@@ -118,7 +118,7 @@ const BarChartCurrent = () => {
         </div>
 
         <p className={styles.subtitle}>
-          <SpetialText name={"Fakes_dynamics"} />, 2023
+          <SpetialText name={"Fakes_dynamics"} />
         </p>
       </div>
 

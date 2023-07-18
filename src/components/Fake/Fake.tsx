@@ -6,10 +6,14 @@ const Fake = ({
   fake,
   month,
   year,
+  country,
+  media
 }: {
   fake: string;
   month?: string;
   year?: string;
+  country?: string;
+  media?: string;
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -20,7 +24,24 @@ const Fake = ({
     if (
       item.Date >= `${year}-${month}-01` &&
       item.Date <= `${year}-${month}-31` &&
-      item.Fake === fake
+      item.Fake === fake && item.Country === country && media === 'all'
+    ) {
+      return (
+        <>
+          <div className={styles.mediaList} key={item.id}>
+            <a target="_blank" rel="noreferrer" href={item.Link_archive}>
+              <p className={styles.mediaName}>{item.Media}</p>
+            </a>
+            <p className={styles.mediaCountry}>{item.Country}</p>
+            <p className={styles.mediaDate}>{item.Date}</p>
+          </div>
+        </>
+      );
+    }
+    if (
+      item.Date >= `${year}-${month}-01` &&
+      item.Date <= `${year}-${month}-31` &&
+      item.Fake === fake && item.Country === country && item.Media === media
     ) {
       return (
         <>

@@ -74,6 +74,13 @@
 .activeCountry {
   color: var(--primary-color);
 }
+
+.mediaListWrap {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 3rem;
+  
+}
 .listsDiscr {
   font-size: 0.9rem;
   font-weight: 400;

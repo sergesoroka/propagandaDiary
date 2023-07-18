@@ -6,6 +6,8 @@ import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 import Head from "next/head";
 import Timeline from "@/components/BarChart/Timeline";
+import CountryList from "@/components/CountryList/CountryList";
+import MediaList from "@/components/MediaList/MediaList";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 
@@ -25,12 +27,19 @@ export const monthFakes = () => {
   const router = useRouter();
   const { month } = router.query;
   const defaultYear = router.query;
-console.log(defaultYear);
-
-  
+  console.log(defaultYear);
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [current, setCurrent] = useState("2022");
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [country, setCountry] = useState("Польща");
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [media, setMedia] = useState("all");
+    console.log(media);
+    
+
   const monthName =
     month === "01"
       ? "January"
@@ -84,29 +93,37 @@ console.log(defaultYear);
               2023
             </p>
           </div>
+          {/* @ts-ignore */}
+          <CountryList setCountry={setCountry} country={country} setMedia={setMedia} />
         </div>
+        <div className={styles.mediaListWrap}>
+          {/* @ts-ignore */}
+          <MediaList country={country} media={media} setMedia={setMedia}  />
+          <div>
+            {month && (
+              <div>
+                <Link href="/archive">
+                  <BackArrow />
+                </Link>
+                <p className={styles.tagHeading}>
+                  <SpetialText name={monthName} />, {current}
+                </p>
+                <hr
+                  style={{
+                    height: "2px",
+                    background: "#FF2618",
+                    border: "none",
+                    width: "100%",
+                    marginBottom: "2rem",
+                  }}
+                />
+              </div>
+            )}
+            {/* @ts-ignore */}
 
-        {month && (
-          <>
-            <Link href="/archive">
-              <BackArrow />
-            </Link>
-            <p className={styles.tagHeading}>
-              <SpetialText name={monthName} />, {current}
-            </p>
-            <hr
-              style={{
-                height: "2px",
-                background: "#FF2618",
-                border: "none",
-                width: "100%",
-                marginBottom: "2rem",
-              }}
-            />
-          </>
-        )}
-        {/* @ts-ignore */}
-        <FakeListForMonth month={month} year={current} />
+            <FakeListForMonth month={month} year={current} country={country} media={media}/>
+          </div>
+        </div>
       </div>
     </>
   );

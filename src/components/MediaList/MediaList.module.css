@@ -1,0 +1,16 @@
+.listItem {
+  font-size: 0.8rem;
+  line-height: 2rem;
+  cursor: pointer;
+}
+
+.MediaList {
+  width: 250px;
+}
+
+.allMediaButton {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+}

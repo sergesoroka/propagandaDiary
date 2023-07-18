@@ -6,11 +6,15 @@ const FakeListForMonth = ({
   month,
   year,
   tagName,
+  country,
+  media,
 }: {
   narrative?: string;
   month?: string;
   year?: string;
   tagName?: string;
+  country?: string;
+  media?: string;
 }) => {
   const { data } = useLangSwitcher();
 
@@ -24,7 +28,18 @@ const FakeListForMonth = ({
       if (
         !uniqueFakesByDate.includes(c.Fake) &&
         c.Date >= `${year}-${month}-01` &&
-        c.Date <= `${year}-${month}-31`
+        c.Date <= `${year}-${month}-31` &&
+        c.Country == country &&
+        media === 'all'
+      ) {
+        uniqueFakesByDate.push(c.Fake);
+      }
+      if (
+        !uniqueFakesByDate.includes(c.Fake) &&
+        c.Date >= `${year}-${month}-01` &&
+        c.Date <= `${year}-${month}-31` &&
+        c.Country == country &&
+        c.Media === media
       ) {
         uniqueFakesByDate.push(c.Fake);
       }
@@ -34,10 +49,17 @@ const FakeListForMonth = ({
   );
 
   const renderedFakesByMonth = uniqueFakesByDate.map((item) => (
-    <Fake fake={item} key={item} month={month} year={year} />
+    <Fake
+      fake={item}
+      key={item}
+      month={month}
+      year={year}
+      country={country}
+      media={media}
+    />
   ));
 
-  return <>{renderedFakesByMonth}</>;
+  return <div style={{width: '700px'}}>{renderedFakesByMonth}</div>;
 };
 
 export default FakeListForMonth;

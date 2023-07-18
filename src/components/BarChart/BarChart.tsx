@@ -84,6 +84,7 @@ const BarChart = ({setMedia}: {setMedia?: (media: string) => {}}) => {
             return (
               <Link key={item.name} href={`/month/${item.name}`}>
                 <rect
+                // @ts-ignore
                 onClick={() => setMedia('all')}
                   className={
                     month === item.name ? styles.barActive : styles.bar

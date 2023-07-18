@@ -37,7 +37,7 @@ export const monthFakes = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [media, setMedia] = useState("all");
-    console.log(media);
+ 
     
 
   const monthName =
@@ -78,7 +78,7 @@ export const monthFakes = () => {
       <div className={styles.mainLeft}>
         <div style={{ margin: "0 auto" }}>
           {/* @ts-ignore */}
-          <Timeline current={current} />
+          <Timeline current={current} setMedia={setMedia} />
           <div className={styles.yearsWrap}>
             <p
               className={current === "2022" ? styles.yearActive : styles.year}

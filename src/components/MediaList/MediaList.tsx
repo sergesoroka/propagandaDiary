@@ -15,14 +15,20 @@ function MediaList({
       let mediaName = item.name;
       return (
         <div key={i} onClick={() => setMedia(mediaName)}>
-          <p className={styles.listItem}>{item.name}</p>
+          <p
+            className={
+              media === item.name ? styles.listItemActive : styles.listItem
+            }
+          >
+            {item.name}
+          </p>
         </div>
       );
     }
   });
   return (
     <div className={styles.MediaList}>
-      <p className={styles.allMediaButton} onClick={() => setMedia("all")}>
+      <p className={media === 'all' ? styles.listItemActive : styles.listItem} onClick={() => setMedia("all")}>
         ALL MEDIA
       </p>
       {mediaList}

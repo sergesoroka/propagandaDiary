@@ -21,7 +21,7 @@ const dataPlaceholder = [
   { name: "12", score: 1430 },
 ];
 
-const BarChart = ({setMedia}: {setMedia: (media: string) => {}}) => {
+const BarChart = ({setMedia}: {setMedia?: (media: string) => {}}) => {
   const router = useRouter();
   const { month } = router.query;
   // const data = [

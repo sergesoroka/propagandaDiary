@@ -6,7 +6,7 @@ export default function Timeline({
   setMedia,
 }: {
   current: string;
-  setMedia: (media: string) => {};
+  setMedia?: (media: string) => {};
 }) {
   return (
     <>

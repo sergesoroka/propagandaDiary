@@ -28,7 +28,10 @@ function MediaList({
   });
   return (
     <div className={styles.MediaList}>
-      <p className={media === 'all' ? styles.listItemActive : styles.listItem} onClick={() => setMedia("all")}>
+      <p
+        className={media === "all" ? styles.listItemActive : styles.listItem}
+        onClick={() => setMedia("all")}
+      >
         ALL MEDIA
       </p>
       {mediaList}

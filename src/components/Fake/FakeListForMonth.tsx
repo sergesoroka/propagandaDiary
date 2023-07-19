@@ -1,5 +1,6 @@
 import Fake from "./Fake";
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
+import styles from "./Fake.module.css";
 
 const FakeListForMonth = ({
   narrative,
@@ -8,6 +9,7 @@ const FakeListForMonth = ({
   tagName,
   country,
   media,
+  setMedia,
 }: {
   narrative?: string;
   month?: string;
@@ -15,11 +17,36 @@ const FakeListForMonth = ({
   tagName?: string;
   country?: string;
   media?: string;
+  setMedia?: (media: string) => {};
 }) => {
   const { data } = useLangSwitcher();
 
   const uniqueFakesByDate: string[] = [];
+  const uniqueMediaByDate: string[] = [];
+
   // @ts-ignore
+  data.map((c) => {
+    if (
+      !uniqueMediaByDate.includes(c.Media) &&
+      c.Date >= `${year}-${month}-01` &&
+      c.Date <= `${year}-${month}-31` &&
+      c.Country == country
+    ) {
+      uniqueMediaByDate.push(c.Media);
+    }
+  });
+  const renderMediaList = uniqueMediaByDate.map((item, i) => (
+    <p
+      key={i}
+      className={
+        media === item ? styles.mediaListNameActive : styles.mediaListName
+      }
+      // @ts-ignore
+      onClick={() => setMedia(item)}
+    >
+      {item}
+    </p>
+  ));
 
   // @ts-ignore
   data.map(
@@ -30,7 +57,7 @@ const FakeListForMonth = ({
         c.Date >= `${year}-${month}-01` &&
         c.Date <= `${year}-${month}-31` &&
         c.Country == country &&
-        media === 'all'
+        media === "all"
       ) {
         uniqueFakesByDate.push(c.Fake);
       }
@@ -48,10 +75,10 @@ const FakeListForMonth = ({
     [data, year, month]
   );
 
-  const renderedFakesByMonth = uniqueFakesByDate.map((item) => (
+  const renderedFakesByMonth = uniqueFakesByDate.map((item, i) => (
     <Fake
       fake={item}
-      key={item}
+      key={i}
       month={month}
       year={year}
       country={country}
@@ -59,7 +86,22 @@ const FakeListForMonth = ({
     />
   ));
 
-  return <div style={{width: '700px'}}>{renderedFakesByMonth}</div>;
+  return (
+    <div>
+      <div
+        // @ts-ignore
+        onClick={() => setMedia("all")}
+        className={
+          media === "all" ? styles.mediaListNameActive : styles.mediaListName
+        }
+      >
+        All Media
+      </div>
+      <div className={styles.mediaListWrap}>{renderMediaList}</div>
+      <hr />
+      {renderedFakesByMonth}
+    </div>
+  );
 };
 
 export default FakeListForMonth;

@@ -6,22 +6,8 @@ import Link from "next/link";
 import SpetialText from "../../../data/SpetialText";
 import { useRouter } from "next/router";
 
-const dataPlaceholder = [
-  { name: "01", score: 10 },
-  { name: "02", score: 360 },
-  { name: "03", score: 690 },
-  { name: "04", score: 900 },
-  { name: "05", score: 870 },
-  { name: "06", score: 1030 },
-  { name: "07", score: 880 },
-  { name: "08", score: 700 },
-  { name: "09", score: 750 },
-  { name: "10", score: 960 },
-  { name: "11", score: 1400 },
-  { name: "12", score: 1430 },
-];
 
-const BarChartCurrent = ({setMedia}: {setMedia?: (media: string) => {}}) => {
+const BarChartCurrent = () => {
   const router = useRouter();
   const { month } = router.query;
   const data = [
@@ -75,7 +61,6 @@ const BarChartCurrent = ({setMedia}: {setMedia?: (media: string) => {}}) => {
     // },
   ];
 
-
   return (
     <div>
       <div className={styles.BarChart}>
@@ -85,8 +70,8 @@ const BarChartCurrent = ({setMedia}: {setMedia?: (media: string) => {}}) => {
             return (
               <Link key={item.name} href={`/month/${item.name}`}>
                 <rect
-                // @ts-ignore
-                onClick={() => setMedia('all')}
+                  // @ts-ignore
+
                   className={
                     month === item.name ? styles.barActive : styles.bar
                   }
@@ -115,7 +100,6 @@ const BarChartCurrent = ({setMedia}: {setMedia?: (media: string) => {}}) => {
           >
             <p>01</p>
             <p>02</p>
-           
           </motion.div>
         </div>
 
@@ -148,7 +132,6 @@ const BarChartCurrent = ({setMedia}: {setMedia?: (media: string) => {}}) => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            
           }}
         >
           <motion.div
@@ -159,7 +142,6 @@ const BarChartCurrent = ({setMedia}: {setMedia?: (media: string) => {}}) => {
           >
             <p>01</p>
             <p>02</p>
-            
           </motion.div>
         </div>
 

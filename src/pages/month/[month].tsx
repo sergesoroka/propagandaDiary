@@ -98,7 +98,7 @@ export const monthFakes = () => {
         </div>
         <div className={styles.mediaListWrap}>
           {/* @ts-ignore */}
-          <MediaList country={country} media={media} setMedia={setMedia}  />
+          {/* <MediaList country={country} media={media} setMedia={setMedia}  /> */}
           <div>
             {month && (
               <div>
@@ -121,7 +121,7 @@ export const monthFakes = () => {
             )}
             {/* @ts-ignore */}
 
-            <FakeListForMonth month={month} year={current} country={country} media={media}/>
+            <FakeListForMonth month={month} year={current} country={country} media={media} setMedia={setMedia}/>
           </div>
         </div>
       </div>

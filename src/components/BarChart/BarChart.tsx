@@ -21,7 +21,7 @@ const dataPlaceholder = [
   { name: "12", score: 1430 },
 ];
 
-const BarChart = ({setMedia}: {setMedia?: (media: string) => {}}) => {
+const BarChart = () => {
   const router = useRouter();
   const { month } = router.query;
   // const data = [
@@ -84,8 +84,8 @@ const BarChart = ({setMedia}: {setMedia?: (media: string) => {}}) => {
             return (
               <Link key={item.name} href={`/month/${item.name}`}>
                 <rect
-                // @ts-ignore
-                onClick={() => setMedia('all')}
+                  // @ts-ignore
+
                   className={
                     month === item.name ? styles.barActive : styles.bar
                   }
@@ -156,7 +156,6 @@ const BarChart = ({setMedia}: {setMedia?: (media: string) => {}}) => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            
           }}
         >
           <motion.div

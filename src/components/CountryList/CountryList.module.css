@@ -5,7 +5,11 @@
   display: flex;
   justify-content: center;
   margin: 3rem 0;
+  flex-wrap: wrap;
+  line-height: 2rem;
 }
+
+
 .listCountry li {
   margin-right: 2rem;
   list-style: none;

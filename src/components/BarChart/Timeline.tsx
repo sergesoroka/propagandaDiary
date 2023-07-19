@@ -11,8 +11,8 @@ export default function Timeline({
   return (
     <>
       <div>
-        {current === "2022" && <BarChart setMedia={setMedia} />}
-        {current === "2023" && <BarChartCurrent setMedia={setMedia} />}
+        {current === "2022" && <BarChart  />}
+        {current === "2023" && <BarChartCurrent  />}
       </div>
     </>
   );

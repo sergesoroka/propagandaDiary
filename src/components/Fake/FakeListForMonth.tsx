@@ -88,16 +88,18 @@ const FakeListForMonth = ({
 
   return (
     <div>
-      <div
-        // @ts-ignore
-        onClick={() => setMedia("all")}
-        className={
-          media === "all" ? styles.mediaListNameActive : styles.mediaListName
-        }
-      >
-        All Media
+      <div className={styles.mediaListWrap}>
+        <div
+          // @ts-ignore
+          onClick={() => setMedia("all")}
+          className={
+            media === "all" ? styles.mediaListNameActive : styles.mediaListName
+          }
+        >
+          All Media
+        </div>
+        {renderMediaList}
       </div>
-      <div className={styles.mediaListWrap}>{renderMediaList}</div>
       <hr />
       {renderedFakesByMonth}
     </div>

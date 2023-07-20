@@ -27,7 +27,7 @@ export const monthFakes = () => {
   const router = useRouter();
   const { month } = router.query;
   const defaultYear = router.query;
-  console.log(defaultYear);
+  
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [current, setCurrent] = useState("2022");
@@ -75,8 +75,8 @@ export const monthFakes = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.mainLeft}>
-        <div style={{ margin: "0 auto" }}>
+      <div className={styles.main}>
+        <div>
           {/* @ts-ignore */}
           <Timeline current={current} setMedia={setMedia} />
           <div className={styles.yearsWrap}>

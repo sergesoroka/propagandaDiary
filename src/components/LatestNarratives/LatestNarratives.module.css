@@ -1,5 +1,5 @@
 .narrativeWrap {
-  margin: 3rem 0;
+  margin: 1rem 0 0 0;
 }
 .narrativeItem {
   display: flex;
@@ -38,4 +38,37 @@
     width: 100%;
     font-size: 1.2rem;
   }
+}
+
+/* MediaList */
+
+.listItem {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.listItemActive {
+  font-size: 0.8rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  user-select: none;
+}
+
+.MediaList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+  max-width: 800px;
+  padding: 0 0.4rem;
+}
+
+.allMediaButton {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
 }

@@ -13,7 +13,9 @@
 }
 
 .MediaList {
-  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .allMediaButton {

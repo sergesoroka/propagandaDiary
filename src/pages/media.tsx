@@ -28,11 +28,11 @@ function Media() {
           setMedia={setMedia}
         />
 
-        {/* @ts-ignore */}
 
         <NarrativesByMedia
           country={country}
           media={media}
+          {/* @ts-ignore */}
           setMedia={setMedia}
         />
       </main>

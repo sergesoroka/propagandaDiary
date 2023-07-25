@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "./LatestNarratives.module.css";
 import SpetialText from "../../../data/SpetialText";
 
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
-
+import Narrative from "./Narrative/Narrative";
 
 const NarrativesByMedia = ({
   country,
@@ -13,11 +12,9 @@ const NarrativesByMedia = ({
 }: {
   country: string;
   media: string;
-  setMedia: (media: string) => {}
+  setMedia: (media: string) => {};
 }) => {
   const { data } = useLangSwitcher();
-
-
 
   const uniqueNarratives: string[] = [];
   const uniqueMedia: string[] = [];
@@ -63,7 +60,7 @@ const NarrativesByMedia = ({
   });
 
   // @ts-ignore
-  const lastNarratives = uniqueNarratives.map((narrative, i) => {
+  const Narratives = uniqueNarratives.map((narrative, i) => {
     const uniqueFakes: string[] = [];
 
     // @ts-ignore
@@ -74,45 +71,29 @@ const NarrativesByMedia = ({
     });
 
     return (
-      <motion.div
+      <Narrative
         key={i}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, type: "tween", delay: 0.4 }}
-      >
-        <div className={styles.narrativeItem}>
-          <p className={styles.fakesNumber}>
-            <SpetialText name={"Fakes"} />: {uniqueFakes.length}
-          </p>
-          <Link href={{ pathname: `/narrative/${narrative}` }}>
-            <h1 className={styles.narrativeHeading}>{narrative}</h1>
-          </Link>
-        </div>
-        <hr
-          style={{
-            height: "1px",
-            background: "rgb(204, 204, 204)",
-            border: "none",
-          }}
-        />
-      </motion.div>
+        narrative={narrative}
+        uniqueFakes={uniqueFakes}
+        media={media}
+        country={country}
+      />
     );
   });
 
   return (
     <div className={styles.narrativeWrap}>
-        <hr
-          style={{
-            height: "2px",
-            background: "#FF2618",
-            border: "none",
-            width: "100%",
-            
-          }}
-        />
+      <hr
+        style={{
+          height: "2px",
+          background: "#FF2618",
+          border: "none",
+          width: "100%",
+        }}
+      />
       <div className={styles.MediaList}>{mediaList}</div>
       {/* @ts-ignore */}
-      {lastNarratives}
+      {Narratives}
     </div>
   );
 };

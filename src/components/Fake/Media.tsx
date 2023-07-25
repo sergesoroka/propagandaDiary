@@ -32,7 +32,6 @@ function Media({
     }
   });
 
-  
   return (
     <>
       <div className={styles.fakeHeadingMediaPage}>{fake}</div>

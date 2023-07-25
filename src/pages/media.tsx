@@ -33,7 +33,6 @@ function Media() {
     }
   }, [locale]);
 
-
   const [media, setMedia] = useState("all");
 
   return (

@@ -11,8 +11,10 @@ function Media({
   media: string;
 }) {
   const { data } = useLangSwitcher();
+  
   // @ts-ignore
   const listOfMedia = data.map((item) => {
+   
     if (
       item.Fake === fake &&
       item.Country === country &&
@@ -29,9 +31,12 @@ function Media({
       );
     }
   });
+
+  
   return (
     <>
       <div className={styles.fakeHeadingMediaPage}>{fake}</div>
+      
       {listOfMedia}
     </>
   );

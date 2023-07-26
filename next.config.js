@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  swcMinify: false,
   i18n: {
     locales: ["it", "de", "en", "ua", "ru", "pl", "cs", "sk", "hu"],
     defaultLocale: "ua",

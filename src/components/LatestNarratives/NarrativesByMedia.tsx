@@ -77,7 +77,6 @@ const NarrativesByMedia = ({
       <Narrative
         key={i}
         narrative={narrative}
-        uniqueFakes={uniqueFakes}
         media={media}
         country={country}
       />

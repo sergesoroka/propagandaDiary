@@ -1,23 +1,14 @@
 import Media from "./Media";
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
-import styles from "./Fake.module.css";
 
 const FakeListForMedia = ({
   narrative,
-  month,
-  year,
-  tagName,
   country,
   media,
-  setMedia,
 }: {
   narrative?: string;
-  month?: string;
-  year?: string;
-  tagName?: string;
   country?: string;
   media?: string;
-  setMedia?: (media: string) => {};
 }) => {
   const { data } = useLangSwitcher();
 
@@ -36,7 +27,7 @@ const FakeListForMedia = ({
   });
 
   const renderedFakesByMedia = uniqueFakesByMedia.map((fake, i) => {
-      // @ts-ignore
+    // @ts-ignore
     return <Media key={i} fake={fake} country={country} media={media} />;
   });
 

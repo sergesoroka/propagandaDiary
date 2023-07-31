@@ -3,19 +3,33 @@ import { useState } from "react";
 import SpetialText from "../../../../data/SpetialText";
 import FakeListForMedia from "@/components/Fake/FakeListForMedia";
 import styles from "../LatestNarratives.module.css";
+import useLangSwitcher from "../../../../utils/i18n/useLangSwitcher";
 
 function Narrative({
   narrative,
-  uniqueFakes,
   media,
   country,
 }: {
   narrative: string;
-  uniqueFakes: string[];
   media: string;
   country: string;
 }) {
   const [openNarrative, setOpenNarrative] = useState(false);
+  const { data } = useLangSwitcher();
+
+  const uniqueFakesByMedia: string[] = [];
+
+  // @ts-ignore
+  data.map((c) => {
+    if (
+      !uniqueFakesByMedia.includes(c.Fake) &&
+      c.Narrative === narrative &&
+      c.Country === country &&
+      c.Media === media
+    ) {
+      uniqueFakesByMedia.push(c.Fake);
+    }
+  });
 
   return (
     <motion.div
@@ -25,7 +39,7 @@ function Narrative({
     >
       <div className={styles.narrativeItem}>
         <p className={styles.fakesNumber}>
-          <SpetialText name={"Fakes"} />: {uniqueFakes.length}
+          <SpetialText name={"Fakes"} />: {uniqueFakesByMedia.length}
         </p>
 
         <h1

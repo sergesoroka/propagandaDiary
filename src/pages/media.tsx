@@ -2,8 +2,8 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import CountryList from "@/components/CountryList/CountryList";
-
 import NarrativesByMedia from "@/components/LatestNarratives/NarrativesByMedia";
+
 import { useRouter } from "next/router";
 
 function Media() {

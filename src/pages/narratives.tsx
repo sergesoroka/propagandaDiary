@@ -3,8 +3,6 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { FakesBarChart } from "@/components/FakesBarChart/FakesBarChart";
 
-import getNarrativesData from "../../lib/getAllNarratives";
-
 const AllNarratives = dynamic(
   () => import("@/components/LatestNarratives/AllNarratives"),
   {

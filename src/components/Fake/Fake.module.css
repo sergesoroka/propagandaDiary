@@ -14,17 +14,16 @@
 
 .fakeHeadingMediaPage {
   font-size: 1rem;
-  margin: 1rem 0 1rem .4rem;
+  margin: 1rem 0 1rem 0.4rem;
   color: #353535;
 }
 
 .mediaList {
-  margin: .6rem 4rem;
+  margin: 0.6rem 4rem;
   display: flex;
   gap: 20px;
   align-items: baseline;
-    font-size: 0.86rem;
-  
+  font-size: 0.86rem;
 }
 
 .mediaListWrap {
@@ -40,7 +39,7 @@
   .mediaListWrap {
     margin: 1.6rem 1rem;
     display: block;
-  
+
     line-height: 2rem;
   }
 }
@@ -51,26 +50,23 @@
   cursor: pointer;
 }
 .mediaListNameActive {
-  color: #FF2618;
+  color: #ff2618;
   font-weight: 600 !important;
   margin-right: 1.8rem;
 }
 
 .mediaName {
-  color: #FF2618;
+  color: #ff2618;
   margin-right: 1.8rem;
   font-weight: 600 !important;
-
 }
 
 .mediaCountry {
-  font-size: .928rem;
+  font-size: inherit;
 }
 
-
-
 .mediaDate {
-  font-size: .7rem;
+  font-size: 0.7rem;
   color: #707070;
   font-weight: 400;
   margin-left: 0.6rem;
@@ -81,18 +77,18 @@
   .mediaName {
     width: 100%;
   }
-  .fakeHeading, .fakeHeadingActive {
+  .fakeHeading,
+  .fakeHeadingActive {
     margin: 1rem;
     font-size: 1rem;
   }
   .mediaList {
     display: block !important;
     margin: 1rem;
-    font-size: .86rem;
+    font-size: 0.86rem;
   }
   .mediaDate {
     margin-left: 0;
-    margin-top: .2rem;
+    margin-top: 0.2rem;
   }
-
 }

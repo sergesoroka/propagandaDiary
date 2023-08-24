@@ -36,8 +36,6 @@ const FakeList = ({
       });
   }, [locale]);
 
-  console.log(narrative);
-
   // @ts-ignore
   const fakeFiltered = useMemo(
     () =>
@@ -70,7 +68,13 @@ const FakeList = ({
     // @ts-ignore
     dataFakes.data.map((item) => {
       if (item.narrative_id == narrative) {
-        return <Fake fake={item.title} key={item.id} />;
+        return (
+          <Fake
+            fake={item.title}
+            narrativeId={item.narrative_id}
+            key={item.id}
+          />
+        );
       }
     });
 

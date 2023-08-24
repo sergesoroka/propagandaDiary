@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Fake from "./Fake";
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 import { useEffect, useMemo, useState } from "react";
@@ -36,24 +37,24 @@ const FakeList = ({
       });
   }, [locale]);
 
-  // @ts-ignore
   const fakeFiltered = useMemo(
     () =>
+      // @ts-ignore
       data.filter(
         (item: { Narrative: string | undefined }) =>
           item.Narrative === narrative
       ),
     [data, narrative]
   );
-  // @ts-ignore
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const fakeByTag = useMemo(() =>
-    data.filter(
-      // @ts-ignore
-      (item) => item.Tag === tagName || item.Tag.split(", ").includes(tagName),
-      [data, tagName]
-    )
-  );
+  // @ts-ignore
+  // const fakeByTag = useMemo(() =>
+  //   data.filter(
+  //     // @ts-ignore
+  //     (item) => item.Tag === tagName || item.Tag.split(", ").includes(tagName),
+  //     [data, tagName]
+  //   )
+  // );
 
   const uniqueFakesEn: string[] = [];
   // @ts-ignore

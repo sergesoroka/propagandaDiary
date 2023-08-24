@@ -1,6 +1,7 @@
 import Fake from "./Fake";
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/router";
 
 const FakeList = ({
   narrative,
@@ -15,15 +16,45 @@ const FakeList = ({
 }) => {
   const { data } = useLangSwitcher();
 
+  const router = useRouter();
+  const { locale } = router;
+
+  const [dataFakes, setDataFakes] = useState(null);
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    fetch(
+      `https://vox-dashboard.ra-devs.tech/api/sub-narratives?lang=${locale}&per_page=4000`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setDataFakes(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [locale]);
+
+  console.log(narrative);
+
   // @ts-ignore
-  const fakeFiltered = useMemo(() => data.filter((item: { Narrative: string | undefined; }) => item.Narrative === narrative),
+  const fakeFiltered = useMemo(
+    () =>
+      data.filter(
+        (item: { Narrative: string | undefined }) =>
+          item.Narrative === narrative
+      ),
     [data, narrative]
   );
   // @ts-ignore
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const fakeByTag = useMemo(() => data.filter(
-    // @ts-ignore
-    (item) => item.Tag === tagName || item.Tag.split(", ").includes(tagName), [data, tagName])
+  const fakeByTag = useMemo(() =>
+    data.filter(
+      // @ts-ignore
+      (item) => item.Tag === tagName || item.Tag.split(", ").includes(tagName),
+      [data, tagName]
+    )
   );
 
   const uniqueFakesEn: string[] = [];
@@ -34,12 +65,17 @@ const FakeList = ({
     }
     return c;
   });
-  const renderedFakes = uniqueFakesEn.map((item) => (
-    <Fake fake={item} key={item} />
-  ));
+  const renderedFakes =
+    dataFakes &&
+    // @ts-ignore
+    dataFakes.data.map((item) => {
+      if (item.narrative_id == narrative) {
+        return <Fake fake={item.title} key={item.id} />;
+      }
+    });
 
   const uniqueFakesByTagEn: string[] = [];
-  fakeByTag.map((c: { Fake: string; }) => {
+  fakeByTag.map((c: { Fake: string }) => {
     if (!uniqueFakesByTagEn.includes(c.Fake)) {
       uniqueFakesByTagEn.push(c.Fake);
     }
@@ -68,11 +104,12 @@ const FakeList = ({
 
   return (
     <>
-      {tagName
+      {/* {tagName
         ? renderedFakesByTag
         : month
         ? renderedFakesByMonth
-        : renderedFakes}
+        : renderedFakes}*/}
+      {renderedFakes}
     </>
   );
 };

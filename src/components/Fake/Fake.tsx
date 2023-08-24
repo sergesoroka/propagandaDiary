@@ -7,7 +7,7 @@ const Fake = ({
   month,
   year,
   country,
-  media
+  media,
 }: {
   fake: string;
   month?: string;
@@ -18,13 +18,16 @@ const Fake = ({
   const [open, setOpen] = useState(false);
 
   const { data } = useLangSwitcher();
+  console.log(fake);
 
   // @ts-ignore
   const mediaListByMonth = data.map((item) => {
     if (
       item.Date >= `${year}-${month}-01` &&
       item.Date <= `${year}-${month}-31` &&
-      item.Fake === fake && item.Country === country && media === 'all'
+      item.Fake === fake &&
+      item.Country === country &&
+      media === "all"
     ) {
       return (
         <>
@@ -41,7 +44,9 @@ const Fake = ({
     if (
       item.Date >= `${year}-${month}-01` &&
       item.Date <= `${year}-${month}-31` &&
-      item.Fake === fake && item.Country === country && item.Media === media
+      item.Fake === fake &&
+      item.Country === country &&
+      item.Media === media
     ) {
       return (
         <>

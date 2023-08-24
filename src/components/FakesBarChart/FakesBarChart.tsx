@@ -1,5 +1,5 @@
 import styles from "@/styles/Home.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -11,48 +11,69 @@ let defaultFakesNumber = 5;
 
 export const FakesBarChart = () => {
   const router = useRouter();
+  const { locale } = router;
   const { data } = useLangSwitcher();
 
-  const uniqueNarrativesEn: string[] = [];
-  // @ts-ignore
-  data.map((c) => {
-    if (!uniqueNarrativesEn.includes(c.Narrative)) {
-      uniqueNarrativesEn.push(c.Narrative);
-    }
-    return c;
-  });
+  const [dataNarrative, setDataNarrative] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
   let defaultNarrative = router.query.id;
   // @ts-ignore
   const [title, setTitle] = useState<string | null>(defaultNarrative);
   const [fakes, setFakes] = useState<number>(defaultFakesNumber);
 
-  const renderNarratives = uniqueNarrativesEn.map((item, i) => {
-    const uniqueFakes: string[] = [];
+  useEffect(() => {
+    fetch(
+      `https://vox-dashboard.ra-devs.tech/api/narratives?per_page=30&lang=${locale}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setDataNarrative(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [locale]);
 
+  // const uniqueNarrativesEn: string[] = [];
+  // // @ts-ignore
+  // data.map((c) => {
+  //   if (!uniqueNarrativesEn.includes(c.Narrative)) {
+  //     uniqueNarrativesEn.push(c.Narrative);
+  //   }
+  //   return c;
+  // });
+
+  const renderNarratives =
+    dataNarrative &&
     // @ts-ignore
-    data.map((fake) => {
-      if (!uniqueFakes.includes(fake.Fake) && fake.Narrative === item) {
-        uniqueFakes.push(fake.Fake);
-      }
+    dataNarrative.data.map((item, i) => {
+      const uniqueFakes: string[] = [];
+
+      // @ts-ignore
+      data.map((fake) => {
+        if (!uniqueFakes.includes(fake.Fake) && fake.Narrative === item.title) {
+          uniqueFakes.push(fake.Fake);
+        }
+      });
+      return (
+        <Link key={i} href={{ pathname: `/narrative/${item.id}` }}>
+          <rect
+            width="30"
+            height={uniqueFakes.length * 4}
+            fill={title === item ? "#ff2618" : "#ccc"}
+            x={i * 35}
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              setTitle(item.title);
+              // @ts-ignore
+              setFakes(uniqueFakes.length);
+            }}
+          />
+        </Link>
+      );
     });
-    return (
-      <Link key={i} href={{ pathname: `/narrative/${item}` }}>
-        <rect
-          width="30"
-          height={uniqueFakes.length * 4}
-          fill={title === item ? "#ff2618" : "#ccc"}
-          x={i * 35}
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            setTitle(item);
-            // @ts-ignore
-            setFakes(uniqueFakes.length);
-          }}
-        />
-      </Link>
-    );
-  });
 
   return (
     <motion.div
@@ -62,10 +83,10 @@ export const FakesBarChart = () => {
     >
       <div>
         <p className={styles.fakesNumber}>
-           <SpetialText name={"Fakes"} />: {fakes}
+          <SpetialText name={"Fakes"} />: {fakes}
         </p>
         <svg width="950" height="200" style={{ transform: "scaleY(-1)" }}>
-          {renderNarratives}
+          {dataNarrative && renderNarratives}
         </svg>
       </div>
       {/* <div>{renderNarrativesMobie}</div> */}

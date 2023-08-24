@@ -4,36 +4,31 @@ import styles from "./LatestNarratives.module.css";
 
 import narrLast from "../../../data/lastedNarratives.json";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const LatestNarratives = () => {
+  const [dataNarratives, setDataNarratives] = useState(null);
+  const [isLoading, setLoading] = useState(false);
+
   const router = useRouter();
   const { locale } = router;
 
-  const data =
-    locale == "ua"
-      ? narrLast["ua"]
-      : locale == "de"
-      ? narrLast["de"]
-      : locale == "pl"
-      ? narrLast["pl"]
-      : locale == "en"
-      ? narrLast["en"]
-      : locale == "sk"
-      ? narrLast["sk"]
-      : locale == "it"
-      ? narrLast["it"]
-      : locale == "hu"
-      ? narrLast["hu"]
-      : locale == "cs"
-      ? narrLast["cs"]
-      : locale == "ru"
-      ? narrLast["ru"]
-      : narrLast["ua"];
+  useEffect(() => {
+    fetch(`https://vox-dashboard.ra-devs.tech/api/narratives?lang=${locale}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setDataNarratives(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [locale]);
 
   // @ts-ignore
-  const lastNarratives = data.map((narrative, i) => {
+  const lastNarratives = dataNarratives.map((narrative, i) => {
     return (
-      <Link key={i} href={{ pathname: `/narrative/${narrative}` }}>
+      <Link key={i} href={{ pathname: `/narrative/${narrative.id}` }}>
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -41,7 +36,7 @@ const LatestNarratives = () => {
           className={styles.narrativeHeading}
           style={{ marginTop: "1.4rem" }}
         >
-          {narrative}
+          {narrative.title}
         </motion.h1>
         <hr
           style={{

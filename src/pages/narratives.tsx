@@ -3,9 +3,14 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import { FakesBarChart } from "@/components/FakesBarChart/FakesBarChart";
 
-const AllNarratives = dynamic(() => import('@/components/LatestNarratives/AllNarratives'), {
-  loading: () => <p>Loading...</p>,
-})
+import getNarrativesData from "../../lib/getAllNarratives";
+
+const AllNarratives = dynamic(
+  () => import("@/components/LatestNarratives/AllNarratives"),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 // import AllNarratives from "@/components/LatestNarratives/AllNarratives";
 
 const Narratives = () => {

@@ -1,44 +1,54 @@
-// import FakeList from "@/components/Fake/FakeList";
-import SpetialText from "../../../data/SpetialText";
-import BackArrow from "@/components/Icons/BackArrow";
+// @ts-nocheck
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import styles from "../../styles/Home.module.css";
 import Link from "next/link";
 import Head from "next/head";
-import Timeline from "@/components/BarChart/Timeline";
-import CountryList from "@/components/CountryList/CountryList";
-import MediaList from "@/components/MediaList/MediaList";
-import { useState } from "react";
 import dynamic from "next/dynamic";
 
-const FakeList = dynamic(() => import("@/components/Fake/FakeList"), {
-  loading: () => <p style={{ margin: "0 auto" }}>Loading...</p>,
-});
+import SpetialText from "../../../data/SpetialText";
+import BackArrow from "@/components/Icons/BackArrow";
+import styles from "../../styles/Home.module.css";
+import Timeline from "@/components/BarChart/Timeline";
+import CountryList from "@/components/CountryList/CountryList";
+import getSubNarrativeData from "../../../lib/getSubNarrativeData";
+import getMediaData from "../../../lib/getMediaData";
 
-const FakeListForMonth = dynamic(
-  () => import("@/components/Fake/FakeListForMonth"),
+import { format } from "date-fns";
+
+const SubNarrativeList = dynamic(
+  () => import("@/components/SubNarratives/SubNarrativeList"),
   {
-    loading: () => <p style={{ margin: "0 auto" }}>Loading Fakes...</p>,
+    loading: () => <p style={{ margin: "0 auto" }}>Loading...</p>,
   }
 );
 
-export const monthFakes = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export const MonthFakes = () => {
   const router = useRouter();
   const { month } = router.query;
   const defaultYear = router.query;
-  
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { locale } = router;
   const [current, setCurrent] = useState("2022");
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [country, setCountry] = useState("Польща");
+  const [media, setMedia] = useState("all");
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [media, setMedia] = useState("all");
- 
-    
+  const [isLoading, setLoading] = useState(false);
+  const [subNarrativeData, setSubNarrativeData] = useState(null);
+  const [mediaData, setMediaData] = useState(null);
+
+  useEffect(() => {
+    async function getSubNarrative() {
+      const dataFetched = await getSubNarrativeData(locale, "4000");
+      setSubNarrativeData(dataFetched);
+    }
+    getSubNarrative();
+
+    async function getMedia() {
+      const dataFetched = await getMediaData(locale, "4000");
+      setMediaData(dataFetched);
+    }
+    getMedia();
+  }, [locale, media, country, current]);
 
   const monthName =
     month === "01"
@@ -66,7 +76,42 @@ export const monthFakes = () => {
       : month === "12"
       ? "December"
       : "";
+  const mediaByMonth = [];
+  const subNarrativId = [];
 
+  console.log("Media By MONTH", mediaByMonth);
+
+  mediaData &&
+    mediaData.data.map((item) => {
+      let dateMonth = format(new Date(item.date), "MM");
+      if (dateMonth == month && media == "all" && item.country == country) {
+        mediaByMonth.push(item);
+        subNarrativId.push(item.sub_narrative_id);
+      }
+      if (
+        dateMonth == month &&
+        item.media_name == media &&
+        item.country == country
+      ) {
+        mediaByMonth.push(item);
+        subNarrativId.push(item.sub_narrative_id);
+      }
+    });
+
+  const subNarrativesRender =
+    subNarrativeData &&
+    subNarrativeData.data.map((item) => {
+      if (subNarrativId.includes(item.id)) {
+        return (
+          <SubNarrativeList
+            key={item.id}
+            subNarrativeTitle={item.title}
+            subNarrativeId={item.id}
+            media={mediaByMonth}
+          />
+        );
+      }
+    });
   return (
     <>
       <Head>
@@ -93,12 +138,13 @@ export const monthFakes = () => {
               2023
             </p>
           </div>
-          {/* @ts-ignore */}
-          <CountryList setCountry={setCountry} country={country} setMedia={setMedia} />
+          <CountryList
+            setCountry={setCountry}
+            country={country}
+            setMedia={setMedia}
+          />
         </div>
         <div className={styles.mediaListWrap}>
-          {/* @ts-ignore */}
-          {/* <MediaList country={country} media={media} setMedia={setMedia}  /> */}
           <div>
             {month && (
               <div>
@@ -119,9 +165,8 @@ export const monthFakes = () => {
                 />
               </div>
             )}
-            {/* @ts-ignore */}
 
-            <FakeListForMonth month={month} year={current} country={country} media={media} setMedia={setMedia}/>
+            {subNarrativesRender}
           </div>
         </div>
       </div>
@@ -129,4 +174,4 @@ export const monthFakes = () => {
   );
 };
 
-export default monthFakes;
+export default MonthFakes;

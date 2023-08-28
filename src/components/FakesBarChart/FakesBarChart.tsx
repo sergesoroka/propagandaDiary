@@ -62,7 +62,7 @@ export const FakesBarChart = () => {
           <rect
             width="30"
             height={uniqueFakes.length * 4}
-            fill={title === item ? "#ff2618" : "#ccc"}
+            fill={router.query.id == item.id ? "#ff2618" : "#ccc"}
             x={i * 35}
             style={{ cursor: "pointer" }}
             onClick={() => {

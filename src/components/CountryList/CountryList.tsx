@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "./CountryList.module.css";
-import { motion } from "framer-motion";
 
 function CountryList({
   setCountry,
@@ -14,7 +12,6 @@ function CountryList({
 }) {
   const router = useRouter();
   const { locale } = router;
-  // const [country, setCountry] = useState("poland");
 
   const poland =
     (locale == "ua" && "Польща") ||

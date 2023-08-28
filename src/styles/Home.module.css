@@ -76,10 +76,10 @@
 }
 
 .mediaListWrap {
-  display: flex;
+  /* display: flex;
   flex-direction: row-reverse;
-  gap: 3rem;
-  
+  gap: 3rem; */
+  width: 100%;
 }
 .listsDiscr {
   font-size: 0.9rem;
@@ -438,10 +438,8 @@
   }
 
   .allNarrativesWrap {
-    padding: 0  1rem 2rem 1rem;
+    padding: 0 1rem 2rem 1rem;
   }
-
-  
 
   .narrativeContent {
     padding: 2rem 1rem;

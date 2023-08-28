@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -10,39 +11,56 @@ import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
-const FakeList = dynamic(() => import("@/components/Fake/FakeList"), {
-  loading: () => <p style={{ margin: "0 auto" }}>Loading...</p>,
-});
+import getMediaData from "../../../lib/getMediaData";
+import getNarrativeData from "../../../lib/getNarrativeData";
+import getSubNarrativeData from "../../../lib/getSubNarrativeData";
+
+const SubNarrativeList = dynamic(
+  () => import("@/components/SubNarratives/SubNarrativeList"),
+  {
+    loading: () => <p style={{ margin: "0 auto" }}>Loading...</p>,
+  }
+);
 
 const NarrativePage = () => {
-  const [dataNarrative, setDataNarrative] = useState(null);
-  const [isLoading, setLoading] = useState(false);
+  const { data } = useLangSwitcher();
 
   const [tagName, setTagName] = useState("");
 
   const router = useRouter();
   const { locale } = router;
   const { id } = router.query;
-  const { data } = useLangSwitcher();
+
+  const [isLoading, setLoading] = useState(false);
+  const [narrativeData, setNarrativeData] = useState(null);
+  const [subNarrativeData, setSubNarrativeData] = useState(null);
+  const [mediaData, setMediaData] = useState(null);
 
   useEffect(() => {
-    fetch(
-      `https://vox-dashboard.ra-devs.tech/api/narratives?per_page=30&lang=${locale}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setDataNarrative(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    async function getNarrative() {
+      const dataFetched = await getNarrativeData(locale, "40");
+      setNarrativeData(dataFetched);
+    }
+    getNarrative();
+
+    async function getSubNarrative() {
+      // @ts-ignore
+      const dataFetched = await getSubNarrativeData(locale, "4000");
+      setSubNarrativeData(dataFetched);
+    }
+    getSubNarrative();
+
+    async function getMedia() {
+      const dataFetched = await getMediaData(locale, "4000");
+      setMediaData(dataFetched);
+    }
+    getMedia();
   }, [locale]);
 
   const narrativeDescription =
-    dataNarrative &&
+    narrativeData &&
     // @ts-ignore
-    dataNarrative.data.map((item) => {
+    narrativeData.data.map((item) => {
       if (item.id == id) {
         return (
           <div key={item.id}>
@@ -68,28 +86,21 @@ const NarrativePage = () => {
       }
     });
 
-  const narrativeDiscriptions: string[] = [];
-  // @ts-ignore
-  data.map((item) => {
-    if (item.Narrative === id) {
-      if (!narrativeDiscriptions.includes(item.Description)) {
-        narrativeDiscriptions.push(item.Description);
-      }
-    }
-  });
-
+  const mediaByNarrativeId: string[] = [];
   const narrativeTags: string[] = [];
-  // @ts-ignore
-  data.map((item) => {
-    if (item.Narrative === id) {
-      // let tagItem = item.Tag.split(', ')
-      if (!narrativeTags.includes(item.Tag)) {
-        narrativeTags.push(item.Tag);
-      }
-    }
-  });
-
   const uniqueNarrativeTags: string[] = [];
+
+  console.log("Media By Nar ID", mediaByNarrativeId);
+
+  mediaData &&
+    mediaData.data.map((item) => {
+      if (item.narrative_id == id) {
+        mediaByNarrativeId.push(item);
+      }
+      if (item.narrative_id == id && !narrativeTags.includes(item.tags)) {
+        narrativeTags.push(item.tags);
+      }
+    });
 
   // @ts-ignore
   const arrTagsTest = narrativeTags.map((item) => {
@@ -101,6 +112,23 @@ const NarrativePage = () => {
       uniqueNarrativeTags.push(item);
     }
   });
+
+  const subNarrativesRender =
+    subNarrativeData &&
+    subNarrativeData.data.map((item) => {
+      if (item.narrative_id == id) {
+        return (
+          <SubNarrativeList
+            key={item.id}
+            narrativeId={id}
+            subNarrativeTitle={item.title}
+            subNarrativeId={item.id}
+            media={mediaByNarrativeId}
+            tag={tagName}
+          />
+        );
+      }
+    });
 
   const tagsList = uniqueNarrativeTags.map((tag, i) => (
     // <Link key={i} href={{ pathname: `/tag/${tag}` }}>
@@ -132,7 +160,7 @@ const NarrativePage = () => {
           </Link>
         </div>
         <div>
-          <>{dataNarrative && narrativeDescription}</>
+          <>{narrativeDescription}</>
         </div>
         <div className={styles.narrativeTags}>
           <p className={styles.caption}>
@@ -152,7 +180,8 @@ const NarrativePage = () => {
           }}
         />
         {/* @ts-ignore */}
-        <FakeList narrative={id} tagName={tagName} />
+        {/* <FakeList narrative={id} tagName={tagName} /> */}
+        {subNarrativesRender}
       </div>
     </div>
   );

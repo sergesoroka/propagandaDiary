@@ -8,6 +8,7 @@ import { uk, de, enUS, ru, pl, cs, it, sk, hu } from "date-fns/locale";
 
 const Fake = ({
   fake,
+  fakeId,
   narrativeId,
   month,
   year,
@@ -15,6 +16,7 @@ const Fake = ({
   media,
 }: {
   fake: string;
+  fakeId?: number;
   narrativeId?: string;
   month?: string;
   year?: string;
@@ -63,7 +65,7 @@ const Fake = ({
       .catch((error) => {
         console.error(error);
       });
-  }, [locale]);
+  }, [locale, open]);
 
   // @ts-ignore
   const mediaListByMonth = data.map((item) => {
@@ -112,7 +114,11 @@ const Fake = ({
     dataMedia &&
     // @ts-ignore
     dataMedia.data.map((item) => {
-      if (narrativeId == item.narrative_id) {
+      if (
+        narrativeId == item.narrative_id &&
+        fakeId == item.sub_narrative_id &&
+        item.title !== ""
+      ) {
         return (
           <div className={styles.mediaList} key={item.id}>
             <a target="_blank" rel="noreferrer" href={item.link_archive}>

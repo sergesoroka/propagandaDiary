@@ -43,7 +43,7 @@ const FivePopNarratives = () => {
         : // @ts-ignore
           narr.ua;
     return (
-      <Link key={i} href={{ pathname: `/narrative/${narrRender}` }}>
+      <Link key={i} href={{ pathname: `/narrative/${narr.id}` }}>
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

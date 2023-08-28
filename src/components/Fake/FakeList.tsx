@@ -4,6 +4,8 @@ import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 
+import getMediaData from "../../../lib/getMediaData";
+
 const FakeList = ({
   narrative,
   month,
@@ -48,13 +50,14 @@ const FakeList = ({
   );
   // eslint-disable-next-line react-hooks/exhaustive-deps
   // @ts-ignore
-  // const fakeByTag = useMemo(() =>
-  //   data.filter(
-  //     // @ts-ignore
-  //     (item) => item.Tag === tagName || item.Tag.split(", ").includes(tagName),
-  //     [data, tagName]
-  //   )
-  // );
+  const fakeByTag = useMemo(
+    () =>
+      data.filter(
+        // @ts-ignore
+        (item) => item.Tag === tagName || item.Tag.split(", ").includes(tagName)
+      ),
+    [data, tagName]
+  );
 
   const uniqueFakesEn: string[] = [];
   // @ts-ignore
@@ -72,6 +75,7 @@ const FakeList = ({
         return (
           <Fake
             fake={item.title}
+            fakeId={item.id}
             narrativeId={item.narrative_id}
             key={item.id}
           />

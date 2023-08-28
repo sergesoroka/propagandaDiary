@@ -37,18 +37,29 @@ export const MonthFakes = () => {
   const [mediaData, setMediaData] = useState(null);
 
   useEffect(() => {
+    let isMounted = true;
+
     async function getSubNarrative() {
+      // @ts-ignore
       const dataFetched = await getSubNarrativeData(locale, "4000");
-      setSubNarrativeData(dataFetched);
+      if (isMounted) {
+        setSubNarrativeData(dataFetched);
+      }
     }
     getSubNarrative();
 
     async function getMedia() {
       const dataFetched = await getMediaData(locale, "4000");
-      setMediaData(dataFetched);
+      if (isMounted) {
+        setMediaData(dataFetched);
+      }
     }
     getMedia();
+    return () => {
+      isMounted = false;
+    };
   }, [locale, media, country, current]);
+  console.log("month data:", mediaData);
 
   const monthName =
     month === "01"

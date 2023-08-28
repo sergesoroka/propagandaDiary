@@ -79,8 +79,6 @@ export const MonthFakes = () => {
   const mediaByMonth = [];
   const subNarrativId = [];
 
-  console.log("Media By MONTH", mediaByMonth);
-
   mediaData &&
     mediaData.data.map((item) => {
       let dateMonth = format(new Date(item.date), "MM");

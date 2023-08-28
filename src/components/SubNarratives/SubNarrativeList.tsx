@@ -39,10 +39,10 @@ export default function SubNarrativeList({
       ? ru
       : uk;
 
-  const mediaList = media.map((item) => {
+  const mediaList = media.map((item, i) => {
     if (item.sub_narrative_id === subNarrativeId) {
       return (
-        <div key={item.id} className={styles.mediaList}>
+        <div key={i} className={styles.mediaList}>
           <p className={styles.mediaName}>{item.media_name}</p>
           <p className={styles.mediaCountry}>{item.country}</p>
           <p className={styles.mediaDate}>
@@ -72,9 +72,8 @@ export default function SubNarrativeList({
   // });
 
   return (
-    <>
+    <div key={narrativeId}>
       <div
-        key={narrativeId}
         onClick={() => setOpen(!open)}
         style={{ cursor: "pointer" }}
         className={open ? styles.fakeHeadingActive : styles.fakeHeading}
@@ -82,6 +81,6 @@ export default function SubNarrativeList({
         SUB Nar: {subNarrativeId} - {subNarrativeTitle}
       </div>
       {open && <div>{mediaList}</div>}
-    </>
+    </div>
   );
 }

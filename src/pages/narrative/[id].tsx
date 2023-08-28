@@ -90,8 +90,6 @@ const NarrativePage = () => {
   const narrativeTags: string[] = [];
   const uniqueNarrativeTags: string[] = [];
 
-  console.log("Media By Nar ID", mediaByNarrativeId);
-
   mediaData &&
     mediaData.data.map((item) => {
       if (item.narrative_id == id) {

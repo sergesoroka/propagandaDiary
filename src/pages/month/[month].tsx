@@ -41,7 +41,7 @@ export const MonthFakes = () => {
 
     async function getSubNarrative() {
       // @ts-ignore
-      const dataFetched = await getSubNarrativeData(locale, "4000");
+      const dataFetched = await getSubNarrativeData(locale);
       if (isMounted) {
         setSubNarrativeData(dataFetched);
       }
@@ -49,7 +49,7 @@ export const MonthFakes = () => {
     getSubNarrative();
 
     async function getMedia() {
-      const dataFetched = await getMediaData(locale, "4000");
+      const dataFetched = await getMediaData(locale);
       if (isMounted) {
         setMediaData(dataFetched);
       }

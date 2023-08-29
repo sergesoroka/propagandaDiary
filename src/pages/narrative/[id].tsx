@@ -39,7 +39,7 @@ const NarrativePage = () => {
   useEffect(() => {
     let isMounted = true;
     async function getNarrative() {
-      const dataFetched = await getNarrativeData(locale, "40");
+      const dataFetched = await getNarrativeData(locale);
       if (isMounted) {
         setNarrativeData(dataFetched);
       }
@@ -48,7 +48,7 @@ const NarrativePage = () => {
 
     async function getSubNarrative() {
       // @ts-ignore
-      const dataFetched = await getSubNarrativeData(locale, "4000");
+      const dataFetched = await getSubNarrativeData(locale);
       if (isMounted) {
         setSubNarrativeData(dataFetched);
       }
@@ -56,7 +56,7 @@ const NarrativePage = () => {
     getSubNarrative();
 
     async function getMedia() {
-      const dataFetched = await getMediaData(locale, "4000");
+      const dataFetched = await getMediaData(locale);
       if (isMounted) {
         setMediaData(dataFetched);
       }

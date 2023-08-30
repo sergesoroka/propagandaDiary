@@ -40,36 +40,18 @@ export default function SubNarrativeList({
       : uk;
 
   const mediaList = media.map((item, i) => {
-    if (item.sub_narrative_id === subNarrativeId) {
-      return (
-        <div key={i} className={styles.mediaList}>
-          <p className={styles.mediaName}>{item.media_name}</p>
-          <p className={styles.mediaCountry}>{item.country}</p>
-          <p className={styles.mediaDate}>
-            {format(new Date(item.date), "d MMMM yyyy", {
-              locale: dataLocale,
-            })}
-          </p>
-        </div>
-      );
-    }
+    return (
+      <div key={i} className={styles.mediaList}>
+        <p className={styles.mediaName}>{item.media_name}</p>
+        <p className={styles.mediaCountry}>{item.country}</p>
+        <p className={styles.mediaDate}>
+          {format(new Date(item.date), "d MMMM yyyy", {
+            locale: dataLocale,
+          })}
+        </p>
+      </div>
+    );
   });
-
-  // const mediaListByTag = media.map((item) => {
-  //   if (item.sub_narrative_id == subNarrativeId && item.tags == tag) {
-  //     return (
-  //       <div key={item.id} className={styles.mediaList}>
-  //         <p className={styles.mediaName}>{item.media_name}</p>
-  //         <p className={styles.mediaCountry}>{item.country}</p>
-  //         <p className={styles.mediaDate}>
-  //           {format(new Date(item.date), "d MMMM yyyy", {
-  //             locale: dataLocale,
-  //           })}
-  //         </p>
-  //       </div>
-  //     );
-  //   }
-  // });
 
   return (
     <div key={narrativeId}>
@@ -78,7 +60,7 @@ export default function SubNarrativeList({
         style={{ cursor: "pointer" }}
         className={open ? styles.fakeHeadingActive : styles.fakeHeading}
       >
-        SUB Nar: {subNarrativeId} - {subNarrativeTitle}
+        {subNarrativeTitle}
       </div>
       {open && <div>{mediaList}</div>}
     </div>

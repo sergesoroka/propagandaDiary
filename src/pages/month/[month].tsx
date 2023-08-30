@@ -11,9 +11,10 @@ import styles from "../../styles/Home.module.css";
 import Timeline from "@/components/BarChart/Timeline";
 import CountryList from "@/components/CountryList/CountryList";
 import getSubNarrativeData from "../../../lib/getSubNarrativeData";
-import getMediaData from "../../../lib/getMediaData";
+import getMediaDataByMonth from "../../../lib/getMediaDataByMonth";
 
 import { format } from "date-fns";
+import { m } from "framer-motion";
 
 const SubNarrativeList = dynamic(
   () => import("@/components/SubNarratives/SubNarrativeList"),
@@ -49,7 +50,12 @@ export const MonthFakes = () => {
     getSubNarrative();
 
     async function getMedia() {
-      const dataFetched = await getMediaData(locale);
+      const dataFetched = await getMediaDataByMonth(
+        locale,
+        month,
+        current,
+        country
+      );
       if (isMounted) {
         setMediaData(dataFetched);
       }
@@ -58,8 +64,7 @@ export const MonthFakes = () => {
     return () => {
       isMounted = false;
     };
-  }, [locale, media, country, current]);
-  console.log("month data:", mediaData);
+  }, [locale, media, country, current, month]);
 
   const monthName =
     month === "01"
@@ -92,34 +97,23 @@ export const MonthFakes = () => {
 
   mediaData &&
     mediaData.data.map((item) => {
-      let dateMonth = format(new Date(item.date), "MM");
-      if (dateMonth == month && media == "all" && item.country == country) {
-        mediaByMonth.push(item);
+      if (!subNarrativId.includes(item.sub_narrative_id)) {
         subNarrativId.push(item.sub_narrative_id);
       }
-      if (
-        dateMonth == month &&
-        item.media_name == media &&
-        item.country == country
-      ) {
-        mediaByMonth.push(item);
-        subNarrativId.push(item.sub_narrative_id);
-      }
+      mediaByMonth.push(item);
     });
 
   const subNarrativesRender =
     subNarrativeData &&
     subNarrativeData.data.map((item) => {
-      if (subNarrativId.includes(item.id)) {
-        return (
-          <SubNarrativeList
-            key={item.id}
-            subNarrativeTitle={item.title}
-            subNarrativeId={item.id}
-            media={mediaByMonth}
-          />
-        );
-      }
+      return (
+        <SubNarrativeList
+          key={item.id}
+          subNarrativeTitle={item.title}
+          subNarrativeId={item.id}
+          media={mediaByMonth}
+        />
+      );
     });
   return (
     <>

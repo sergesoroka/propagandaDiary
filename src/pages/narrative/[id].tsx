@@ -11,7 +11,7 @@ import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
-import getMediaData from "../../../lib/getMediaData";
+import getMediaDataByNarrId from "../../../lib/getMediaDataByNarrId";
 import getNarrativeData from "../../../lib/getNarrativeData";
 import getSubNarrativeData from "../../../lib/getSubNarrativeData";
 
@@ -56,7 +56,7 @@ const NarrativePage = () => {
     getSubNarrative();
 
     async function getMedia() {
-      const dataFetched = await getMediaData(locale);
+      const dataFetched = await getMediaDataByNarrId(locale, id);
       if (isMounted) {
         setMediaData(dataFetched);
       }
@@ -65,8 +65,7 @@ const NarrativePage = () => {
     return () => {
       isMounted = false;
     };
-  }, [locale]);
-  console.log("narr data:", narrativeData);
+  }, [locale, id]);
 
   const narrativeDescription =
     narrativeData &&
@@ -103,9 +102,8 @@ const NarrativePage = () => {
 
   mediaData &&
     mediaData.data.map((item) => {
-      if (item.narrative_id == id) {
-        mediaByNarrativeId.push(item);
-      }
+      mediaByNarrativeId.push(item);
+
       if (item.narrative_id == id && !narrativeTags.includes(item.tags)) {
         narrativeTags.push(item.tags);
       }

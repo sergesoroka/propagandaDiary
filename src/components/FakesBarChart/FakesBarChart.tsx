@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 import SpetialText from "../../../data/SpetialText";
 
+import getSubNarrativeData from "../../../lib/getSubNarrativeData";
+
 let defaultFakesNumber = 5;
 
 export const FakesBarChart = () => {
@@ -20,6 +22,7 @@ export const FakesBarChart = () => {
   let defaultNarrative = router.query.id;
   // @ts-ignore
   const [title, setTitle] = useState<string | null>(defaultNarrative);
+  const [subNarrativeData, setSubNarrativeData] = useState(null);
   const [fakes, setFakes] = useState<number>(defaultFakesNumber);
 
   useEffect(() => {
@@ -34,16 +37,16 @@ export const FakesBarChart = () => {
       .catch((error) => {
         console.error(error);
       });
+    let isMounted = true;
+    async function getSubNarrative() {
+      // @ts-ignore
+      const dataFetched = await getSubNarrativeData(locale);
+      if (isMounted) {
+        setSubNarrativeData(dataFetched);
+      }
+    }
+    getSubNarrative();
   }, [locale]);
-
-  // const uniqueNarrativesEn: string[] = [];
-  // // @ts-ignore
-  // data.map((c) => {
-  //   if (!uniqueNarrativesEn.includes(c.Narrative)) {
-  //     uniqueNarrativesEn.push(c.Narrative);
-  //   }
-  //   return c;
-  // });
 
   const renderNarratives =
     dataNarrative &&
@@ -52,9 +55,9 @@ export const FakesBarChart = () => {
       const uniqueFakes: string[] = [];
 
       // @ts-ignore
-      data.map((fake) => {
-        if (!uniqueFakes.includes(fake.Fake) && fake.Narrative === item.title) {
-          uniqueFakes.push(fake.Fake);
+      subNarrativeData.data.map((fake) => {
+        if (!uniqueFakes.includes(fake) && fake.narrative_id === item.id) {
+          uniqueFakes.push(fake);
         }
       });
       return (

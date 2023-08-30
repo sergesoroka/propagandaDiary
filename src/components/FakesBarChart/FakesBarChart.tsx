@@ -7,8 +7,6 @@ import { useRouter } from "next/router";
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 import SpetialText from "../../../data/SpetialText";
 
-import getSubNarrativeData from "../../../lib/getSubNarrativeData";
-
 let defaultFakesNumber = 5;
 
 export const FakesBarChart = () => {
@@ -55,9 +53,9 @@ export const FakesBarChart = () => {
       const uniqueFakes: string[] = [];
 
       // @ts-ignore
-      subNarrativeData.data.map((fake) => {
-        if (!uniqueFakes.includes(fake) && fake.narrative_id === item.id) {
-          uniqueFakes.push(fake);
+      data.map((fake) => {
+        if (!uniqueFakes.includes(fake.Fake) && fake.Narrative === item.title) {
+          uniqueFakes.push(fake.Fake);
         }
       });
       return (

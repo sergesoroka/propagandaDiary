@@ -54,7 +54,7 @@ export default function SubNarrativeList({
   });
 
   return (
-    <div key={narrativeId}>
+    <div key={narrativeId} style={{ maxWidth: "700px" }}>
       <div
         onClick={() => setOpen(!open)}
         style={{ cursor: "pointer" }}

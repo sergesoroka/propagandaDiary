@@ -6,11 +6,13 @@ import styles from "../LatestNarratives.module.css";
 import useLangSwitcher from "../../../../utils/i18n/useLangSwitcher";
 
 function Narrative({
-  narrative,
+  narrativeId,
+  narrativeTitle,
   media,
   country,
 }: {
-  narrative: string;
+  narrativeId?: string;
+  narrativeTitle: string;
   media: string;
   country: string;
 }) {
@@ -23,7 +25,7 @@ function Narrative({
   data.map((c) => {
     if (
       !uniqueFakesByMedia.includes(c.Fake) &&
-      c.Narrative === narrative &&
+      c.Narrative === narrativeTitle &&
       c.Country === country &&
       c.Media === media
     ) {
@@ -46,12 +48,12 @@ function Narrative({
           className={styles.narrativeHeading}
           onClick={() => setOpenNarrative(!openNarrative)}
         >
-          {narrative}
+          {narrativeTitle}
         </h1>
       </div>
       {openNarrative && (
         <FakeListForMedia
-          narrative={narrative}
+          narrativeId={narrativeId}
           media={media}
           country={country}
         />

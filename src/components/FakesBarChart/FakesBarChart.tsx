@@ -36,14 +36,14 @@ export const FakesBarChart = () => {
         console.error(error);
       });
     let isMounted = true;
-    async function getSubNarrative() {
-      // @ts-ignore
-      const dataFetched = await getSubNarrativeData(locale);
-      if (isMounted) {
-        setSubNarrativeData(dataFetched);
-      }
-    }
-    getSubNarrative();
+    // async function getSubNarrative() {
+    //   // @ts-ignore
+    //   const dataFetched = await getSubNarrativeData(locale);
+    //   if (isMounted) {
+    //     setSubNarrativeData(dataFetched);
+    //   }
+    // }
+    // getSubNarrative();
   }, [locale]);
 
   const renderNarratives =

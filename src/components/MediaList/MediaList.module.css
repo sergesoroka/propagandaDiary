@@ -2,6 +2,7 @@
   font-size: 0.8rem;
   line-height: 2rem;
   cursor: pointer;
+  margin-right: 1rem;
 }
 
 .listItemActive {
@@ -10,12 +11,14 @@
   font-weight: 600;
   color: var(--primary-color);
   user-select: none;
+  margin-right: 1rem;
 }
 
 .MediaList {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+
+  max-width: 850px;
 }
 
 .allMediaButton {

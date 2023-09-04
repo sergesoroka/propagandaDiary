@@ -1,3 +1,4 @@
+// @ts-nocheck
 import styles from "./MediaList.module.css";
 import data from "../../../data/mediaLists.json";
 
@@ -6,9 +7,9 @@ function MediaList({
   media,
   setMedia,
 }: {
-  country: string;
-  media: string;
-  setMedia: (media: string) => {};
+  country?: string;
+  media?: string;
+  setMedia?: (media: string) => {};
 }) {
   const mediaList = data.map((item, i) => {
     if (item.country === country) {
@@ -27,14 +28,25 @@ function MediaList({
     }
   });
   return (
-    <div className={styles.MediaList}>
-      <p
-        className={media === "all" ? styles.listItemActive : styles.listItem}
-        onClick={() => setMedia("all")}
-      >
-        ALL MEDIA
-      </p>
-      {mediaList}
+    <div>
+      <hr
+        style={{
+          height: "2px",
+          background: "#FF2618",
+          border: "none",
+          width: "100%",
+          margin: "2rem 0",
+        }}
+      />
+      <div className={styles.MediaList}>
+        <p
+          className={media === "all" ? styles.listItemActive : styles.listItem}
+          onClick={() => setMedia("all")}
+        >
+          ALL MEDIA
+        </p>
+        {mediaList}
+      </div>
     </div>
   );
 }

@@ -1,9 +1,14 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import styles from "./LatestNarratives.module.css";
 import SpetialText from "../../../data/SpetialText";
 
 import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 import Narrative from "./Narrative/Narrative";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import getNarrativeData from "../../../lib/getNarrativeData";
+import getMediaDataByCountry from "../../../lib/getMediaDataByCountry";
 
 const NarrativesByMedia = ({
   country,
@@ -14,90 +19,54 @@ const NarrativesByMedia = ({
   media: string;
   setMedia: (media: string) => {};
 }) => {
-  const { data } = useLangSwitcher();
+  // const { data } = useLangSwitcher();
 
- 
-  
+  const router = useRouter();
+  const { locale } = router;
+  const [narrativeData, setNarrativeData] = useState(null);
+  // const [mediaData, setMediaData] = useState(null);
 
-  const uniqueNarratives: string[] = [];
-  const uniqueMedia: string[] = [];
-  // @ts-ignore
-  data.map((c) => {
-    if (!uniqueMedia.includes(c.Media) && c.Country === country) {
-      uniqueMedia.push(c.Media);
-    }
-    if (
-      !uniqueNarratives.includes(c.Narrative) &&
-      country === "all" &&
-      media === "all"
-    ) {
-      uniqueNarratives.push(c.Narrative);
-    }
-    if (
-      !uniqueNarratives.includes(c.Narrative) &&
-      c.Country === country &&
-      media === "all"
-    ) {
-      uniqueNarratives.push(c.Narrative);
-    }
-    if (
-      !uniqueNarratives.includes(c.Narrative) &&
-      c.Country === country &&
-      c.Media === media
-    ) {
-      uniqueNarratives.push(c.Narrative);
-    }
-    return c;
-  });
+  useEffect(() => {
+    let isMounted = true;
 
-  const mediaList = uniqueMedia.map((item, i) => {
-    return (
-      <p
-        className={media === item ? styles.listItemActive : styles.listItem}
-        key={i}
-        onClick={() => setMedia(item)}
-      >
-        {item}
-      </p>
-    );
-  });
-
-  // @ts-ignore
-  const Narratives = uniqueNarratives.map((narrative, i) => {
-    const uniqueFakes: string[] = [];
-
-    // @ts-ignore
-    data.map((fake) => {
-      if (!uniqueFakes.includes(fake.Fake) && fake.Narrative === narrative) {
-        uniqueFakes.push(fake.Fake);
+    async function getNarrative() {
+      const dataFetched = await getNarrativeData(locale);
+      if (isMounted) {
+        setNarrativeData(dataFetched);
       }
+    }
+    getNarrative();
+
+    // async function getMedia() {
+    //   const dataFetched = await getMediaDataByCountry(locale, country, media);
+    //   if (isMounted) {
+    //     setMediaData(dataFetched);
+    //   }
+    // }
+    // getMedia();
+    return () => {
+      isMounted = false;
+    };
+  }, [locale, country, media]);
+
+  // console.log(locale, country, media);
+
+  // @ts-ignore
+  const NarrativesRender =
+    narrativeData &&
+    narrativeData.data.map((narrative, i) => {
+      return (
+        <Narrative
+          key={i}
+          narrativeId={narrative.id}
+          narrativeTitle={narrative.title}
+          media={media}
+          country={country}
+        />
+      );
     });
 
-    return (
-      <Narrative
-        key={i}
-        narrative={narrative}
-        media={media}
-        country={country}
-      />
-    );
-  });
-
-  return (
-    <div className={styles.narrativeWrap}>
-      <hr
-        style={{
-          height: "2px",
-          background: "#FF2618",
-          border: "none",
-          width: "100%",
-        }}
-      />
-      <div className={styles.MediaList}>{mediaList}</div>
-      {/* @ts-ignore */}
-      {Narratives}
-    </div>
-  );
+  return <div className={styles.narrativeWrap}>{NarrativesRender}</div>;
 };
 
 export default NarrativesByMedia;

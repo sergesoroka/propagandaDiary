@@ -50,6 +50,11 @@ const Navbar = () => {
           <SpetialText name={"Media"} />
         </li>
       </Link>
+      <Link href="/reports">
+        <li className={pathname === "/reports" ? styles.activeLink : ""}>
+          <SpetialText name={"Reports"} />
+        </li>
+      </Link>
 
       <Link href={dataLink} target="_blank">
         <li>

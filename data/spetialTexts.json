@@ -156,6 +156,18 @@
         "hu": "Források"
     },
     {
+        "key": "Reports",
+        "en": "Reports",
+        "it": "Reports",
+        "de": "Reports",
+        "ua": "Звіти",
+        "ru": "Отчеты",
+        "pl": "Reports",
+        "cs": "Reports",
+        "sk": "Reports",
+        "hu": "Reports"
+    },
+    {
         "key": "January",
         "en": "January",
         "it": "Gennaio",

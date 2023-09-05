@@ -22,14 +22,42 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 import Timeline from "@/components/BarChart/Timeline";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FivePopNarratives from "@/components/LatestNarratives/FivePopNarratives";
 
-import { uniqueFakes, uniqueNarratives } from '../../utils/statisticCalculate'
+import getNarrativeCommonStatistic from "../../lib/getNarrativeCommonStatistic";
+import getSubNarrativeCommonStatistic from "../../lib/getSubNarrativeCommonStatistic";
+
+import { uniqueFakes, uniqueNarratives } from "../../utils/statisticCalculate";
 
 export default function Home() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [current, setCurrent] = useState("2022");
+  const [narrativeStatisticData, setNarrativeStatisticData] = useState(0);
+  const [subNarrativeStatisticData, setSubNarrativeStatisticData] = useState(0);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function getNarrativeStatistic() {
+      const satisticData = await getNarrativeCommonStatistic();
+      if (isMounted) {
+        setNarrativeStatisticData(satisticData);
+      }
+    }
+    getNarrativeStatistic();
+
+    async function getSubNarrativeStatistic() {
+      const satisticData = await getSubNarrativeCommonStatistic();
+      if (isMounted) {
+        setSubNarrativeStatisticData(satisticData);
+      }
+    }
+    getSubNarrativeStatistic();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <>
       <Head>
@@ -77,8 +105,16 @@ export default function Home() {
             <StatisticDisplay
               mode="active"
               month="General_statistics"
-              narratives={27}
-              fakes={uniqueFakes.length}
+              narratives={
+                narrativeStatisticData &&
+                // @ts-ignore
+                narrativeStatisticData.meta.total
+              }
+              fakes={
+                subNarrativeStatisticData &&
+                // @ts-ignore
+                subNarrativeStatisticData.meta.total
+              }
               sources={93}
             />
           </Link>

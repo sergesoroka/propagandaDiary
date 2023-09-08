@@ -68,29 +68,29 @@ export const MonthFakes = () => {
 
   const monthName =
     month === "01"
-      ? "January"
+      ? 1
       : month === "02"
-      ? "February"
+      ? 2
       : month === "03"
-      ? "March"
+      ? 3
       : month === "04"
-      ? "April"
+      ? 4
       : month === "05"
-      ? "May"
+      ? 5
       : month === "06"
-      ? "June"
+      ? 6
       : month === "07"
-      ? "July"
+      ? 7
       : month === "08"
-      ? "August"
+      ? 8
       : month === "09"
-      ? "September"
+      ? 9
       : month === "10"
-      ? "October"
+      ? 10
       : month === "11"
-      ? "November"
+      ? 11
       : month === "12"
-      ? "December"
+      ? 12
       : "";
   const mediaByMonth = [];
   const subNarrativId = [];

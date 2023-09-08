@@ -12,7 +12,6 @@ function CountryList({
 }) {
   const router = useRouter();
   const { locale } = router;
-  console.log("country", country);
 
   const poland =
     (locale == "ua" && "Польща") ||

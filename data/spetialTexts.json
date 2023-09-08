@@ -168,7 +168,7 @@
         "hu": "Reports"
     },
     {
-        "key": "January",
+        "key": 1,
         "en": "January",
         "it": "Gennaio",
         "de": "Januar",
@@ -180,7 +180,7 @@
         "hu": "január"
     },
     {
-        "key": "February",
+        "key": 2,
         "en": "February",
         "it": "Febbraio",
         "de": "Februar",
@@ -192,7 +192,7 @@
         "hu": "február"
     },
     {
-        "key": "March",
+        "key": 3,
         "en": "March",
         "it": "Marzo",
         "de": "März",
@@ -204,7 +204,7 @@
         "hu": "március"
     },
     {
-        "key": "April",
+        "key": 4,
         "en": "April",
         "it": "Aprile",
         "de": "April",
@@ -216,7 +216,7 @@
         "hu": "április"
     },
     {
-        "key": "May",
+        "key": 5,
         "en": "May",
         "it": "Maggio",
         "de": "Mai",
@@ -228,7 +228,7 @@
         "hu": "május"
     },
     {
-        "key": "June",
+        "key": 6,
         "en": "June",
         "it": "Giugno",
         "de": "Juni",
@@ -240,7 +240,7 @@
         "hu": "június"
     },
     {
-        "key": "July",
+        "key": 7,
         "en": "July",
         "it": "Luglio",
         "de": "Juli",
@@ -252,7 +252,7 @@
         "hu": "július"
     },
     {
-        "key": "August",
+        "key": 8,
         "en": "August",
         "it": "Agosto",
         "de": "August",
@@ -264,7 +264,7 @@
         "hu": "augusztus"
     },
     {
-        "key": "September",
+        "key": 9,
         "en": "September",
         "it": "Settembre",
         "de": "September",
@@ -276,7 +276,7 @@
         "hu": "szeptember"
     },
     {
-        "key": "October",
+        "key": 10,
         "en": "October",
         "it": "Ottobre",
         "de": "Oktober",
@@ -288,7 +288,7 @@
         "hu": "október"
     },
     {
-        "key": "November",
+        "key": 11,
         "en": "November",
         "it": "Novembre",
         "de": "November",
@@ -300,7 +300,7 @@
         "hu": "november"
     },
     {
-        "key": "December",
+        "key": 12,
         "en": "December",
         "it": "Dicembre",
         "de": "Dezember",

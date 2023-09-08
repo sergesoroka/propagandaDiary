@@ -75,7 +75,9 @@ const StatisticDisplay = ({
         </div>
       </div>
       <p className={styles.subtitle}>
-        <SpetialText name={month} />{month !=="General_statistics" && (year === "2023" ? ", 2023" : ", 2022")}
+        <SpetialText name={month} />
+        {month !== "General_statistics" &&
+          (year == "2023" ? ", 2023" : ", 2022")}
       </p>
     </div>
   );

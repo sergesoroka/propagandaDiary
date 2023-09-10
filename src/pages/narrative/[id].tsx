@@ -7,13 +7,15 @@ import BackArrow from "@/components/Icons/BackArrow";
 import SpetialText from "../../../data/SpetialText";
 
 import { FakesBarChart } from "@/components/FakesBarChart/FakesBarChart";
-import useLangSwitcher from "../../../utils/i18n/useLangSwitcher";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
 import getMediaDataByNarrId from "../../../lib/getMediaDataByNarrId";
 import getNarrativeData from "../../../lib/getNarrativeData";
 import getSubNarrativeData from "../../../lib/getSubNarrativeData";
+
+import useSWR from "swr";
+import { fetcher } from "../../../lib/fetcher";
 
 const SubNarrativeList = dynamic(
   () => import("@/components/SubNarratives/SubNarrativeList"),
@@ -23,49 +25,19 @@ const SubNarrativeList = dynamic(
 );
 
 const NarrativePage = () => {
-  const { data } = useLangSwitcher();
-
   const [tagName, setTagName] = useState("");
 
   const router = useRouter();
   const { locale } = router;
   const { id } = router.query;
 
-  const [isLoading, setLoading] = useState(false);
-  const [narrativeData, setNarrativeData] = useState(null);
-  const [subNarrativeData, setSubNarrativeData] = useState(null);
-  const [mediaData, setMediaData] = useState(null);
+  const NARRATIVES_URL = `https://vox-dashboard.ra-devs.tech/api/narratives?lang=${locale}&per_page=30`;
+  const SUB_NARRATIVES_URL = `https://vox-dashboard.ra-devs.tech/api/sub-narratives?lang=${locale}&per_page=300`;
+  const MEDIA_BY_NARRATIVE_ID_URL = `https://vox-dashboard.ra-devs.tech/api/dashboards?lang=${locale}&narrative_id=${id}`;
 
-  useEffect(() => {
-    let isMounted = true;
-    async function getNarrative() {
-      const dataFetched = await getNarrativeData(locale);
-      if (isMounted) {
-        setNarrativeData(dataFetched);
-      }
-    }
-    getNarrative();
-
-    async function getSubNarrative() {
-      // @ts-ignore
-      const dataFetched = await getSubNarrativeData(locale);
-      if (isMounted) {
-        setSubNarrativeData(dataFetched);
-      }
-    }
-    getSubNarrative();
-
-    async function getMedia() {
-      const dataFetched = await getMediaDataByNarrId(locale, id);
-      if (isMounted) {
-        setMediaData(dataFetched);
-      }
-    }
-    getMedia();
-    return () => {
-      isMounted = false;
-    };
-  }, [locale, id]);
+  const { data: narrativeData, error } = useSWR(NARRATIVES_URL, fetcher);
+  const { data: subNarrativeData } = useSWR(SUB_NARRATIVES_URL, fetcher);
+  const { data: mediaData } = useSWR(MEDIA_BY_NARRATIVE_ID_URL, fetcher);
 
   const narrativeDescription =
     narrativeData &&

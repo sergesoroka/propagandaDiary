@@ -75,6 +75,7 @@ function Media() {
   const mediaByMonth = [];
   const subNarrativId = [];
 
+  console.log("subNarrativeData", subNarrativeData);
   mediaData &&
     mediaData.data.map((item) => {
       if (!subNarrativId.includes(item.sub_narrative_id)) {

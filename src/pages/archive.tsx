@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import Timeline from "@/components/BarChart/Timeline";
-import YearsList from "@/components/YearsList/YearsList";
 import { useEffect, useState } from "react";
 
 import getStatisticData from "../../lib/getStatisticData";
@@ -60,7 +59,20 @@ const Archive = () => {
           transition={{ duration: 0.3, type: "tween" }}
         >
           <Timeline current={current} />
-          <YearsList current={current} setCurrent={setCurrent} />
+          <div className={styles.yearsWrap}>
+            <p
+              className={current === "2022" ? styles.yearActive : styles.year}
+              onClick={() => setCurrent("2022")}
+            >
+              2022
+            </p>
+            <p
+              className={current === "2023" ? styles.yearActive : styles.year}
+              onClick={() => setCurrent("2023")}
+            >
+              2023
+            </p>
+          </div>
         </motion.div>
 
         <motion.div

@@ -10,9 +10,8 @@ import BackArrow from "@/components/Icons/BackArrow";
 import styles from "../../styles/Home.module.css";
 import Timeline from "@/components/BarChart/Timeline";
 import CountryList from "@/components/CountryList/CountryList";
-
-import useSWR from "swr";
-import { fetcher } from "../../../lib/fetcher";
+import getSubNarrativeData from "../../../lib/getSubNarrativeData";
+import getMediaDataByMonth from "../../../lib/getMediaDataByMonth";
 
 const SubNarrativeList = dynamic(
   () => import("@/components/SubNarratives/SubNarrativeList"),
@@ -31,15 +30,38 @@ export const MonthFakes = () => {
   const [country, setCountry] = useState("Польща");
   const [media, setMedia] = useState("all");
 
-  const { data: subNarrativeData, error: narrDataError } = useSWR(
-    `https://vox-dashboard.ra-devs.tech/api/sub-narratives?lang=${locale}&per_page=350`,
-    fetcher
-  );
+  const [isLoading, setLoading] = useState(false);
+  const [subNarrativeData, setSubNarrativeData] = useState(null);
+  const [mediaData, setMediaData] = useState(null);
 
-  const { data: mediaData, error: mediaDataError } = useSWR(
-    `https://vox-dashboard.ra-devs.tech/api/dashboards?lang=${locale}&month=${month}&year=${current}&country=${country}`,
-    fetcher
-  );
+  useEffect(() => {
+    let isMounted = true;
+
+    async function getSubNarrative() {
+      // @ts-ignore
+      const dataFetched = await getSubNarrativeData(locale);
+      if (isMounted) {
+        setSubNarrativeData(dataFetched);
+      }
+    }
+    getSubNarrative();
+
+    async function getMedia() {
+      const dataFetched = await getMediaDataByMonth(
+        locale,
+        month,
+        current,
+        country
+      );
+      if (isMounted) {
+        setMediaData(dataFetched);
+      }
+    }
+    getMedia();
+    return () => {
+      isMounted = false;
+    };
+  }, [locale, media, country, current, month]);
 
   const monthName =
     month === "01"
